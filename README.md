@@ -1,2 +1,2 @@
 # TFGInformatica
-Comprobación cambios script de shell
+Comprobación cambios script de shell V2
