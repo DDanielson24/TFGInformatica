@@ -10,22 +10,14 @@ public class PuntoDeMedicion {
     private Float st_x;
     private Float st_y;
 
-    public PuntoDeMedicion (Integer idelem, String descripcion, Integer carga, Integer nivelServicio, String error, Float st_x, Float st_y) {
-        this.idelem = idelem;
-        this.descripcion = descripcion;
-        this.carga = carga;
-        this.nivelServicio = nivelServicio;
-        this.error = error;
-        this.st_x = st_x;
-        this.st_y = st_y;
-    }
+    public PuntoDeMedicion () {}
 
     public Integer getIdelem() {
         return idelem;
     }
 
-    public void setIdelem(Integer idelem) {
-        this.idelem = idelem;
+    public void setIdelem(String idelem) {
+        this.idelem = Integer.parseInt(idelem);
     }
 
     public String getDescripcion() {
@@ -40,16 +32,16 @@ public class PuntoDeMedicion {
         return carga;
     }
 
-    public void setCarga(Integer carga) {
-        this.carga = carga;
+    public void setCarga(String carga) {
+        this.carga = Integer.parseInt(carga);
     }
 
     public Integer getNivelServicio() {
         return nivelServicio;
     }
 
-    public void setNivelServicio(Integer nivelServicio) {
-        this.nivelServicio = nivelServicio;
+    public void setNivelServicio(String nivelServicio) {
+        this.nivelServicio = Integer.parseInt(nivelServicio);
     }
 
     public String getError() {
@@ -64,15 +56,21 @@ public class PuntoDeMedicion {
         return st_x;
     }
 
-    public void setSt_x(Float st_x) {
-        this.st_x = st_x;
+    public void setSt_x(String st_x) {
+        String st_x_1 = st_x.substring(0, st_x.indexOf(','));
+        String st_x_2 = st_x.substring(st_x.indexOf(',') + 1, st_x.length());
+        String st_x_final = st_x_1 + "." + st_x_2;
+        this.st_x = Float.parseFloat(st_x_final);
     }
 
     public Float getSt_y() {
         return st_y;
     }
 
-    public void setSt_y(Float st_y) {
-        this.st_y = st_y;
+    public void setSt_y(String st_y) {
+        String st_y_1 = st_y.substring(0, st_y.indexOf(','));
+        String st_y_2 = st_y.substring(st_y.indexOf(',') + 1, st_y.length());
+        String st_y_final = st_y_1 + "." + st_y_2;
+        this.st_y = Float.parseFloat(st_y_final);
     }
 }
