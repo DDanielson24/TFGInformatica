@@ -44,11 +44,12 @@ public class XMLReader {
 
             for (int i = 0; i < list.getLength(); i++) {
                 node = list.item(i);
-                PuntoDeMedicion pm = new PuntoDeMedicion();
 
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     NodeList childs = node.getChildNodes();
                     Node child;
+
+                    PuntoDeMedicion pm = new PuntoDeMedicion();
 
                     for (int j = 0; j < childs.getLength(); j++) {
                         child = childs.item(j);
@@ -57,39 +58,46 @@ public class XMLReader {
                             if (this.esNodoPM(child.getNodeName())) {
                                 try {
                                     if (child.getNodeName().equals("idelem")) {
-                                        pm.setIdelem(childs.item(j).getTextContent());
+                                        pm.setIdelem(Integer.parseInt(childs.item(j).getTextContent()));
                                     }
                                     else if (child.getNodeName().equals("descripcion")) {
-                                        pm.setDescripcion(childs.item(j+1).getTextContent());
+                                        pm.setDescripcion(childs.item(j).getTextContent());
 
                                     }
                                     else if (child.getNodeName().equals("carga")) {
-                                        pm.setCarga(childs.item(j).getTextContent());
+                                        pm.setCarga(Integer.parseInt(childs.item(j).getTextContent()));
 
                                     }
                                     else if (child.getNodeName().equals("nivelServicio")) {
-                                        pm.setNivelServicio(childs.item(j).getTextContent());
+                                        pm.setNivelServicio(Integer.parseInt(childs.item(j).getTextContent()));
                                     }
                                     else if (child.getNodeName().equals("error")) {
                                         pm.setError(childs.item(j).getTextContent());
                                     }
                                     else if (child.getNodeName().equals("st_x")) {
-                                        pm.setSt_x(childs.item(j).getTextContent());
+                                        String st_x = childs.item(j).getTextContent();
+                                        String st_x_1 = st_x.substring(0, st_x.indexOf(','));
+                                        String st_x_2 = st_x.substring(st_x.indexOf(',') + 1, st_x.length());
+                                        String st_x_final = st_x_1 + "." + st_x_2;
+                                        pm.setStX(Float.parseFloat(st_x_final));
                                     }
                                     else if (child.getNodeName().equals("st_y")) {
-                                        pm.setSt_y(childs.item(j).getTextContent());
-                                    }
-                                    else {
-                                        System.out.println("Ha surgido un error al crear la clase PuntoDeMedicion");
+                                        String st_y = childs.item(j).getTextContent();
+                                        String st_y_1 = st_y.substring(0, st_y.indexOf(','));
+                                        String st_y_2 = st_y.substring(st_y.indexOf(',') + 1, st_y.length());
+                                        String st_y_final = st_y_1 + "." + st_y_2;
+                                        pm.setStY(Float.parseFloat(st_y_final));
                                     }
                                 } catch (NumberFormatException e) {
                                     System.out.println("El PuntoDeMedicion no ha podido ser completado. Pasando al siguiente...");
+                                    e.printStackTrace();
                                 }
                             }
                         }
-                        System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " creado exitosamente");
-                        listaDevolver.add(pm);
                     }
+
+                    System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " creado exitosamente");
+                    listaDevolver.add(pm);
                 }
             }
 

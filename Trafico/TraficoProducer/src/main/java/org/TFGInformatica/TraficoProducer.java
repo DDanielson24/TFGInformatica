@@ -1,9 +1,17 @@
 package org.TFGInformatica;
 
+import io.confluent.kafka.serializers.KafkaAvroSerializer;
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.Producer;
+import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.common.serialization.StringSerializer;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
+import java.util.Properties;
+
 public class TraficoProducer {
 
     public static void main(String[] args) {
@@ -29,6 +37,22 @@ public class TraficoProducer {
         System.out.println("La longitud de la lista es: " + listaPMs.size());
 
         //3. Crear el productor de Kafka y enviar a través del topic
+        //Creamos las propiedades necesarias para el Productor
+        Properties props = new Properties();
+        props.setProperty("BOOTSTRAP.SERVERS", "localhost:9092");
+        props.setProperty("ACKS", "1");
+        props.setProperty("RETRIES", "10");
+        props.setProperty("KEY.SERIALIZER", StringSerializer.class.getName());
+        props.setProperty("VALUE.SERIALIZER", KafkaAvroSerializer.class.getName());
+        props.setProperty("SCHEMA.REGISTRY.URL", "localhost:8081");
+
+        /*KafkaProducer<String, PuntoDeMedicion> traficoProducer = new KafkaProducer<String, PuntoDeMedicion>(props);
+        for (PuntoDeMedicion pm: listaPMs) {
+
+            ProducerRecord<String, PuntoDeMedicion> producerRecord = new ProducerRecord<>("traficoData", pm);
+
+        }*/
+
 
 
     }
