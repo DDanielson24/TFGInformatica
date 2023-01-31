@@ -3,6 +3,7 @@ package org.TFGInformatica;
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
+import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 
@@ -39,21 +40,21 @@ public class TraficoProducer {
         //3. Crear el productor de Kafka y enviar a través del topic
         //Creamos las propiedades necesarias para el Productor
         Properties props = new Properties();
-        props.setProperty("BOOTSTRAP.SERVERS", "localhost:9092");
-        props.setProperty("ACKS", "1");
-        props.setProperty("RETRIES", "10");
-        props.setProperty("KEY.SERIALIZER", StringSerializer.class.getName());
-        props.setProperty("VALUE.SERIALIZER", KafkaAvroSerializer.class.getName());
-        props.setProperty("SCHEMA.REGISTRY.URL", "localhost:8081");
+        props.setProperty("bootstrap.servers", "192.168.0.24:9092");
+        props.setProperty("key.serializer", StringSerializer.class.getName());
+        props.setProperty("value.serializer", KafkaAvroSerializer.class.getName());
+        props.setProperty("schema.registry.url", "http://192.168.0.24:8081");
 
-        /*KafkaProducer<String, PuntoDeMedicion> traficoProducer = new KafkaProducer<String, PuntoDeMedicion>(props);
+        //Creamos el productor y enviamos el PM
+        KafkaProducer<String, PuntoDeMedicion> traficoProducer = new KafkaProducer<String, PuntoDeMedicion>(props);
         for (PuntoDeMedicion pm: listaPMs) {
 
             ProducerRecord<String, PuntoDeMedicion> producerRecord = new ProducerRecord<>("traficoData", pm);
+            traficoProducer.send(producerRecord);
+            traficoProducer.flush();
 
-        }*/
+        }
 
-
-
+        traficoProducer.close();
     }
 }
