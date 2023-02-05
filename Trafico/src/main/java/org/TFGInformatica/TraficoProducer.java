@@ -32,7 +32,7 @@ public class TraficoProducer {
 
         //2. Leer el archivo realizando las transformaciones necesarias
         System.out.println("Comienza la lectura del archivo XML");
-        XMLReader xmlReader = new XMLReader("/home/daniel/Escritorio/TFGInformatica/Trafico/TraficoProducer/data/ficheroTrafico.xml");
+        XMLReader xmlReader = new XMLReader("/home/daniel/Escritorio/TFGInformatica/Trafico/data/ficheroTrafico.xml");
         List<PuntoDeMedicion> listaPMs = xmlReader.readXML();
 
         System.out.println("La longitud de la lista es: " + listaPMs.size());
@@ -40,10 +40,10 @@ public class TraficoProducer {
         //3. Crear el productor de Kafka y enviar a través del topic
         //Creamos las propiedades necesarias para el Productor
         Properties props = new Properties();
-        props.setProperty("bootstrap.servers", "192.168.0.24:9092");
+        props.setProperty("bootstrap.servers", "192.168.0.37:9092");
         props.setProperty("key.serializer", StringSerializer.class.getName());
         props.setProperty("value.serializer", KafkaAvroSerializer.class.getName());
-        props.setProperty("schema.registry.url", "http://192.168.0.24:8081");
+        props.setProperty("schema.registry.url", "http://192.168.0.37:8081");
 
         //Creamos el productor y enviamos el PM
         KafkaProducer<String, PuntoDeMedicion> traficoProducer = new KafkaProducer<String, PuntoDeMedicion>(props);
