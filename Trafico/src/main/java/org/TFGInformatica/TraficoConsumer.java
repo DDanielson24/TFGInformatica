@@ -21,18 +21,29 @@ public class TraficoConsumer {
         props.setProperty("key.deserializer", StringDeserializer.class.getName());
         props.setProperty("value.deserializer", KafkaAvroDeserializer.class.getName());
         props.setProperty("group.id", "traficoConsumerGroup");
-        props.setProperty("auto.offset.reset", "earliest");
+        props.setProperty("auto.offset.reset", "latest");
+        props.setProperty("specific.avro.reader", "true");
         props.setProperty("schema.registry.url", "http://192.168.0.37:8081");
 
         //Creamos el consumidor, nos suscribimos y leemos los PM
         KafkaConsumer<String, PuntoDeMedicion> traficoConsumer = new KafkaConsumer<String, PuntoDeMedicion>(props);
         traficoConsumer.subscribe(Arrays.asList("traficoData"));
 
-        while (true) {
-            ConsumerRecords<String, PuntoDeMedicion> records = traficoConsumer.poll(Duration.ofMillis(100));
-            for (ConsumerRecord<String, PuntoDeMedicion> record: records) {
-                System.out.println(record.value());
+        try {
+
+            while (true) {
+                ConsumerRecords<String, PuntoDeMedicion> records = traficoConsumer.poll(Duration.ofMillis(100));
+                for (ConsumerRecord<String, PuntoDeMedicion> record: records) {
+
+                    //2. Para cada PM, comprobar que no hay error y enviar a la base de datos
+                    PuntoDeMedicion pm = record.value();
+                    System.out.println("idelem: " + pm.getIdelem());
+
+                }
             }
+
+        } finally {
+            traficoConsumer.close();
         }
 
     }
