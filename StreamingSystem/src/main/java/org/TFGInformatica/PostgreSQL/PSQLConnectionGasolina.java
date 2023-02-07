@@ -1,8 +1,6 @@
 package org.TFGInformatica.PostgreSQL;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class PSQLConnectionGasolina {
 
@@ -14,7 +12,7 @@ public class PSQLConnectionGasolina {
     private String url = "jdbc:postgresql://" + HOST + ":" + PUERTO + "/" + DATABASE;
     private Connection conn = null;
 
-    public Connection connect() {
+    public void connect() {
         try {
 
             conn = DriverManager.getConnection(url, USER, PASSWORD);
@@ -22,10 +20,8 @@ public class PSQLConnectionGasolina {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("Ha surgido un error al conectarse a la BD: " + DATABASE);
         }
 
-        return conn;
-
     }
-
 }

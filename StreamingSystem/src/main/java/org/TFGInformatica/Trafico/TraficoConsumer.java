@@ -6,9 +6,12 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
+import java.sql.Connection;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Properties;
+
+import org.TFGInformatica.PostgreSQL.PSQLConnectionTrafico;
 
 public class TraficoConsumer {
 
@@ -29,6 +32,9 @@ public class TraficoConsumer {
         KafkaConsumer<String, PuntoDeMedicion> traficoConsumer = new KafkaConsumer<String, PuntoDeMedicion>(props);
         traficoConsumer.subscribe(Arrays.asList("traficoData"));
 
+        //Declaramos la clase auxiliar y la conexión a la BD para utilizarlas en el loop posteriormente
+        PSQLConnectionTrafico psqlConnectionTrafico = new PSQLConnectionTrafico();
+
         try {
 
             while (true) {
@@ -39,9 +45,8 @@ public class TraficoConsumer {
                     PuntoDeMedicion pm = record.value();
                     System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " recibido existosamente");
 
-
-
-
+                    //Conectamos a la BD y comprobamos si ya existe el PM
+                    psqlConnectionTrafico.connect();
 
                 }
             }
