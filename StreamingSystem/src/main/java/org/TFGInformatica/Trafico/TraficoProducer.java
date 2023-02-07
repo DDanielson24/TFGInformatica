@@ -30,7 +30,7 @@ public class TraficoProducer {
 
         //2. Leer el archivo realizando las transformaciones necesarias
         System.out.println("Comienza la lectura del archivo XML");
-        XMLReader xmlReader = new XMLReader("/home/daniel/Escritorio/TFGInformatica/Trafico/data/ficheroTrafico.xml");
+        XMLReader xmlReader = new XMLReader("/home/daniel/Escritorio/TFGInformatica/StreamingSystem/data/ficheroTrafico.xml");
         List<PuntoDeMedicion> listaPMs = xmlReader.readXML();
 
         System.out.println("La longitud de la lista es: " + listaPMs.size());

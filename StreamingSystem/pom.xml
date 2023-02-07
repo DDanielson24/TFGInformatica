@@ -54,8 +54,8 @@
                             <goal>schema</goal>
                         </goals>
                         <configuration>
-                            <sourceDirectory>/home/daniel/Escritorio/TFGInformatica/Trafico/TraficoProducer/src/main/resources/avro/</sourceDirectory>
-                            <outputDirectory>/home/daniel/Escritorio/TFGInformatica/Trafico/TraficoProducer/src/main/java/</outputDirectory>
+                            <sourceDirectory>/home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/resources/avro/</sourceDirectory>
+                            <outputDirectory>/home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>
