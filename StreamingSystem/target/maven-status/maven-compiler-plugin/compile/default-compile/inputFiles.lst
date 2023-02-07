@@ -1,3 +1,9 @@
-/home/daniel/Escritorio/TFGInformatica/Trafico/TraficoProducer/src/main/java/org/TFGInformatica/PuntoDeMedicion.java
-/home/daniel/Escritorio/TFGInformatica/Trafico/TraficoProducer/src/main/java/org/TFGInformatica/TraficoProducer.java
-/home/daniel/Escritorio/TFGInformatica/Trafico/TraficoProducer/src/main/java/org/TFGInformatica/XMLReader.java
+/home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/PostgreSQL/PSQLConnectionGasolina.java
+/home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/Trafico/XMLReader.java
+/home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/Trafico/TraficoProducer.java
+/home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/Gasolina/GasolinaProducer.java
+/home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/Gasolina/XLSReader.java
+/home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/Trafico/TraficoConsumer.java
+/home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/EstacionDeServicio.java
+/home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/PostgreSQL/PSQLConnectionTrafico.java
+/home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/PuntoDeMedicion.java

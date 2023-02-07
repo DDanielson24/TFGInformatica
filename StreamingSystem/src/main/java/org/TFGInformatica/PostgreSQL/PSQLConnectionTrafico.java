@@ -26,15 +26,23 @@ public class PSQLConnectionTrafico {
         }
     }
 
-    public boolean checkExists(PuntoDeMedicion pm) {
+    public boolean selectExists(PuntoDeMedicion pm) {
+
+        boolean query = false;
         try {
 
             Statement statement = conn.createStatement();
-            ResultSet resultSet = statement.executeQuery("");
+            ResultSet resultSet = statement.executeQuery("SELECT EXISTS (SELECT * FROM \"PuntosDeMedicion\" WHERE idelem = " + pm.getIdelem() + ");");
+            while (resultSet.next()) {
+                query = resultSet.getBoolean("exists");
+            }
+            return query;
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        return query;
 
     }
 }

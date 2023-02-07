@@ -17,7 +17,7 @@ public class TraficoConsumer {
 
     public static void main(String[] args) {
 
-        //1. Crear el consumidor de Kafka y leer a través del topic
+        /*//1. Crear el consumidor de Kafka y leer a través del topic
         //Creamos las propiedades necesarias para el consumidor
         Properties props = new Properties();
         props.setProperty("bootstrap.servers", "192.168.0.37:9092");
@@ -32,10 +32,10 @@ public class TraficoConsumer {
         KafkaConsumer<String, PuntoDeMedicion> traficoConsumer = new KafkaConsumer<String, PuntoDeMedicion>(props);
         traficoConsumer.subscribe(Arrays.asList("traficoData"));
 
-        //Declaramos la clase auxiliar y la conexión a la BD para utilizarlas en el loop posteriormente
+        //Declaramos la clase auxiliar y la conexión a la BD para utilizarlas en el loop posteriormente*/
         PSQLConnectionTrafico psqlConnectionTrafico = new PSQLConnectionTrafico();
 
-        try {
+        /*try {
 
             while (true) {
                 ConsumerRecords<String, PuntoDeMedicion> records = traficoConsumer.poll(Duration.ofMillis(100));
@@ -45,15 +45,26 @@ public class TraficoConsumer {
                     PuntoDeMedicion pm = record.value();
                     System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " recibido existosamente");
 
-                    //Conectamos a la BD y comprobamos si ya existe el PM
+                    //Conectamos a la BD y comprobamos si ya existe el PM*/
                     psqlConnectionTrafico.connect();
 
-                }
+                    PuntoDeMedicion pmPrueba = new PuntoDeMedicion();
+                    pmPrueba.setIdelem(3);
+                    pmPrueba.setDescripcion("descripcion");
+                    pmPrueba.setCarga(10);
+                    pmPrueba.setNivelServicio(1);
+                    pmPrueba.setError("N");
+                    pmPrueba.setStX(1.2f);
+                    pmPrueba.setStY(2.1f);
+                    boolean existe = psqlConnectionTrafico.selectExists(pmPrueba);
+                    System.out.println(existe);
+
+                /*}
             }
 
         } finally {
             traficoConsumer.close();
-        }
+        }*/
 
     }
 

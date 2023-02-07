@@ -1,5 +1,7 @@
-org/TFGInformatica/XMLReader.class
+org/TFGInformatica/EstacionDeServicio$1.class
+org/TFGInformatica/EstacionDeServicio$Builder.class
+org/TFGInformatica/EstacionDeServicio.class
 org/TFGInformatica/PuntoDeMedicion$Builder.class
 org/TFGInformatica/PuntoDeMedicion$1.class
-org/TFGInformatica/TraficoProducer.class
 org/TFGInformatica/PuntoDeMedicion.class
+org/TFGInformatica/PostgreSQL/PSQLConnectionGasolina.class
