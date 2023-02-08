@@ -3,8 +3,9 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package org.TFGInformatica.Trafico;
+package org.TFGInformatica;
 
+import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
 import org.apache.avro.util.Utf8;
 import org.apache.avro.message.BinaryMessageEncoder;
@@ -237,8 +238,8 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
    * Creates a new PuntoDeMedicion RecordBuilder.
    * @return A new PuntoDeMedicion RecordBuilder
    */
-  public static PuntoDeMedicion.Builder newBuilder() {
-    return new PuntoDeMedicion.Builder();
+  public static org.TFGInformatica.PuntoDeMedicion.Builder newBuilder() {
+    return new org.TFGInformatica.PuntoDeMedicion.Builder();
   }
 
   /**
@@ -246,11 +247,11 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
    * @param other The existing builder to copy.
    * @return A new PuntoDeMedicion RecordBuilder
    */
-  public static PuntoDeMedicion.Builder newBuilder(PuntoDeMedicion.Builder other) {
+  public static org.TFGInformatica.PuntoDeMedicion.Builder newBuilder(org.TFGInformatica.PuntoDeMedicion.Builder other) {
     if (other == null) {
-      return new PuntoDeMedicion.Builder();
+      return new org.TFGInformatica.PuntoDeMedicion.Builder();
     } else {
-      return new PuntoDeMedicion.Builder(other);
+      return new org.TFGInformatica.PuntoDeMedicion.Builder(other);
     }
   }
 
@@ -259,11 +260,11 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
    * @param other The existing instance to copy.
    * @return A new PuntoDeMedicion RecordBuilder
    */
-  public static PuntoDeMedicion.Builder newBuilder(PuntoDeMedicion other) {
+  public static org.TFGInformatica.PuntoDeMedicion.Builder newBuilder(org.TFGInformatica.PuntoDeMedicion other) {
     if (other == null) {
-      return new PuntoDeMedicion.Builder();
+      return new org.TFGInformatica.PuntoDeMedicion.Builder();
     } else {
-      return new PuntoDeMedicion.Builder(other);
+      return new org.TFGInformatica.PuntoDeMedicion.Builder(other);
     }
   }
 
@@ -290,7 +291,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(PuntoDeMedicion.Builder other) {
+    private Builder(org.TFGInformatica.PuntoDeMedicion.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.idelem)) {
         this.idelem = data().deepCopy(fields()[0].schema(), other.idelem);
@@ -322,7 +323,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
      * Creates a Builder by copying an existing PuntoDeMedicion instance
      * @param other The existing instance to copy.
      */
-    private Builder(PuntoDeMedicion other) {
+    private Builder(org.TFGInformatica.PuntoDeMedicion other) {
       super(SCHEMA$);
       if (isValidValue(fields()[0], other.idelem)) {
         this.idelem = data().deepCopy(fields()[0].schema(), other.idelem);
@@ -364,7 +365,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @param value The value of 'idelem'.
       * @return This builder.
       */
-    public PuntoDeMedicion.Builder setIdelem(int value) {
+    public org.TFGInformatica.PuntoDeMedicion.Builder setIdelem(int value) {
       validate(fields()[0], value);
       this.idelem = value;
       fieldSetFlags()[0] = true;
@@ -384,7 +385,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * Clears the value of the 'idelem' field.
       * @return This builder.
       */
-    public PuntoDeMedicion.Builder clearIdelem() {
+    public org.TFGInformatica.PuntoDeMedicion.Builder clearIdelem() {
       fieldSetFlags()[0] = false;
       return this;
     }
@@ -403,7 +404,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @param value The value of 'descripcion'.
       * @return This builder.
       */
-    public PuntoDeMedicion.Builder setDescripcion(java.lang.CharSequence value) {
+    public org.TFGInformatica.PuntoDeMedicion.Builder setDescripcion(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.descripcion = value;
       fieldSetFlags()[1] = true;
@@ -423,7 +424,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * Clears the value of the 'descripcion' field.
       * @return This builder.
       */
-    public PuntoDeMedicion.Builder clearDescripcion() {
+    public org.TFGInformatica.PuntoDeMedicion.Builder clearDescripcion() {
       descripcion = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -443,7 +444,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @param value The value of 'carga'.
       * @return This builder.
       */
-    public PuntoDeMedicion.Builder setCarga(int value) {
+    public org.TFGInformatica.PuntoDeMedicion.Builder setCarga(int value) {
       validate(fields()[2], value);
       this.carga = value;
       fieldSetFlags()[2] = true;
@@ -463,7 +464,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * Clears the value of the 'carga' field.
       * @return This builder.
       */
-    public PuntoDeMedicion.Builder clearCarga() {
+    public org.TFGInformatica.PuntoDeMedicion.Builder clearCarga() {
       fieldSetFlags()[2] = false;
       return this;
     }
@@ -482,7 +483,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @param value The value of 'nivelServicio'.
       * @return This builder.
       */
-    public PuntoDeMedicion.Builder setNivelServicio(int value) {
+    public org.TFGInformatica.PuntoDeMedicion.Builder setNivelServicio(int value) {
       validate(fields()[3], value);
       this.nivelServicio = value;
       fieldSetFlags()[3] = true;
@@ -502,7 +503,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * Clears the value of the 'nivelServicio' field.
       * @return This builder.
       */
-    public PuntoDeMedicion.Builder clearNivelServicio() {
+    public org.TFGInformatica.PuntoDeMedicion.Builder clearNivelServicio() {
       fieldSetFlags()[3] = false;
       return this;
     }
@@ -521,7 +522,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @param value The value of 'st_x'.
       * @return This builder.
       */
-    public PuntoDeMedicion.Builder setStX(float value) {
+    public org.TFGInformatica.PuntoDeMedicion.Builder setStX(float value) {
       validate(fields()[4], value);
       this.st_x = value;
       fieldSetFlags()[4] = true;
@@ -541,7 +542,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * Clears the value of the 'st_x' field.
       * @return This builder.
       */
-    public PuntoDeMedicion.Builder clearStX() {
+    public org.TFGInformatica.PuntoDeMedicion.Builder clearStX() {
       fieldSetFlags()[4] = false;
       return this;
     }
@@ -560,7 +561,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @param value The value of 'st_y'.
       * @return This builder.
       */
-    public PuntoDeMedicion.Builder setStY(float value) {
+    public org.TFGInformatica.PuntoDeMedicion.Builder setStY(float value) {
       validate(fields()[5], value);
       this.st_y = value;
       fieldSetFlags()[5] = true;
@@ -580,7 +581,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * Clears the value of the 'st_y' field.
       * @return This builder.
       */
-    public PuntoDeMedicion.Builder clearStY() {
+    public org.TFGInformatica.PuntoDeMedicion.Builder clearStY() {
       fieldSetFlags()[5] = false;
       return this;
     }

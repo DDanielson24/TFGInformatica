@@ -1,6 +1,6 @@
 package org.TFGInformatica.PostgreSQL;
 
-import org.TFGInformatica.Trafico.PuntoDeMedicion;
+import org.TFGInformatica.PuntoDeMedicion;
 
 import javax.xml.transform.Result;
 import java.sql.*;
@@ -30,34 +30,39 @@ public class PSQLConnectionTrafico {
     public boolean addRow(PuntoDeMedicion pm) {
 
         boolean query = false;
-
         if (this.checkIfExists(pm)) { //UPDATE
 
             try {
-
                 Statement statement = conn.createStatement();
                 statement.execute(
                         "UPDATE \"PuntosDeMedicion\" " +
                         "SET carga = " + pm.getCarga() + ", " +
                             "nivel_servicio = " + pm.getNivelServicio() + " " +
                         "WHERE idelem = " + pm.getIdelem() + ";");
-                System.out.println("exito");
-
+                System.out.println("El PuntoDeMedicion " + pm.getIdelem() + "ha sido actualizado en la BD");
+                query = true;
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-
             return query;
 
         }
         else { //INSERT
 
-
-
+            try {
+                Statement statement = conn.createStatement();
+                statement.execute(
+                        "INSERT INTO \"PuntosDeMedicion\" " +
+                        "VALUES (" + pm.getIdelem() + ", '" + pm.getDescripcion() + "', " +
+                                pm.getCarga() + ", " + pm.getNivelServicio() + ", " +
+                                pm.getStX() + ", " + pm.getStY() + ");");
+                System.out.println("El PuntoDeMedicion " + pm.getIdelem() + "ha sido insertado en la BD");
+                query = true;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return query;
         }
-
-        return query;
-
     }
 
     private boolean checkIfExists(PuntoDeMedicion pm) {

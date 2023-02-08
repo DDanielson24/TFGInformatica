@@ -1,4 +1,4 @@
-package org.TFGInformatica.Gasolina;
+/*package org.TFGInformatica.Gasolina;
 
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -104,4 +104,4 @@ public class XLSReader {
         String floatConvertido = parteEntera + "." + parteDecimal;
         return Float.parseFloat(floatConvertido);
     }
-}
+}*/

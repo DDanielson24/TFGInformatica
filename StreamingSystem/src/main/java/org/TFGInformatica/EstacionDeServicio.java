@@ -3,8 +3,9 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package org.TFGInformatica.Gasolina;
+package org.TFGInformatica;
 
+import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
 import org.apache.avro.util.Utf8;
 import org.apache.avro.message.BinaryMessageEncoder;
@@ -347,8 +348,8 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
    * Creates a new EstacionDeServicio RecordBuilder.
    * @return A new EstacionDeServicio RecordBuilder
    */
-  public static EstacionDeServicio.Builder newBuilder() {
-    return new EstacionDeServicio.Builder();
+  public static org.TFGInformatica.EstacionDeServicio.Builder newBuilder() {
+    return new org.TFGInformatica.EstacionDeServicio.Builder();
   }
 
   /**
@@ -356,11 +357,11 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
    * @param other The existing builder to copy.
    * @return A new EstacionDeServicio RecordBuilder
    */
-  public static EstacionDeServicio.Builder newBuilder(EstacionDeServicio.Builder other) {
+  public static org.TFGInformatica.EstacionDeServicio.Builder newBuilder(org.TFGInformatica.EstacionDeServicio.Builder other) {
     if (other == null) {
-      return new EstacionDeServicio.Builder();
+      return new org.TFGInformatica.EstacionDeServicio.Builder();
     } else {
-      return new EstacionDeServicio.Builder(other);
+      return new org.TFGInformatica.EstacionDeServicio.Builder(other);
     }
   }
 
@@ -369,11 +370,11 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
    * @param other The existing instance to copy.
    * @return A new EstacionDeServicio RecordBuilder
    */
-  public static EstacionDeServicio.Builder newBuilder(EstacionDeServicio other) {
+  public static org.TFGInformatica.EstacionDeServicio.Builder newBuilder(org.TFGInformatica.EstacionDeServicio other) {
     if (other == null) {
-      return new EstacionDeServicio.Builder();
+      return new org.TFGInformatica.EstacionDeServicio.Builder();
     } else {
-      return new EstacionDeServicio.Builder(other);
+      return new org.TFGInformatica.EstacionDeServicio.Builder(other);
     }
   }
 
@@ -405,7 +406,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(EstacionDeServicio.Builder other) {
+    private Builder(org.TFGInformatica.EstacionDeServicio.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.direccion)) {
         this.direccion = data().deepCopy(fields()[0].schema(), other.direccion);
@@ -457,7 +458,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
      * Creates a Builder by copying an existing EstacionDeServicio instance
      * @param other The existing instance to copy.
      */
-    private Builder(EstacionDeServicio other) {
+    private Builder(org.TFGInformatica.EstacionDeServicio other) {
       super(SCHEMA$);
       if (isValidValue(fields()[0], other.direccion)) {
         this.direccion = data().deepCopy(fields()[0].schema(), other.direccion);
@@ -519,7 +520,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @param value The value of 'direccion'.
       * @return This builder.
       */
-    public EstacionDeServicio.Builder setDireccion(java.lang.CharSequence value) {
+    public org.TFGInformatica.EstacionDeServicio.Builder setDireccion(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.direccion = value;
       fieldSetFlags()[0] = true;
@@ -539,7 +540,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * Clears the value of the 'direccion' field.
       * @return This builder.
       */
-    public EstacionDeServicio.Builder clearDireccion() {
+    public org.TFGInformatica.EstacionDeServicio.Builder clearDireccion() {
       direccion = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -559,7 +560,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @param value The value of 'municipio'.
       * @return This builder.
       */
-    public EstacionDeServicio.Builder setMunicipio(java.lang.CharSequence value) {
+    public org.TFGInformatica.EstacionDeServicio.Builder setMunicipio(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.municipio = value;
       fieldSetFlags()[1] = true;
@@ -579,7 +580,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * Clears the value of the 'municipio' field.
       * @return This builder.
       */
-    public EstacionDeServicio.Builder clearMunicipio() {
+    public org.TFGInformatica.EstacionDeServicio.Builder clearMunicipio() {
       municipio = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -599,7 +600,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @param value The value of 'localidad'.
       * @return This builder.
       */
-    public EstacionDeServicio.Builder setLocalidad(java.lang.CharSequence value) {
+    public org.TFGInformatica.EstacionDeServicio.Builder setLocalidad(java.lang.CharSequence value) {
       validate(fields()[2], value);
       this.localidad = value;
       fieldSetFlags()[2] = true;
@@ -619,7 +620,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * Clears the value of the 'localidad' field.
       * @return This builder.
       */
-    public EstacionDeServicio.Builder clearLocalidad() {
+    public org.TFGInformatica.EstacionDeServicio.Builder clearLocalidad() {
       localidad = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -639,7 +640,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @param value The value of 'codigoPostal'.
       * @return This builder.
       */
-    public EstacionDeServicio.Builder setCodigoPostal(int value) {
+    public org.TFGInformatica.EstacionDeServicio.Builder setCodigoPostal(int value) {
       validate(fields()[3], value);
       this.codigoPostal = value;
       fieldSetFlags()[3] = true;
@@ -659,7 +660,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * Clears the value of the 'codigoPostal' field.
       * @return This builder.
       */
-    public EstacionDeServicio.Builder clearCodigoPostal() {
+    public org.TFGInformatica.EstacionDeServicio.Builder clearCodigoPostal() {
       fieldSetFlags()[3] = false;
       return this;
     }
@@ -678,7 +679,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @param value The value of 'longitud'.
       * @return This builder.
       */
-    public EstacionDeServicio.Builder setLongitud(float value) {
+    public org.TFGInformatica.EstacionDeServicio.Builder setLongitud(float value) {
       validate(fields()[4], value);
       this.longitud = value;
       fieldSetFlags()[4] = true;
@@ -698,7 +699,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * Clears the value of the 'longitud' field.
       * @return This builder.
       */
-    public EstacionDeServicio.Builder clearLongitud() {
+    public org.TFGInformatica.EstacionDeServicio.Builder clearLongitud() {
       fieldSetFlags()[4] = false;
       return this;
     }
@@ -717,7 +718,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @param value The value of 'latitud'.
       * @return This builder.
       */
-    public EstacionDeServicio.Builder setLatitud(float value) {
+    public org.TFGInformatica.EstacionDeServicio.Builder setLatitud(float value) {
       validate(fields()[5], value);
       this.latitud = value;
       fieldSetFlags()[5] = true;
@@ -737,7 +738,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * Clears the value of the 'latitud' field.
       * @return This builder.
       */
-    public EstacionDeServicio.Builder clearLatitud() {
+    public org.TFGInformatica.EstacionDeServicio.Builder clearLatitud() {
       fieldSetFlags()[5] = false;
       return this;
     }
@@ -756,7 +757,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @param value The value of 'precioGasolina95'.
       * @return This builder.
       */
-    public EstacionDeServicio.Builder setPrecioGasolina95(float value) {
+    public org.TFGInformatica.EstacionDeServicio.Builder setPrecioGasolina95(float value) {
       validate(fields()[6], value);
       this.precioGasolina95 = value;
       fieldSetFlags()[6] = true;
@@ -776,7 +777,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * Clears the value of the 'precioGasolina95' field.
       * @return This builder.
       */
-    public EstacionDeServicio.Builder clearPrecioGasolina95() {
+    public org.TFGInformatica.EstacionDeServicio.Builder clearPrecioGasolina95() {
       fieldSetFlags()[6] = false;
       return this;
     }
@@ -795,7 +796,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @param value The value of 'precioGasolina98'.
       * @return This builder.
       */
-    public EstacionDeServicio.Builder setPrecioGasolina98(float value) {
+    public org.TFGInformatica.EstacionDeServicio.Builder setPrecioGasolina98(float value) {
       validate(fields()[7], value);
       this.precioGasolina98 = value;
       fieldSetFlags()[7] = true;
@@ -815,7 +816,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * Clears the value of the 'precioGasolina98' field.
       * @return This builder.
       */
-    public EstacionDeServicio.Builder clearPrecioGasolina98() {
+    public org.TFGInformatica.EstacionDeServicio.Builder clearPrecioGasolina98() {
       fieldSetFlags()[7] = false;
       return this;
     }
@@ -834,7 +835,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @param value The value of 'precioGasoleoA'.
       * @return This builder.
       */
-    public EstacionDeServicio.Builder setPrecioGasoleoA(float value) {
+    public org.TFGInformatica.EstacionDeServicio.Builder setPrecioGasoleoA(float value) {
       validate(fields()[8], value);
       this.precioGasoleoA = value;
       fieldSetFlags()[8] = true;
@@ -854,7 +855,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * Clears the value of the 'precioGasoleoA' field.
       * @return This builder.
       */
-    public EstacionDeServicio.Builder clearPrecioGasoleoA() {
+    public org.TFGInformatica.EstacionDeServicio.Builder clearPrecioGasoleoA() {
       fieldSetFlags()[8] = false;
       return this;
     }
@@ -873,7 +874,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @param value The value of 'precioGasoleoPremium'.
       * @return This builder.
       */
-    public EstacionDeServicio.Builder setPrecioGasoleoPremium(float value) {
+    public org.TFGInformatica.EstacionDeServicio.Builder setPrecioGasoleoPremium(float value) {
       validate(fields()[9], value);
       this.precioGasoleoPremium = value;
       fieldSetFlags()[9] = true;
@@ -893,7 +894,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * Clears the value of the 'precioGasoleoPremium' field.
       * @return This builder.
       */
-    public EstacionDeServicio.Builder clearPrecioGasoleoPremium() {
+    public org.TFGInformatica.EstacionDeServicio.Builder clearPrecioGasoleoPremium() {
       fieldSetFlags()[9] = false;
       return this;
     }
@@ -912,7 +913,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @param value The value of 'rotulo'.
       * @return This builder.
       */
-    public EstacionDeServicio.Builder setRotulo(java.lang.CharSequence value) {
+    public org.TFGInformatica.EstacionDeServicio.Builder setRotulo(java.lang.CharSequence value) {
       validate(fields()[10], value);
       this.rotulo = value;
       fieldSetFlags()[10] = true;
@@ -932,7 +933,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * Clears the value of the 'rotulo' field.
       * @return This builder.
       */
-    public EstacionDeServicio.Builder clearRotulo() {
+    public org.TFGInformatica.EstacionDeServicio.Builder clearRotulo() {
       rotulo = null;
       fieldSetFlags()[10] = false;
       return this;

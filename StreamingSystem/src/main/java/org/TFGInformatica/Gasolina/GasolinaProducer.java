@@ -1,4 +1,4 @@
-package org.TFGInformatica.Gasolina;
+/*package org.TFGInformatica.Gasolina;
 
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -56,4 +56,4 @@ public class GasolinaProducer {
         gasolinaProducer.close();
 
     }
-}
+}*/

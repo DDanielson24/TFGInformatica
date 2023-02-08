@@ -13,6 +13,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+import org.TFGInformatica.PuntoDeMedicion;
+
 public class XMLReader {
 
     private String original_file;
@@ -73,7 +75,7 @@ public class XMLReader {
                                     }
                                     else if (child.getNodeName().equals("error")) {
                                         if (!childs.item(j).getTextContent().equals("N")) {
-                                            throw new RuntimeException("El PuntoDeMedicion presenta un error");
+                                            throw new NumberFormatException("El PuntoDeMedicion presenta un error");
                                         }
                                     }
                                     else if (child.getNodeName().equals("st_x")) {

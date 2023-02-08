@@ -11,6 +11,8 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Properties;
 
+import org.TFGInformatica.PuntoDeMedicion;
+
 public class TraficoProducer {
 
     public static void main(String[] args) {
@@ -38,10 +40,10 @@ public class TraficoProducer {
         //3. Crear el productor de Kafka y enviar a través del topic
         //Creamos las propiedades necesarias para el Productor
         Properties props = new Properties();
-        props.setProperty("bootstrap.servers", "192.168.0.37:9092");
+        props.setProperty("bootstrap.servers", "192.168.0.24:9092");
         props.setProperty("key.serializer", StringSerializer.class.getName());
         props.setProperty("value.serializer", KafkaAvroSerializer.class.getName());
-        props.setProperty("schema.registry.url", "http://192.168.0.37:8081");
+        props.setProperty("schema.registry.url", "http://192.168.0.24:8081");
 
         //Creamos el productor y enviamos el PM
         KafkaProducer<String, PuntoDeMedicion> traficoProducer = new KafkaProducer<String, PuntoDeMedicion>(props);
