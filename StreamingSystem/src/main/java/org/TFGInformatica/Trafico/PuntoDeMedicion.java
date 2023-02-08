@@ -13,8 +13,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 5254294616955731591L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"PuntoDeMedicion\",\"namespace\":\"org.TFGInformatica\",\"fields\":[{\"name\":\"idelem\",\"type\":\"int\"},{\"name\":\"descripcion\",\"type\":\"string\"},{\"name\":\"carga\",\"type\":\"int\"},{\"name\":\"nivelServicio\",\"type\":\"int\"},{\"name\":\"error\",\"type\":\"string\"},{\"name\":\"st_x\",\"type\":\"float\"},{\"name\":\"st_y\",\"type\":\"float\"}]}");
+  private static final long serialVersionUID = -4281942819677106322L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"PuntoDeMedicion\",\"namespace\":\"org.TFGInformatica\",\"fields\":[{\"name\":\"idelem\",\"type\":\"int\"},{\"name\":\"descripcion\",\"type\":\"string\"},{\"name\":\"carga\",\"type\":\"int\"},{\"name\":\"nivelServicio\",\"type\":\"int\"},{\"name\":\"st_x\",\"type\":\"float\"},{\"name\":\"st_y\",\"type\":\"float\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -74,7 +74,6 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
    private java.lang.CharSequence descripcion;
    private int carga;
    private int nivelServicio;
-   private java.lang.CharSequence error;
    private float st_x;
    private float st_y;
 
@@ -91,16 +90,14 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
    * @param descripcion The new value for descripcion
    * @param carga The new value for carga
    * @param nivelServicio The new value for nivelServicio
-   * @param error The new value for error
    * @param st_x The new value for st_x
    * @param st_y The new value for st_y
    */
-  public PuntoDeMedicion(java.lang.Integer idelem, java.lang.CharSequence descripcion, java.lang.Integer carga, java.lang.Integer nivelServicio, java.lang.CharSequence error, java.lang.Float st_x, java.lang.Float st_y) {
+  public PuntoDeMedicion(java.lang.Integer idelem, java.lang.CharSequence descripcion, java.lang.Integer carga, java.lang.Integer nivelServicio, java.lang.Float st_x, java.lang.Float st_y) {
     this.idelem = idelem;
     this.descripcion = descripcion;
     this.carga = carga;
     this.nivelServicio = nivelServicio;
-    this.error = error;
     this.st_x = st_x;
     this.st_y = st_y;
   }
@@ -114,9 +111,8 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
     case 1: return descripcion;
     case 2: return carga;
     case 3: return nivelServicio;
-    case 4: return error;
-    case 5: return st_x;
-    case 6: return st_y;
+    case 4: return st_x;
+    case 5: return st_y;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -129,9 +125,8 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
     case 1: descripcion = (java.lang.CharSequence)value$; break;
     case 2: carga = (java.lang.Integer)value$; break;
     case 3: nivelServicio = (java.lang.Integer)value$; break;
-    case 4: error = (java.lang.CharSequence)value$; break;
-    case 5: st_x = (java.lang.Float)value$; break;
-    case 6: st_y = (java.lang.Float)value$; break;
+    case 4: st_x = (java.lang.Float)value$; break;
+    case 5: st_y = (java.lang.Float)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -202,23 +197,6 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
    */
   public void setNivelServicio(int value) {
     this.nivelServicio = value;
-  }
-
-  /**
-   * Gets the value of the 'error' field.
-   * @return The value of the 'error' field.
-   */
-  public java.lang.CharSequence getError() {
-    return error;
-  }
-
-
-  /**
-   * Sets the value of the 'error' field.
-   * @param value the value to set.
-   */
-  public void setError(java.lang.CharSequence value) {
-    this.error = value;
   }
 
   /**
@@ -300,7 +278,6 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
     private java.lang.CharSequence descripcion;
     private int carga;
     private int nivelServicio;
-    private java.lang.CharSequence error;
     private float st_x;
     private float st_y;
 
@@ -331,17 +308,13 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
         this.nivelServicio = data().deepCopy(fields()[3].schema(), other.nivelServicio);
         fieldSetFlags()[3] = other.fieldSetFlags()[3];
       }
-      if (isValidValue(fields()[4], other.error)) {
-        this.error = data().deepCopy(fields()[4].schema(), other.error);
+      if (isValidValue(fields()[4], other.st_x)) {
+        this.st_x = data().deepCopy(fields()[4].schema(), other.st_x);
         fieldSetFlags()[4] = other.fieldSetFlags()[4];
       }
-      if (isValidValue(fields()[5], other.st_x)) {
-        this.st_x = data().deepCopy(fields()[5].schema(), other.st_x);
+      if (isValidValue(fields()[5], other.st_y)) {
+        this.st_y = data().deepCopy(fields()[5].schema(), other.st_y);
         fieldSetFlags()[5] = other.fieldSetFlags()[5];
-      }
-      if (isValidValue(fields()[6], other.st_y)) {
-        this.st_y = data().deepCopy(fields()[6].schema(), other.st_y);
-        fieldSetFlags()[6] = other.fieldSetFlags()[6];
       }
     }
 
@@ -367,17 +340,13 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
         this.nivelServicio = data().deepCopy(fields()[3].schema(), other.nivelServicio);
         fieldSetFlags()[3] = true;
       }
-      if (isValidValue(fields()[4], other.error)) {
-        this.error = data().deepCopy(fields()[4].schema(), other.error);
+      if (isValidValue(fields()[4], other.st_x)) {
+        this.st_x = data().deepCopy(fields()[4].schema(), other.st_x);
         fieldSetFlags()[4] = true;
       }
-      if (isValidValue(fields()[5], other.st_x)) {
-        this.st_x = data().deepCopy(fields()[5].schema(), other.st_x);
+      if (isValidValue(fields()[5], other.st_y)) {
+        this.st_y = data().deepCopy(fields()[5].schema(), other.st_y);
         fieldSetFlags()[5] = true;
-      }
-      if (isValidValue(fields()[6], other.st_y)) {
-        this.st_y = data().deepCopy(fields()[6].schema(), other.st_y);
-        fieldSetFlags()[6] = true;
       }
     }
 
@@ -539,46 +508,6 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
     }
 
     /**
-      * Gets the value of the 'error' field.
-      * @return The value.
-      */
-    public java.lang.CharSequence getError() {
-      return error;
-    }
-
-
-    /**
-      * Sets the value of the 'error' field.
-      * @param value The value of 'error'.
-      * @return This builder.
-      */
-    public PuntoDeMedicion.Builder setError(java.lang.CharSequence value) {
-      validate(fields()[4], value);
-      this.error = value;
-      fieldSetFlags()[4] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'error' field has been set.
-      * @return True if the 'error' field has been set, false otherwise.
-      */
-    public boolean hasError() {
-      return fieldSetFlags()[4];
-    }
-
-
-    /**
-      * Clears the value of the 'error' field.
-      * @return This builder.
-      */
-    public PuntoDeMedicion.Builder clearError() {
-      error = null;
-      fieldSetFlags()[4] = false;
-      return this;
-    }
-
-    /**
       * Gets the value of the 'st_x' field.
       * @return The value.
       */
@@ -593,9 +522,9 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @return This builder.
       */
     public PuntoDeMedicion.Builder setStX(float value) {
-      validate(fields()[5], value);
+      validate(fields()[4], value);
       this.st_x = value;
-      fieldSetFlags()[5] = true;
+      fieldSetFlags()[4] = true;
       return this;
     }
 
@@ -604,7 +533,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @return True if the 'st_x' field has been set, false otherwise.
       */
     public boolean hasStX() {
-      return fieldSetFlags()[5];
+      return fieldSetFlags()[4];
     }
 
 
@@ -613,7 +542,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @return This builder.
       */
     public PuntoDeMedicion.Builder clearStX() {
-      fieldSetFlags()[5] = false;
+      fieldSetFlags()[4] = false;
       return this;
     }
 
@@ -632,9 +561,9 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @return This builder.
       */
     public PuntoDeMedicion.Builder setStY(float value) {
-      validate(fields()[6], value);
+      validate(fields()[5], value);
       this.st_y = value;
-      fieldSetFlags()[6] = true;
+      fieldSetFlags()[5] = true;
       return this;
     }
 
@@ -643,7 +572,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @return True if the 'st_y' field has been set, false otherwise.
       */
     public boolean hasStY() {
-      return fieldSetFlags()[6];
+      return fieldSetFlags()[5];
     }
 
 
@@ -652,7 +581,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @return This builder.
       */
     public PuntoDeMedicion.Builder clearStY() {
-      fieldSetFlags()[6] = false;
+      fieldSetFlags()[5] = false;
       return this;
     }
 
@@ -665,9 +594,8 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
         record.descripcion = fieldSetFlags()[1] ? this.descripcion : (java.lang.CharSequence) defaultValue(fields()[1]);
         record.carga = fieldSetFlags()[2] ? this.carga : (java.lang.Integer) defaultValue(fields()[2]);
         record.nivelServicio = fieldSetFlags()[3] ? this.nivelServicio : (java.lang.Integer) defaultValue(fields()[3]);
-        record.error = fieldSetFlags()[4] ? this.error : (java.lang.CharSequence) defaultValue(fields()[4]);
-        record.st_x = fieldSetFlags()[5] ? this.st_x : (java.lang.Float) defaultValue(fields()[5]);
-        record.st_y = fieldSetFlags()[6] ? this.st_y : (java.lang.Float) defaultValue(fields()[6]);
+        record.st_x = fieldSetFlags()[4] ? this.st_x : (java.lang.Float) defaultValue(fields()[4]);
+        record.st_y = fieldSetFlags()[5] ? this.st_y : (java.lang.Float) defaultValue(fields()[5]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -708,8 +636,6 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
 
     out.writeInt(this.nivelServicio);
 
-    out.writeString(this.error);
-
     out.writeFloat(this.st_x);
 
     out.writeFloat(this.st_y);
@@ -729,14 +655,12 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
 
       this.nivelServicio = in.readInt();
 
-      this.error = in.readString(this.error instanceof Utf8 ? (Utf8)this.error : null);
-
       this.st_x = in.readFloat();
 
       this.st_y = in.readFloat();
 
     } else {
-      for (int i = 0; i < 7; i++) {
+      for (int i = 0; i < 6; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           this.idelem = in.readInt();
@@ -755,14 +679,10 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
           break;
 
         case 4:
-          this.error = in.readString(this.error instanceof Utf8 ? (Utf8)this.error : null);
-          break;
-
-        case 5:
           this.st_x = in.readFloat();
           break;
 
-        case 6:
+        case 5:
           this.st_y = in.readFloat();
           break;
 
