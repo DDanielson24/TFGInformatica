@@ -72,7 +72,9 @@ public class XMLReader {
                                         pm.setNivelServicio(Integer.parseInt(childs.item(j).getTextContent()));
                                     }
                                     else if (child.getNodeName().equals("error")) {
-                                        pm.setError(childs.item(j).getTextContent());
+                                        if (!childs.item(j).getTextContent().equals("N")) {
+                                            throw new RuntimeException("El PuntoDeMedicion presenta un error");
+                                        }
                                     }
                                     else if (child.getNodeName().equals("st_x")) {
                                         String st_x = childs.item(j).getTextContent();

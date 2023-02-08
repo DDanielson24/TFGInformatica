@@ -2,6 +2,7 @@ package org.TFGInformatica.PostgreSQL;
 
 import org.TFGInformatica.Trafico.PuntoDeMedicion;
 
+import javax.xml.transform.Result;
 import java.sql.*;
 
 public class PSQLConnectionTrafico {
@@ -26,13 +27,49 @@ public class PSQLConnectionTrafico {
         }
     }
 
-    public boolean selectExists(PuntoDeMedicion pm) {
+    public boolean addRow(PuntoDeMedicion pm) {
+
+        boolean query = false;
+
+        if (this.checkIfExists(pm)) { //UPDATE
+
+            try {
+
+                Statement statement = conn.createStatement();
+                statement.execute(
+                        "UPDATE \"PuntosDeMedicion\" " +
+                        "SET carga = " + pm.getCarga() + ", " +
+                            "nivel_servicio = " + pm.getNivelServicio() + " " +
+                        "WHERE idelem = " + pm.getIdelem() + ";");
+                System.out.println("exito");
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            return query;
+
+        }
+        else { //INSERT
+
+
+
+        }
+
+        return query;
+
+    }
+
+    private boolean checkIfExists(PuntoDeMedicion pm) {
 
         boolean query = false;
         try {
 
             Statement statement = conn.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT EXISTS (SELECT * FROM \"PuntosDeMedicion\" WHERE idelem = " + pm.getIdelem() + ");");
+            ResultSet resultSet = statement.executeQuery(
+                    "SELECT EXISTS " +
+                    "(SELECT * FROM \"PuntosDeMedicion\" " +
+                    "WHERE idelem = " + pm.getIdelem() + ");");
             while (resultSet.next()) {
                 query = resultSet.getBoolean("exists");
             }

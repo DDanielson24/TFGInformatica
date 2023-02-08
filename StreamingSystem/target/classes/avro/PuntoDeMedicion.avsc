@@ -7,7 +7,6 @@
         { "name": "descripcion", "type": "string" },
         { "name": "carga", "type": "int" },
         { "name": "nivelServicio", "type": "int" },
-        { "name": "error", "type": "string" },
         { "name": "st_x", "type": "float" },
         { "name": "st_y", "type": "float" }
     ]
