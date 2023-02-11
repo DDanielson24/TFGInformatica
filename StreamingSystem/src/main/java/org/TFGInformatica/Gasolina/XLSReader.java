@@ -1,4 +1,4 @@
-/*package org.TFGInformatica.Gasolina;
+package org.TFGInformatica.Gasolina;
 
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+
+import org.TFGInformatica.EstacionDeServicio;
 
 public class XLSReader {
 
@@ -28,18 +30,21 @@ public class XLSReader {
 
             HSSFWorkbook workbook = new HSSFWorkbook(xlsFileIS);
             HSSFSheet sheet = workbook.getSheetAt(0);
+            int filasMadrid = 0;
 
             Iterator<Row> it = sheet.iterator();
             while (it.hasNext()) {
                 Row row = it.next();
 
                 if (row.getCell(0).toString().equals("MADRID")) {
+                    filasMadrid++;
+                    System.out.println("FilaMadrid: " + filasMadrid);
                     EstacionDeServicio es = new EstacionDeServicio();
                     Float precioGasolina95 = 0f;
                     Float precioGasolina98 = 0f;
 
                     es.setMunicipio(row.getCell(1).toString());
-                    es.setLocalidad(row.getCell(2).toString());
+                    es.setMargen(row.getCell(5).toString());
                     es.setCodigoPostal(Integer.parseInt(row.getCell(3).toString()));
                     es.setDireccion(row.getCell(4).toString());
                     es.setLongitud(this.floatConverter(row.getCell(6).toString()));
@@ -104,4 +109,4 @@ public class XLSReader {
         String floatConvertido = parteEntera + "." + parteDecimal;
         return Float.parseFloat(floatConvertido);
     }
-}*/
+}

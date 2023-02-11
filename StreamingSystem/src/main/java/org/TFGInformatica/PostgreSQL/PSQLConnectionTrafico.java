@@ -39,7 +39,7 @@ public class PSQLConnectionTrafico {
                         "SET carga = " + pm.getCarga() + ", " +
                             "nivel_servicio = " + pm.getNivelServicio() + " " +
                         "WHERE idelem = " + pm.getIdelem() + ";");
-                System.out.println("El PuntoDeMedicion " + pm.getIdelem() + "ha sido actualizado en la BD");
+                System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido actualizado en la BD");
                 query = true;
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -56,7 +56,7 @@ public class PSQLConnectionTrafico {
                         "VALUES (" + pm.getIdelem() + ", '" + pm.getDescripcion() + "', " +
                                 pm.getCarga() + ", " + pm.getNivelServicio() + ", " +
                                 pm.getStX() + ", " + pm.getStY() + ");");
-                System.out.println("El PuntoDeMedicion " + pm.getIdelem() + "ha sido insertado en la BD");
+                System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido insertado en la BD");
                 query = true;
             } catch (SQLException e) {
                 e.printStackTrace();

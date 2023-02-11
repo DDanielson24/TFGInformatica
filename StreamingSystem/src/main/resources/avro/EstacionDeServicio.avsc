@@ -3,16 +3,16 @@
     "namespace": "org.TFGInformatica",
     "name": "EstacionDeServicio",
     "fields": [
+        { "name": "rotulo", "type": "string" },
         { "name": "direccion", "type": "string" },
+        { "name": "margen", "type": "string" },
         { "name": "municipio", "type": "string" },
-        { "name": "localidad", "type": "string" },
         { "name": "codigoPostal", "type": "int" },
+        { "name": "precioGasolina95", "type": "float" },
+        { "name": "precioGasolina98", "type": "float" },
+        { "name": "precioGasoleoA", "type": "float" },
+        { "name": "precioGasoleoPremium", "type": "float" },
         { "name": "longitud", "type": "float" },
-        { "name": "latitud", "type": "float" },
-        { "name": "precioGasolina95", "type": "float"},
-        { "name": "precioGasolina98", "type": "float"},
-        { "name": "precioGasoleoA", "type": "float"},
-        { "name": "precioGasoleoPremium", "type": "float"},
-        { "name": "rotulo", "type": "string"}
+        { "name": "latitud", "type": "float" }
     ]
 }
