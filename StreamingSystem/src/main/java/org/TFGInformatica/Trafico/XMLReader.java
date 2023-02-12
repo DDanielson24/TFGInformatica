@@ -52,6 +52,7 @@ public class XMLReader {
                     Node child;
 
                     PuntoDeMedicion pm = new PuntoDeMedicion();
+                    boolean error = false;
 
                     for (int j = 0; j < childs.getLength(); j++) {
                         child = childs.item(j);
@@ -94,14 +95,18 @@ public class XMLReader {
                                     }
                                 } catch (NumberFormatException e) {
                                     System.out.println("El PuntoDeMedicion no ha podido ser completado. Pasando al siguiente...");
-                                    e.printStackTrace();
+                                    error = true;
+                                    break;
                                 }
                             }
                         }
                     }
 
-                    System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " creado exitosamente");
-                    listaDevolver.add(pm);
+                    //Comprobamos si no ha surgido un error en la creación del PM. Si no, añadimos a la lista
+                    if (!error) {
+                        System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " creado exitosamente");
+                        listaDevolver.add(pm);
+                    }
                 }
             }
 

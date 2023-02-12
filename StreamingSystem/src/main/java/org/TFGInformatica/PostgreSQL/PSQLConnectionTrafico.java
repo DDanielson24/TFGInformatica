@@ -50,7 +50,7 @@ public class PSQLConnectionTrafico {
         }
         else { //INSERT
 
-            float resultConverted[] = coordConverter.convertUTMToLatLong(pm.getStX(), pm.getStY());
+            float resultConverted[] = coordConverter.convertUTMToLatLong(Float.toString(pm.getStX()), Float.toString(pm.getStY()));
             try {
                 Statement statement = conn.createStatement();
                 statement.execute(

@@ -9,11 +9,11 @@ public class CoordConverter {
 
     public CoordConverter () { }
 
-    public float[] convertUTMToLatLong (float xOffset, float yOffset) {
+    public float[] convertUTMToLatLong (String xOffset, String yOffset) {
         float latlonConverted[] = new float[2];
 
         try {
-            ProcessBuilder pb = new ProcessBuilder("python3", "/home/daniel/Escritorio/TFGInformatica/pullRepo.sh", Float.toString(xOffset), Float.toString(yOffset));
+            ProcessBuilder pb = new ProcessBuilder("python3", "/home/daniel/Escritorio/TFGInformatica/StreamingSystem/UTM-to-Longtitude-Latitude-System/utm_to_longlat.py", xOffset, yOffset, "30");
             Process p = pb.start();
             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
             String line = null;

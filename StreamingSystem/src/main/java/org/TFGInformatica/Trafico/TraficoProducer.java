@@ -1,6 +1,7 @@
 package org.TFGInformatica.Trafico;
 
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
+import org.TFGInformatica.PostgreSQL.CoordConverter;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
