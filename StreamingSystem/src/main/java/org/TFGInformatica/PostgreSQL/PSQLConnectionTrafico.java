@@ -14,6 +14,7 @@ public class PSQLConnectionTrafico {
     private final String PASSWORD = "TFGInformatica";
     private String url = "jdbc:postgresql://" + HOST + ":" + PUERTO + "/" + DATABASE;
     private Connection conn = null;
+    private CoordConverter coordConverter = new CoordConverter();
 
     public void connect() {
         try {
@@ -49,13 +50,14 @@ public class PSQLConnectionTrafico {
         }
         else { //INSERT
 
+            float resultConverted[] = coordConverter.convertUTMToLatLong(pm.getStX(), pm.getStY());
             try {
                 Statement statement = conn.createStatement();
                 statement.execute(
                         "INSERT INTO \"PuntosDeMedicion\" " +
                         "VALUES (" + pm.getIdelem() + ", '" + pm.getDescripcion() + "', " +
                                 pm.getCarga() + ", " + pm.getNivelServicio() + ", " +
-                                pm.getStX() + ", " + pm.getStY() + ");");
+                                resultConverted[0] + ", " + resultConverted[1] + ");");
                 System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido insertado en la BD");
                 query = true;
             } catch (SQLException e) {
