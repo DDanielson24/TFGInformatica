@@ -39,7 +39,8 @@ public class PSQLConnectionGasolina {
                                 "SET precio_gasolina_95 = " + es.getPrecioGasolina95() + ", " +
                                     "precio_gasolina_98 = " + es.getPrecioGasolina98() + ", " +
                                     "precio_gasoleo_a = " + es.getPrecioGasoleoA() + ", " +
-                                    "precio_gasoleo_premium = " + es.getPrecioGasoleoPremium() + " " +
+                                    "precio_gasoleo_premium = " + es.getPrecioGasoleoPremium() + ", " +
+                                    "fecha_actualizacion = '" + es.getFechaActualizacion() + "' " +
                                 "WHERE rotulo = '" + es.getRotulo() + "' AND direccion = '" + es.getDireccion() +
                                 "' AND municipio = '" + es.getMunicipio() + "';");
                 System.out.println("EstacionDeServicio: " + es.getRotulo() + ", " + es.getDireccion() +
@@ -62,7 +63,7 @@ public class PSQLConnectionGasolina {
                                 "', " + es.getCodigoPostal() + ", " + es.getPrecioGasolina95() +
                                 ", " + es.getPrecioGasolina98() + ", " + es.getPrecioGasoleoA() +
                                 ", " + es.getPrecioGasoleoPremium() + ", " + es.getLatitud() +
-                                ", " + es.getLongitud() +");");
+                                ", " + es.getLongitud() + ", '" + es.getFechaActualizacion() + "');");
                 System.out.println("EstacionDeServicio: " + es.getRotulo() + ", " + es.getDireccion() +
                         ", " + es.getMargen() + ", " + es.getMunicipio() + " ha sido insertado en la BD");
                 query = true;

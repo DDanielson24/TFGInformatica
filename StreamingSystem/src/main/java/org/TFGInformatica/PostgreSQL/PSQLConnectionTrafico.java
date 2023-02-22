@@ -4,6 +4,9 @@ import org.TFGInformatica.PuntoDeMedicion;
 
 import javax.xml.transform.Result;
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class PSQLConnectionTrafico {
 
@@ -31,6 +34,7 @@ public class PSQLConnectionTrafico {
     public boolean addRow(PuntoDeMedicion pm) {
 
         boolean query = false;
+        System.out.println("La fecha es: " + pm.getFechaActualizacion());
         if (this.checkIfExists(pm)) { //UPDATE
 
             try {
@@ -38,7 +42,8 @@ public class PSQLConnectionTrafico {
                 statement.execute(
                         "UPDATE \"PuntosDeMedicion\" " +
                         "SET carga = " + pm.getCarga() + ", " +
-                            "nivel_servicio = " + pm.getNivelServicio() + " " +
+                            "nivel_servicio = " + pm.getNivelServicio() + ", " +
+                            "fecha_actualizacion = '" + pm.getFechaActualizacion() + "' " +
                         "WHERE idelem = " + pm.getIdelem() + ";");
                 System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido actualizado en la BD");
                 query = true;
@@ -57,7 +62,8 @@ public class PSQLConnectionTrafico {
                         "INSERT INTO \"PuntosDeMedicion\" " +
                         "VALUES (" + pm.getIdelem() + ", '" + pm.getDescripcion() + "', " +
                                 pm.getCarga() + ", " + pm.getNivelServicio() + ", " +
-                                resultConverted[0] + ", " + resultConverted[1] + ");");
+                                resultConverted[0] + ", " + resultConverted[1] + ", '" +
+                                pm.getFechaActualizacion() + "');");
                 System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido insertado en la BD");
                 query = true;
             } catch (SQLException e) {

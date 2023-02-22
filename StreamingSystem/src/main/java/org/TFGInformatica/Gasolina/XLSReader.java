@@ -49,6 +49,7 @@ public class XLSReader {
                     es.setDireccion(row.getCell(4).toString());
                     es.setLongitud(this.floatConverter(row.getCell(6).toString()));
                     es.setLatitud(this.floatConverter(row.getCell(7).toString()));
+                    es.setFechaActualizacion(row.getCell(8).toString());
 
                     int denMedPrecioGasolina95 = 0;
                     if (!row.getCell(9).toString().equals("")) {

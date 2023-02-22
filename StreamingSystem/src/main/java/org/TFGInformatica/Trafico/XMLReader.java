@@ -40,7 +40,11 @@ public class XMLReader {
             Document doc = db.parse(new File(this.original_file));
             doc.getDocumentElement().normalize();
 
+            //Recogemos la fecha de actualización del documento para los PM
+            String fecha_actualizacion = doc.getElementsByTagName("fecha_hora").item(0).getTextContent();
+
             //Ahora recorremos el documento creando puntos de medición y añadiéndolos a la lista
+
             NodeList list = doc.getElementsByTagName("pm");
             Node node;
 
@@ -76,7 +80,7 @@ public class XMLReader {
                                     }
                                     else if (child.getNodeName().equals("error")) {
                                         if (!childs.item(j).getTextContent().equals("N")) {
-                                            throw new NumberFormatException("El PuntoDeMedicion presenta un error");
+                                            throw new RuntimeException("El PuntoDeMedicion presenta un error");
                                         }
                                     }
                                     else if (child.getNodeName().equals("st_x")) {
@@ -93,8 +97,7 @@ public class XMLReader {
                                         String st_y_final = st_y_1 + "." + st_y_2;
                                         pm.setStY(Float.parseFloat(st_y_final));
                                     }
-                                } catch (NumberFormatException e) {
-                                    System.out.println("El PuntoDeMedicion no ha podido ser completado. Pasando al siguiente...");
+                                } catch (RuntimeException e) {
                                     error = true;
                                     break;
                                 }
@@ -104,11 +107,14 @@ public class XMLReader {
 
                     //Comprobamos si no ha surgido un error en la creación del PM. Si no, añadimos a la lista
                     if (!error) {
+                        System.out.println("La fecha es: " + fecha_actualizacion);
+                        pm.setFechaActualizacion(fecha_actualizacion);
                         System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " creado exitosamente");
                         listaDevolver.add(pm);
                     }
                 }
             }
+
 
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();

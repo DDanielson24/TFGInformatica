@@ -32,7 +32,7 @@ public class GasolinaProducer {
 
         //2. Leer el archivo realizando las transformaciones necesarias
         System.out.println("Comienza la lectura del archivo XLS");
-        XLSReader xmlReader = new XLSReader("/home/daniel/Escritorio/TFGInformatica/StreamingSystem/data/preciosEESS_es.xls");
+        XLSReader xmlReader = new XLSReader("/home/daniel/Escritorio/TFGInformatica/StreamingSystem/data/ficheroGasolina.xls");
         List<EstacionDeServicio> listaEDSs = xmlReader.readXLS();
 
         System.out.println("La longitud de la lista es: " + listaEDSs.size());

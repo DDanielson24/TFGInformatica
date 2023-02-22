@@ -3,6 +3,7 @@
 /home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/Trafico/TraficoProducer.java
 /home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/Gasolina/GasolinaProducer.java
 /home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/Gasolina/XLSReader.java
+/home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/PostgreSQL/CoordConverter.java
 /home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/Trafico/TraficoConsumer.java
 /home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/Gasolina/GasolinaConsumer.java
 /home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/EstacionDeServicio.java

@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -4281942819677106322L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"PuntoDeMedicion\",\"namespace\":\"org.TFGInformatica\",\"fields\":[{\"name\":\"idelem\",\"type\":\"int\"},{\"name\":\"descripcion\",\"type\":\"string\"},{\"name\":\"carga\",\"type\":\"int\"},{\"name\":\"nivelServicio\",\"type\":\"int\"},{\"name\":\"st_x\",\"type\":\"float\"},{\"name\":\"st_y\",\"type\":\"float\"}]}");
+  private static final long serialVersionUID = -4490928446538705185L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"PuntoDeMedicion\",\"namespace\":\"org.TFGInformatica\",\"fields\":[{\"name\":\"idelem\",\"type\":\"int\"},{\"name\":\"descripcion\",\"type\":\"string\"},{\"name\":\"carga\",\"type\":\"int\"},{\"name\":\"nivelServicio\",\"type\":\"int\"},{\"name\":\"st_x\",\"type\":\"float\"},{\"name\":\"st_y\",\"type\":\"float\"},{\"name\":\"fechaActualizacion\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -77,6 +77,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
    private int nivelServicio;
    private float st_x;
    private float st_y;
+   private java.lang.CharSequence fechaActualizacion;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -93,14 +94,16 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
    * @param nivelServicio The new value for nivelServicio
    * @param st_x The new value for st_x
    * @param st_y The new value for st_y
+   * @param fechaActualizacion The new value for fechaActualizacion
    */
-  public PuntoDeMedicion(java.lang.Integer idelem, java.lang.CharSequence descripcion, java.lang.Integer carga, java.lang.Integer nivelServicio, java.lang.Float st_x, java.lang.Float st_y) {
+  public PuntoDeMedicion(java.lang.Integer idelem, java.lang.CharSequence descripcion, java.lang.Integer carga, java.lang.Integer nivelServicio, java.lang.Float st_x, java.lang.Float st_y, java.lang.CharSequence fechaActualizacion) {
     this.idelem = idelem;
     this.descripcion = descripcion;
     this.carga = carga;
     this.nivelServicio = nivelServicio;
     this.st_x = st_x;
     this.st_y = st_y;
+    this.fechaActualizacion = fechaActualizacion;
   }
 
   public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
@@ -114,6 +117,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
     case 3: return nivelServicio;
     case 4: return st_x;
     case 5: return st_y;
+    case 6: return fechaActualizacion;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -128,6 +132,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
     case 3: nivelServicio = (java.lang.Integer)value$; break;
     case 4: st_x = (java.lang.Float)value$; break;
     case 5: st_y = (java.lang.Float)value$; break;
+    case 6: fechaActualizacion = (java.lang.CharSequence)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -235,6 +240,23 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
   }
 
   /**
+   * Gets the value of the 'fechaActualizacion' field.
+   * @return The value of the 'fechaActualizacion' field.
+   */
+  public java.lang.CharSequence getFechaActualizacion() {
+    return fechaActualizacion;
+  }
+
+
+  /**
+   * Sets the value of the 'fechaActualizacion' field.
+   * @param value the value to set.
+   */
+  public void setFechaActualizacion(java.lang.CharSequence value) {
+    this.fechaActualizacion = value;
+  }
+
+  /**
    * Creates a new PuntoDeMedicion RecordBuilder.
    * @return A new PuntoDeMedicion RecordBuilder
    */
@@ -281,6 +303,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
     private int nivelServicio;
     private float st_x;
     private float st_y;
+    private java.lang.CharSequence fechaActualizacion;
 
     /** Creates a new Builder */
     private Builder() {
@@ -317,6 +340,10 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
         this.st_y = data().deepCopy(fields()[5].schema(), other.st_y);
         fieldSetFlags()[5] = other.fieldSetFlags()[5];
       }
+      if (isValidValue(fields()[6], other.fechaActualizacion)) {
+        this.fechaActualizacion = data().deepCopy(fields()[6].schema(), other.fechaActualizacion);
+        fieldSetFlags()[6] = other.fieldSetFlags()[6];
+      }
     }
 
     /**
@@ -348,6 +375,10 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       if (isValidValue(fields()[5], other.st_y)) {
         this.st_y = data().deepCopy(fields()[5].schema(), other.st_y);
         fieldSetFlags()[5] = true;
+      }
+      if (isValidValue(fields()[6], other.fechaActualizacion)) {
+        this.fechaActualizacion = data().deepCopy(fields()[6].schema(), other.fechaActualizacion);
+        fieldSetFlags()[6] = true;
       }
     }
 
@@ -586,6 +617,46 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       return this;
     }
 
+    /**
+      * Gets the value of the 'fechaActualizacion' field.
+      * @return The value.
+      */
+    public java.lang.CharSequence getFechaActualizacion() {
+      return fechaActualizacion;
+    }
+
+
+    /**
+      * Sets the value of the 'fechaActualizacion' field.
+      * @param value The value of 'fechaActualizacion'.
+      * @return This builder.
+      */
+    public org.TFGInformatica.PuntoDeMedicion.Builder setFechaActualizacion(java.lang.CharSequence value) {
+      validate(fields()[6], value);
+      this.fechaActualizacion = value;
+      fieldSetFlags()[6] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'fechaActualizacion' field has been set.
+      * @return True if the 'fechaActualizacion' field has been set, false otherwise.
+      */
+    public boolean hasFechaActualizacion() {
+      return fieldSetFlags()[6];
+    }
+
+
+    /**
+      * Clears the value of the 'fechaActualizacion' field.
+      * @return This builder.
+      */
+    public org.TFGInformatica.PuntoDeMedicion.Builder clearFechaActualizacion() {
+      fechaActualizacion = null;
+      fieldSetFlags()[6] = false;
+      return this;
+    }
+
     @Override
     @SuppressWarnings("unchecked")
     public PuntoDeMedicion build() {
@@ -597,6 +668,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
         record.nivelServicio = fieldSetFlags()[3] ? this.nivelServicio : (java.lang.Integer) defaultValue(fields()[3]);
         record.st_x = fieldSetFlags()[4] ? this.st_x : (java.lang.Float) defaultValue(fields()[4]);
         record.st_y = fieldSetFlags()[5] ? this.st_y : (java.lang.Float) defaultValue(fields()[5]);
+        record.fechaActualizacion = fieldSetFlags()[6] ? this.fechaActualizacion : (java.lang.CharSequence) defaultValue(fields()[6]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -641,6 +713,8 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
 
     out.writeFloat(this.st_y);
 
+    out.writeString(this.fechaActualizacion);
+
   }
 
   @Override public void customDecode(org.apache.avro.io.ResolvingDecoder in)
@@ -660,8 +734,10 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
 
       this.st_y = in.readFloat();
 
+      this.fechaActualizacion = in.readString(this.fechaActualizacion instanceof Utf8 ? (Utf8)this.fechaActualizacion : null);
+
     } else {
-      for (int i = 0; i < 6; i++) {
+      for (int i = 0; i < 7; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           this.idelem = in.readInt();
@@ -685,6 +761,10 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
 
         case 5:
           this.st_y = in.readFloat();
+          break;
+
+        case 6:
+          this.fechaActualizacion = in.readString(this.fechaActualizacion instanceof Utf8 ? (Utf8)this.fechaActualizacion : null);
           break;
 
         default:

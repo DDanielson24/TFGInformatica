@@ -13,6 +13,7 @@
         { "name": "precioGasoleoA", "type": "float" },
         { "name": "precioGasoleoPremium", "type": "float" },
         { "name": "longitud", "type": "float" },
-        { "name": "latitud", "type": "float" }
+        { "name": "latitud", "type": "float" },
+        { "name": "fechaActualizacion", "type": "string" }
     ]
 }

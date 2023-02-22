@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -6576347655493510526L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"EstacionDeServicio\",\"namespace\":\"org.TFGInformatica\",\"fields\":[{\"name\":\"rotulo\",\"type\":\"string\"},{\"name\":\"direccion\",\"type\":\"string\"},{\"name\":\"margen\",\"type\":\"string\"},{\"name\":\"municipio\",\"type\":\"string\"},{\"name\":\"codigoPostal\",\"type\":\"int\"},{\"name\":\"precioGasolina95\",\"type\":\"float\"},{\"name\":\"precioGasolina98\",\"type\":\"float\"},{\"name\":\"precioGasoleoA\",\"type\":\"float\"},{\"name\":\"precioGasoleoPremium\",\"type\":\"float\"},{\"name\":\"longitud\",\"type\":\"float\"},{\"name\":\"latitud\",\"type\":\"float\"}]}");
+  private static final long serialVersionUID = 3156670346356032387L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"EstacionDeServicio\",\"namespace\":\"org.TFGInformatica\",\"fields\":[{\"name\":\"rotulo\",\"type\":\"string\"},{\"name\":\"direccion\",\"type\":\"string\"},{\"name\":\"margen\",\"type\":\"string\"},{\"name\":\"municipio\",\"type\":\"string\"},{\"name\":\"codigoPostal\",\"type\":\"int\"},{\"name\":\"precioGasolina95\",\"type\":\"float\"},{\"name\":\"precioGasolina98\",\"type\":\"float\"},{\"name\":\"precioGasoleoA\",\"type\":\"float\"},{\"name\":\"precioGasoleoPremium\",\"type\":\"float\"},{\"name\":\"longitud\",\"type\":\"float\"},{\"name\":\"latitud\",\"type\":\"float\"},{\"name\":\"fechaActualizacion\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -82,6 +82,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
    private float precioGasoleoPremium;
    private float longitud;
    private float latitud;
+   private java.lang.CharSequence fechaActualizacion;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -103,8 +104,9 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
    * @param precioGasoleoPremium The new value for precioGasoleoPremium
    * @param longitud The new value for longitud
    * @param latitud The new value for latitud
+   * @param fechaActualizacion The new value for fechaActualizacion
    */
-  public EstacionDeServicio(java.lang.CharSequence rotulo, java.lang.CharSequence direccion, java.lang.CharSequence margen, java.lang.CharSequence municipio, java.lang.Integer codigoPostal, java.lang.Float precioGasolina95, java.lang.Float precioGasolina98, java.lang.Float precioGasoleoA, java.lang.Float precioGasoleoPremium, java.lang.Float longitud, java.lang.Float latitud) {
+  public EstacionDeServicio(java.lang.CharSequence rotulo, java.lang.CharSequence direccion, java.lang.CharSequence margen, java.lang.CharSequence municipio, java.lang.Integer codigoPostal, java.lang.Float precioGasolina95, java.lang.Float precioGasolina98, java.lang.Float precioGasoleoA, java.lang.Float precioGasoleoPremium, java.lang.Float longitud, java.lang.Float latitud, java.lang.CharSequence fechaActualizacion) {
     this.rotulo = rotulo;
     this.direccion = direccion;
     this.margen = margen;
@@ -116,6 +118,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
     this.precioGasoleoPremium = precioGasoleoPremium;
     this.longitud = longitud;
     this.latitud = latitud;
+    this.fechaActualizacion = fechaActualizacion;
   }
 
   public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
@@ -134,6 +137,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
     case 8: return precioGasoleoPremium;
     case 9: return longitud;
     case 10: return latitud;
+    case 11: return fechaActualizacion;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -153,6 +157,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
     case 8: precioGasoleoPremium = (java.lang.Float)value$; break;
     case 9: longitud = (java.lang.Float)value$; break;
     case 10: latitud = (java.lang.Float)value$; break;
+    case 11: fechaActualizacion = (java.lang.CharSequence)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -345,6 +350,23 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
   }
 
   /**
+   * Gets the value of the 'fechaActualizacion' field.
+   * @return The value of the 'fechaActualizacion' field.
+   */
+  public java.lang.CharSequence getFechaActualizacion() {
+    return fechaActualizacion;
+  }
+
+
+  /**
+   * Sets the value of the 'fechaActualizacion' field.
+   * @param value the value to set.
+   */
+  public void setFechaActualizacion(java.lang.CharSequence value) {
+    this.fechaActualizacion = value;
+  }
+
+  /**
    * Creates a new EstacionDeServicio RecordBuilder.
    * @return A new EstacionDeServicio RecordBuilder
    */
@@ -396,6 +418,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
     private float precioGasoleoPremium;
     private float longitud;
     private float latitud;
+    private java.lang.CharSequence fechaActualizacion;
 
     /** Creates a new Builder */
     private Builder() {
@@ -452,6 +475,10 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
         this.latitud = data().deepCopy(fields()[10].schema(), other.latitud);
         fieldSetFlags()[10] = other.fieldSetFlags()[10];
       }
+      if (isValidValue(fields()[11], other.fechaActualizacion)) {
+        this.fechaActualizacion = data().deepCopy(fields()[11].schema(), other.fechaActualizacion);
+        fieldSetFlags()[11] = other.fieldSetFlags()[11];
+      }
     }
 
     /**
@@ -503,6 +530,10 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       if (isValidValue(fields()[10], other.latitud)) {
         this.latitud = data().deepCopy(fields()[10].schema(), other.latitud);
         fieldSetFlags()[10] = true;
+      }
+      if (isValidValue(fields()[11], other.fechaActualizacion)) {
+        this.fechaActualizacion = data().deepCopy(fields()[11].schema(), other.fechaActualizacion);
+        fieldSetFlags()[11] = true;
       }
     }
 
@@ -939,6 +970,46 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       return this;
     }
 
+    /**
+      * Gets the value of the 'fechaActualizacion' field.
+      * @return The value.
+      */
+    public java.lang.CharSequence getFechaActualizacion() {
+      return fechaActualizacion;
+    }
+
+
+    /**
+      * Sets the value of the 'fechaActualizacion' field.
+      * @param value The value of 'fechaActualizacion'.
+      * @return This builder.
+      */
+    public org.TFGInformatica.EstacionDeServicio.Builder setFechaActualizacion(java.lang.CharSequence value) {
+      validate(fields()[11], value);
+      this.fechaActualizacion = value;
+      fieldSetFlags()[11] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'fechaActualizacion' field has been set.
+      * @return True if the 'fechaActualizacion' field has been set, false otherwise.
+      */
+    public boolean hasFechaActualizacion() {
+      return fieldSetFlags()[11];
+    }
+
+
+    /**
+      * Clears the value of the 'fechaActualizacion' field.
+      * @return This builder.
+      */
+    public org.TFGInformatica.EstacionDeServicio.Builder clearFechaActualizacion() {
+      fechaActualizacion = null;
+      fieldSetFlags()[11] = false;
+      return this;
+    }
+
     @Override
     @SuppressWarnings("unchecked")
     public EstacionDeServicio build() {
@@ -955,6 +1026,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
         record.precioGasoleoPremium = fieldSetFlags()[8] ? this.precioGasoleoPremium : (java.lang.Float) defaultValue(fields()[8]);
         record.longitud = fieldSetFlags()[9] ? this.longitud : (java.lang.Float) defaultValue(fields()[9]);
         record.latitud = fieldSetFlags()[10] ? this.latitud : (java.lang.Float) defaultValue(fields()[10]);
+        record.fechaActualizacion = fieldSetFlags()[11] ? this.fechaActualizacion : (java.lang.CharSequence) defaultValue(fields()[11]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -1009,6 +1081,8 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
 
     out.writeFloat(this.latitud);
 
+    out.writeString(this.fechaActualizacion);
+
   }
 
   @Override public void customDecode(org.apache.avro.io.ResolvingDecoder in)
@@ -1038,8 +1112,10 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
 
       this.latitud = in.readFloat();
 
+      this.fechaActualizacion = in.readString(this.fechaActualizacion instanceof Utf8 ? (Utf8)this.fechaActualizacion : null);
+
     } else {
-      for (int i = 0; i < 11; i++) {
+      for (int i = 0; i < 12; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           this.rotulo = in.readString(this.rotulo instanceof Utf8 ? (Utf8)this.rotulo : null);
@@ -1083,6 +1159,10 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
 
         case 10:
           this.latitud = in.readFloat();
+          break;
+
+        case 11:
+          this.fechaActualizacion = in.readString(this.fechaActualizacion instanceof Utf8 ? (Utf8)this.fechaActualizacion : null);
           break;
 
         default:
