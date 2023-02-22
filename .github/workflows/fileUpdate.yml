@@ -1,7 +1,8 @@
 name: fileUpdate
 
 on:
-    push
+    schedule:
+        - cron: '*/15 * * * *'
         
 jobs:
 
