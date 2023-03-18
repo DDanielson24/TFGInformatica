@@ -6,6 +6,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
+import java.net.Inet4Address;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Properties;
@@ -20,13 +21,13 @@ public class TraficoConsumer {
         //1. Crear el consumidor de Kafka y leer a través del topic
         //Creamos las propiedades necesarias para el consumidor
         Properties props = new Properties();
-        props.setProperty("bootstrap.servers", "192.168.0.24:9092");
+        props.setProperty("bootstrap.servers", "192.168.0.37:9092");
         props.setProperty("key.deserializer", StringDeserializer.class.getName());
         props.setProperty("value.deserializer", KafkaAvroDeserializer.class.getName());
         props.setProperty("group.id", "traficoConsumerGroup");
         props.setProperty("auto.offset.reset", "latest");
         props.setProperty("specific.avro.reader", "true");
-        props.setProperty("schema.registry.url", "http://192.168.0.24:8081");
+        props.setProperty("schema.registry.url", "https://192.168.0.37:8081");
 
         //Creamos el consumidor, nos suscribimos y leemos los PM
         KafkaConsumer<String, PuntoDeMedicion> traficoConsumer = new KafkaConsumer<String, PuntoDeMedicion>(props);
