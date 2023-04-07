@@ -107,7 +107,6 @@ public class XMLReader {
 
                     //Comprobamos si no ha surgido un error en la creación del PM. Si no, añadimos a la lista
                     if (!error) {
-                        System.out.println("La fecha es: " + fecha_actualizacion);
                         pm.setFechaActualizacion(fecha_actualizacion);
                         System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " creado exitosamente");
                         listaDevolver.add(pm);
