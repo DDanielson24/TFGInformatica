@@ -12,7 +12,7 @@ public class PSQLConnectionTrafico {
 
     private final String HOST = "localhost";
     private final String PUERTO = "5432";
-    private final String DATABASE = "TraficoData";
+    private final String DATABASE = "TFGInformatica";
     private final String USER = "fdaniel";
     private final String PASSWORD = "TFGInformatica";
     private String url = "jdbc:postgresql://" + HOST + ":" + PUERTO + "/" + DATABASE;
@@ -56,6 +56,8 @@ public class PSQLConnectionTrafico {
         else { //INSERT
 
             float resultConverted[] = coordConverter.convertUTMToLatLong(Float.toString(pm.getStX()), Float.toString(pm.getStY()));
+            System.out.println(resultConverted[0]);
+            System.out.println(resultConverted[1]);
             try {
                 Statement statement = conn.createStatement();
                 statement.execute(

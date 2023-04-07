@@ -13,11 +13,12 @@ public class CoordConverter {
         float latlonConverted[] = new float[2];
 
         try {
-            ProcessBuilder pb = new ProcessBuilder("python3", "/home/daniel/Escritorio/TFGInformatica/StreamingSystem/UTM-to-Longtitude-Latitude-System/utm_to_longlat.py", xOffset, yOffset, "30");
+            ProcessBuilder pb = new ProcessBuilder("python3", "/home/daniel/Escritorio/TFGInformatica/StreamingSystem/UTM-to-Longtitude-Latitude-System-GitRepo/utm_to_longlat.py", xOffset, yOffset, "30");
             Process p = pb.start();
             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
             String line = null;
             while ((line = reader.readLine()) != null) {
+                System.out.println("coordConverter = " + line);
                 if (line.startsWith("lat: ")) {
                     latlonConverted[0] = Float.parseFloat(line.substring(5, line.length()));
                 }

@@ -8,7 +8,7 @@ public class PSQLConnectionGasolina {
 
     private final String HOST = "localhost";
     private final String PUERTO = "5432";
-    private final String DATABASE = "GasolinaData";
+    private final String DATABASE = "TFGInformatica";
     private final String USER = "fdaniel";
     private final String PASSWORD = "TFGInformatica";
     private String url = "jdbc:postgresql://" + HOST + ":" + PUERTO + "/" + DATABASE;

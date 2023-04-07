@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="TFGInformatica" />
+        <module name="StreamingSystem" />
       </profile>
     </annotationProcessing>
   </component>

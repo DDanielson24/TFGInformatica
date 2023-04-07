@@ -18,7 +18,7 @@ public class TraficoProducer {
 
     public static void main(String[] args) {
 
-        //1. Ejecutar el script pullRepo.sh que hará el git pull al repositorio remoto
+        /*//1. Ejecutar el script pullRepo.sh que hará el git pull al repositorio remoto
         try {
             ProcessBuilder pb = new ProcessBuilder("/home/daniel/Escritorio/TFGInformatica/pullRepo.sh");
             Process p = pb.start();
@@ -29,7 +29,7 @@ public class TraficoProducer {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
         //2. Leer el archivo realizando las transformaciones necesarias
         System.out.println("Comienza la lectura del archivo XML");
@@ -41,15 +41,17 @@ public class TraficoProducer {
         //3. Crear el productor de Kafka y enviar a través del topic
         //Creamos las propiedades necesarias para el Productor
         Properties props = new Properties();
-        props.setProperty("bootstrap.servers", "192.168.0.24:9092");
+        props.setProperty("bootstrap.servers", "10.0.2.15:9092");
         props.setProperty("key.serializer", StringSerializer.class.getName());
         props.setProperty("value.serializer", KafkaAvroSerializer.class.getName());
-        props.setProperty("schema.registry.url", "http://192.168.0.24:8081");
+        props.setProperty("schema.registry.url", "http://10.0.2.15:8081");
 
         //Creamos el productor y enviamos el PM
         KafkaProducer<String, PuntoDeMedicion> traficoProducer = new KafkaProducer<String, PuntoDeMedicion>(props);
         for (PuntoDeMedicion pm: listaPMs) {
 
+            System.out.println(pm.getStX());
+            System.out.println(pm.getStY());
             ProducerRecord<String, PuntoDeMedicion> producerRecord = new ProducerRecord<>("traficoData", pm);
             traficoProducer.send(producerRecord);
             traficoProducer.flush();
