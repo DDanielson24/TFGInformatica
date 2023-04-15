@@ -40,7 +40,7 @@ public class TraficoProducer {
         props.setProperty("value.serializer", KafkaAvroSerializer.class.getName());
         props.setProperty("schema.registry.url", "https://192.168.0.37::8081");
 
-        //Creamos el productor y el WatchService en el directorio data
+        //Creamos el productor y el WatchService en el directorio data - NO EN PRODUCCIÓN AÚN
         KafkaProducer<String, PuntoDeMedicion> traficoProducer = new KafkaProducer<String, PuntoDeMedicion>(props);
         System.out.println("El productor ha sido creado. Analizando el directorio data para actualizaciones...");
 
