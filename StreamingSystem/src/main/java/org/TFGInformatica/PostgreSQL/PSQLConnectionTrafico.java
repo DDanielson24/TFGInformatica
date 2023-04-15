@@ -56,17 +56,19 @@ public class PSQLConnectionTrafico {
         else { //INSERT
 
             float resultConverted[] = coordConverter.convertUTMToLatLong(Float.toString(pm.getStX()), Float.toString(pm.getStY()));
-            System.out.println(resultConverted[0]);
-            System.out.println(resultConverted[1]);
             try {
                 Statement statement = conn.createStatement();
                 statement.execute(
+                        "INSERT INTO \"UbicacionesLatLong\" " +
+                                "VALUES (" + pm.getIdelem() + ", " + resultConverted[0] +
+                                ", " + resultConverted[1] + ");");
+                System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido insertado en la BD: UbicacionesLatLong");
+                statement.execute(
                         "INSERT INTO \"PuntosDeMedicion\" " +
                         "VALUES (" + pm.getIdelem() + ", '" + pm.getDescripcion() + "', " +
-                                pm.getCarga() + ", " + pm.getNivelServicio() + ", " +
-                                resultConverted[0] + ", " + resultConverted[1] + ", '" +
+                                pm.getCarga() + ", " + pm.getNivelServicio() + ", '" +
                                 pm.getFechaActualizacion() + "');");
-                System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido insertado en la BD");
+                System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido insertado en la BD: PuntosDeMedicion");
                 query = true;
             } catch (SQLException e) {
                 e.printStackTrace();

@@ -57,15 +57,21 @@ public class PSQLConnectionGasolina {
             try {
                 Statement statement = conn.createStatement();
                 statement.execute(
-                        "INSERT INTO \"EstacionesDeServicio\" " +
-                                "VALUES ('" + es.getRotulo() + "', '" + es.getDireccion() + "', '" +
-                                es.getMargen() + "', '" + es.getMunicipio() +
-                                "', " + es.getCodigoPostal() + ", " + es.getPrecioGasolina95() +
-                                ", " + es.getPrecioGasolina98() + ", " + es.getPrecioGasoleoA() +
-                                ", " + es.getPrecioGasoleoPremium() + ", " + es.getLatitud() +
-                                ", " + es.getLongitud() + ", '" + es.getFechaActualizacion() + "');");
+                        "INSERT INTO \"UbicacionesLatLong\" " +
+                                "VALUES (" + es.getIdelem() + ", " + es.getLatitud() +
+                                ", " + es.getLongitud() + ");");
                 System.out.println("EstacionDeServicio: " + es.getRotulo() + ", " + es.getDireccion() +
-                        ", " + es.getMargen() + ", " + es.getMunicipio() + " ha sido insertado en la BD");
+                        ", " + es.getMargen() + ", " + es.getMunicipio() + " ha sido insertado en la BD: UbicacionesLatLong");
+                statement.execute(
+                        "INSERT INTO \"EstacionesDeServicio\" " +
+                                "VALUES (" + es.getIdelem() + ", '" + es.getRotulo() +
+                                "', '" + es.getDireccion() + "', '" + es.getMargen() +
+                                "', '" + es.getMunicipio() + "', " + es.getCodigoPostal() +
+                                ", " + es.getPrecioGasolina95() + ", " + es.getPrecioGasolina98() +
+                                ", " + es.getPrecioGasoleoA() + ", " + es.getPrecioGasoleoPremium() +
+                                ", '" + es.getFechaActualizacion() + "');");
+                System.out.println("EstacionDeServicio: " + es.getRotulo() + ", " + es.getDireccion() +
+                        ", " + es.getMargen() + ", " + es.getMunicipio() + " ha sido insertado en la BD: EstacionesDeServicio");
                 query = true;
             } catch (SQLException e) {
                 e.printStackTrace();

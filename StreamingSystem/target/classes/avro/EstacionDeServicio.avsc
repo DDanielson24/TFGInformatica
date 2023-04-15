@@ -3,6 +3,7 @@
     "namespace": "org.TFGInformatica",
     "name": "EstacionDeServicio",
     "fields": [
+        { "name": "idelem", "type": "int" },
         { "name": "rotulo", "type": "string" },
         { "name": "direccion", "type": "string" },
         { "name": "margen", "type": "string" },

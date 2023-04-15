@@ -40,18 +40,24 @@ public class TraficoProducer {
 
         //3. Crear el productor de Kafka y enviar a través del topic
         //Creamos las propiedades necesarias para el Productor
-        Properties props = new Properties();
+        //UBUNTU VIRTUAL BOX
+        /*Properties props = new Properties();
         props.setProperty("bootstrap.servers", "10.0.2.15:9092");
         props.setProperty("key.serializer", StringSerializer.class.getName());
         props.setProperty("value.serializer", KafkaAvroSerializer.class.getName());
-        props.setProperty("schema.registry.url", "http://10.0.2.15:8081");
+        props.setProperty("schema.registry.url", "http://10.0.2.15:8081");*/
+
+        //KALI LINUX
+        Properties props = new Properties();
+        props.setProperty("bootstrap.servers", "192.168.0.33:9092");
+        props.setProperty("key.serializer", StringSerializer.class.getName());
+        props.setProperty("value.serializer", KafkaAvroSerializer.class.getName());
+        props.setProperty("schema.registry.url", "http://192.168.0.33:8081");
 
         //Creamos el productor y enviamos el PM
         KafkaProducer<String, PuntoDeMedicion> traficoProducer = new KafkaProducer<String, PuntoDeMedicion>(props);
         for (PuntoDeMedicion pm: listaPMs) {
 
-            System.out.println(pm.getStX());
-            System.out.println(pm.getStY());
             ProducerRecord<String, PuntoDeMedicion> producerRecord = new ProducerRecord<>("traficoData", pm);
             traficoProducer.send(producerRecord);
             traficoProducer.flush();
