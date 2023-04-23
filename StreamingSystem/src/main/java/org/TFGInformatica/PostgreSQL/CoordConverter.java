@@ -18,7 +18,6 @@ public class CoordConverter {
             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
             String line = null;
             while ((line = reader.readLine()) != null) {
-                System.out.println("coordConverter = " + line);
                 if (line.startsWith("lat: ")) {
                     latlonConverted[0] = Float.parseFloat(line.substring(5, line.length()));
                 }

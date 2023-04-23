@@ -34,7 +34,6 @@ public class PSQLConnectionTrafico {
     public boolean addRow(PuntoDeMedicion pm) {
 
         boolean query = false;
-        System.out.println("La fecha es: " + pm.getFechaActualizacion());
         if (this.checkIfExists(pm)) { //UPDATE
 
             try {
