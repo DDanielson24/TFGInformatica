@@ -34,15 +34,11 @@ public class PSQLConnectionGasolina {
 
             try {
                 Statement statement = conn.createStatement();
-                statement.execute(
-                        "UPDATE \"EstacionesDeServicio\" " +
-                                "SET precio_gasolina_95 = " + es.getPrecioGasolina95() + ", " +
-                                    "precio_gasolina_98 = " + es.getPrecioGasolina98() + ", " +
-                                    "precio_gasoleo_a = " + es.getPrecioGasoleoA() + ", " +
-                                    "precio_gasoleo_premium = " + es.getPrecioGasoleoPremium() + ", " +
-                                    "fecha_actualizacion = '" + es.getFechaActualizacion() + "' " +
-                                "WHERE rotulo = '" + es.getRotulo() + "' AND direccion = '" + es.getDireccion() +
-                                "' AND municipio = '" + es.getMunicipio() + "';");
+                //Actualizamos los valores del precio de la gasolina
+                this.actualizarGasolina95(es);
+                this.actualizarGasolina98(es);
+                this.actualizarGasoleoA(es);
+                this.actualizarGasoleoPremium(es);
                 System.out.println("EstacionDeServicio: " + es.getRotulo() + ", " + es.getDireccion() +
                                    ", " + es.getMargen() + ", " + es.getMunicipio() + " ha sido actualizado en la BD");
                 query = true;
@@ -63,13 +59,17 @@ public class PSQLConnectionGasolina {
                 System.out.println("EstacionDeServicio: " + es.getRotulo() + ", " + es.getDireccion() +
                         ", " + es.getMargen() + ", " + es.getMunicipio() + " ha sido insertado en la BD: UbicacionesLatLong");
                 statement.execute(
-                        "INSERT INTO \"EstacionesDeServicio\" " +
+                        "INSERT INTO \"EstacionesDeServicio\" (idelem, rotulo, direccion, " +
+                                "margen, municipio, codigo_postal, fecha_actualizacion) " +
                                 "VALUES (" + es.getIdelem() + ", '" + es.getRotulo() +
                                 "', '" + es.getDireccion() + "', '" + es.getMargen() +
                                 "', '" + es.getMunicipio() + "', " + es.getCodigoPostal() +
-                                ", " + es.getPrecioGasolina95() + ", " + es.getPrecioGasolina98() +
-                                ", " + es.getPrecioGasoleoA() + ", " + es.getPrecioGasoleoPremium() +
                                 ", '" + es.getFechaActualizacion() + "');");
+                //Actualizamos los valores del precio de la gasolina
+                this.actualizarGasolina95(es);
+                this.actualizarGasolina98(es);
+                this.actualizarGasoleoA(es);
+                this.actualizarGasoleoPremium(es);
                 System.out.println("EstacionDeServicio: " + es.getRotulo() + ", " + es.getDireccion() +
                         ", " + es.getMargen() + ", " + es.getMunicipio() + " ha sido insertado en la BD: EstacionesDeServicio");
                 query = true;
@@ -102,5 +102,89 @@ public class PSQLConnectionGasolina {
 
         return query;
 
+    }
+
+    private void actualizarGasolina95 (EstacionDeServicio es) {
+        Float precioGasolina95 = es.getPrecioGasolina95();
+        try {
+            Statement statement = conn.createStatement();
+            if (precioGasolina95.equals(0f)) {
+                statement.execute(
+                            "UPDATE \"EstacionesDeServicio\" " +
+                                "SET precio_gasolina_95 = NULL " +
+                                "WHERE idelem = " + es.getIdelem() + ";");
+            }
+            else {
+                statement.execute(
+                            "UPDATE \"EstacionesDeServicio\" " +
+                                "SET precio_gasolina_95 = " + precioGasolina95 + " " +
+                                "WHERE idelem = " + es.getIdelem() + ";");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void actualizarGasolina98 (EstacionDeServicio es) {
+        Float precioGasolina98 = es.getPrecioGasolina98();
+        try {
+            Statement statement = conn.createStatement();
+            if (precioGasolina98.equals(0f)) {
+                statement.execute(
+                            "UPDATE \"EstacionesDeServicio\" " +
+                                "SET precio_gasolina_98 = NULL " +
+                                "WHERE idelem = " + es.getIdelem() + ";");
+            }
+            else {
+                statement.execute(
+                            "UPDATE \"EstacionesDeServicio\" " +
+                                "SET precio_gasolina_98 = " + precioGasolina98 + " " +
+                                "WHERE idelem = " + es.getIdelem() + ";");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void actualizarGasoleoA (EstacionDeServicio es) {
+        Float precioGasoleoA = es.getPrecioGasoleoA();
+        try {
+            Statement statement = conn.createStatement();
+            if (precioGasoleoA.equals(0f)) {
+                statement.execute(
+                            "UPDATE \"EstacionesDeServicio\" " +
+                                "SET precio_gasoleo_a = NULL " +
+                                "WHERE idelem = " + es.getIdelem() + ";");
+            }
+            else {
+                statement.execute(
+                            "UPDATE \"EstacionesDeServicio\" " +
+                                "SET precio_gasoleo_a = " + precioGasoleoA + " " +
+                                "WHERE idelem = " + es.getIdelem() + ";");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void actualizarGasoleoPremium (EstacionDeServicio es) {
+        Float precioGasoleoPremium = es.getPrecioGasoleoPremium();
+        try {
+            Statement statement = conn.createStatement();
+            if (precioGasoleoPremium.equals(0f)) {
+                statement.execute(
+                            "UPDATE \"EstacionesDeServicio\" " +
+                                "SET precio_gasoleo_premium = NULL " +
+                                "WHERE idelem = " + es.getIdelem() + ";");
+            }
+            else {
+                statement.execute(
+                            "UPDATE \"EstacionesDeServicio\" " +
+                                "SET precio_gasoleo_premium = " + precioGasoleoPremium + " " +
+                                "WHERE idelem = " + es.getIdelem() + ";");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
