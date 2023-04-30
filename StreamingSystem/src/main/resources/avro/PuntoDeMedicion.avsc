@@ -5,6 +5,7 @@
     "fields": [
         { "name": "idelem", "type": "int" },
         { "name": "descripcion", "type": "string" },
+        { "name": "intensidad", "type": "int" },
         { "name": "carga", "type": "int" },
         { "name": "nivelServicio", "type": "int" },
         { "name": "st_x", "type": "float" },

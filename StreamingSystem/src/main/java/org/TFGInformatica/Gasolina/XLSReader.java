@@ -44,8 +44,6 @@ public class XLSReader {
                     Float precioGasolina98 = 0f;
 
                     es.setMunicipio(row.getCell(1).toString());
-                    es.setMargen(row.getCell(5).toString());
-                    es.setCodigoPostal(Integer.parseInt(row.getCell(3).toString()));
                     es.setDireccion(row.getCell(4).toString());
                     es.setLongitud(this.floatConverter(row.getCell(6).toString()));
                     es.setLatitud(this.floatConverter(row.getCell(7).toString()));

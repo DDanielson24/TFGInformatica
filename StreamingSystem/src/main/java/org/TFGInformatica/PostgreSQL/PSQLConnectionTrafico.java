@@ -40,7 +40,8 @@ public class PSQLConnectionTrafico {
                 Statement statement = conn.createStatement();
                 statement.execute(
                         "UPDATE \"PuntosDeMedicion\" " +
-                        "SET carga = " + pm.getCarga() + ", " +
+                        "SET intensidad = " + pm.getIntensidad() + ", " +
+                            "carga = " + pm.getCarga() + ", " +
                             "nivel_servicio = " + pm.getNivelServicio() + ", " +
                             "fecha_actualizacion = '" + pm.getFechaActualizacion() + "' " +
                         "WHERE idelem = " + pm.getIdelem() + ";");
@@ -65,8 +66,8 @@ public class PSQLConnectionTrafico {
                 statement.execute(
                         "INSERT INTO \"PuntosDeMedicion\" " +
                         "VALUES (" + pm.getIdelem() + ", '" + pm.getDescripcion() + "', " +
-                                pm.getCarga() + ", " + pm.getNivelServicio() + ", '" +
-                                pm.getFechaActualizacion() + "');");
+                                pm.getIntensidad() + ", " + pm.getCarga() + ", " +
+                                pm.getNivelServicio() + ", '" + pm.getFechaActualizacion() + "');");
                 System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido insertado en la BD: PuntosDeMedicion");
                 query = true;
             } catch (SQLException e) {

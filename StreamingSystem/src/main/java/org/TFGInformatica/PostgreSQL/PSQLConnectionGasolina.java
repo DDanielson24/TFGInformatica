@@ -39,8 +39,9 @@ public class PSQLConnectionGasolina {
                 this.actualizarGasolina98(es);
                 this.actualizarGasoleoA(es);
                 this.actualizarGasoleoPremium(es);
+                this.actualizarPrecioMedioCarburante(es);
                 System.out.println("EstacionDeServicio: " + es.getRotulo() + ", " + es.getDireccion() +
-                                   ", " + es.getMargen() + ", " + es.getMunicipio() + " ha sido actualizado en la BD");
+                                   ", " + ", " + es.getMunicipio() + " ha sido actualizado en la BD");
                 query = true;
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -57,21 +58,21 @@ public class PSQLConnectionGasolina {
                                 "VALUES (" + es.getIdelem() + ", " + es.getLatitud() +
                                 ", " + es.getLongitud() + ");");
                 System.out.println("EstacionDeServicio: " + es.getRotulo() + ", " + es.getDireccion() +
-                        ", " + es.getMargen() + ", " + es.getMunicipio() + " ha sido insertado en la BD: UbicacionesLatLong");
+                       ", " + es.getMunicipio() + " ha sido insertado en la BD: UbicacionesLatLong");
                 statement.execute(
                         "INSERT INTO \"EstacionesDeServicio\" (idelem, rotulo, direccion, " +
-                                "margen, municipio, codigo_postal, fecha_actualizacion) " +
+                                "municipio, fecha_actualizacion) " +
                                 "VALUES (" + es.getIdelem() + ", '" + es.getRotulo() +
-                                "', '" + es.getDireccion() + "', '" + es.getMargen() +
-                                "', '" + es.getMunicipio() + "', " + es.getCodigoPostal() +
-                                ", '" + es.getFechaActualizacion() + "');");
+                                "', '" + es.getDireccion() + "', '" + es.getMunicipio() +
+                                "', '" + es.getFechaActualizacion() + "');");
                 //Actualizamos los valores del precio de la gasolina
                 this.actualizarGasolina95(es);
                 this.actualizarGasolina98(es);
                 this.actualizarGasoleoA(es);
                 this.actualizarGasoleoPremium(es);
+                this.actualizarPrecioMedioCarburante(es);
                 System.out.println("EstacionDeServicio: " + es.getRotulo() + ", " + es.getDireccion() +
-                        ", " + es.getMargen() + ", " + es.getMunicipio() + " ha sido insertado en la BD: EstacionesDeServicio");
+                        ", " + ", " + es.getMunicipio() + " ha sido insertado en la BD: EstacionesDeServicio");
                 query = true;
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -90,7 +91,7 @@ public class PSQLConnectionGasolina {
                     "SELECT EXISTS" +
                         "(SELECT * FROM \"EstacionesDeServicio\" " +
                         "WHERE rotulo = '" + es.getRotulo() + "' AND direccion = '" + es.getDireccion() +
-                        "' AND margen = '" + es.getMargen() + "'AND municipio = '" + es.getMunicipio() + "');");
+                        "'AND municipio = '" + es.getMunicipio() + "');");
             while (resultSet.next()) {
                 query = resultSet.getBoolean("exists");
             }
@@ -183,6 +184,49 @@ public class PSQLConnectionGasolina {
                                 "SET precio_gasoleo_premium = " + precioGasoleoPremium + " " +
                                 "WHERE idelem = " + es.getIdelem() + ";");
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void actualizarPrecioMedioCarburante (EstacionDeServicio es) {
+        int tiposCarburanteOfertados = 0;
+        float suma_precio_carburante = 0f;
+        Float precioGasolina95 = es.getPrecioGasolina95();
+        Float precioGasolina98 = es.getPrecioGasolina98();
+        Float precioGasoleoA = es.getPrecioGasoleoA();
+        Float precioGasoleoPremium = es.getPrecioGasoleoPremium();
+
+        //Comprobamos los tipos de carburantes ofertados, es decir, aquellos que no tienen valor 0
+        if (!precioGasolina95.equals(0f)) {
+            tiposCarburanteOfertados++;
+            suma_precio_carburante = suma_precio_carburante + precioGasolina95;
+        }
+        if (!precioGasolina98.equals(0f)) {
+            tiposCarburanteOfertados++;
+            suma_precio_carburante = suma_precio_carburante + precioGasolina98;
+        }
+        if (!precioGasoleoA.equals(0f)) {
+            tiposCarburanteOfertados++;
+            suma_precio_carburante = suma_precio_carburante + precioGasoleoA;
+        }
+        if (!precioGasoleoPremium.equals(0f)) {
+            tiposCarburanteOfertados++;
+            suma_precio_carburante = suma_precio_carburante + precioGasoleoPremium;
+        }
+
+        float precio_medio_carburante = 0f;
+        if (tiposCarburanteOfertados != 0) {
+            precio_medio_carburante = suma_precio_carburante / tiposCarburanteOfertados;
+        }
+
+        //Insertamos el valor promedio en la base de datos
+        try {
+            Statement statement = conn.createStatement();
+            statement.execute(
+                    "UPDATE \"EstacionesDeServicio\" " +
+                    "SET precio_medio_carburante = " + precio_medio_carburante + " " +
+                    "WHERE idelem = " + es.getIdelem() + ";");
         } catch (SQLException e) {
             e.printStackTrace();
         }
