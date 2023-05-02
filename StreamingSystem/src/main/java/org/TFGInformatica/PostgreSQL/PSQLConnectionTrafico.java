@@ -34,7 +34,7 @@ public class PSQLConnectionTrafico {
     public boolean addRow(PuntoDeMedicion pm) {
 
         boolean query = false;
-        if (this.checkIfExists(pm)) { //UPDATE
+        if (this.checkIfExists("PuntosDeMedicion", pm)) { //UPDATE
 
             try {
                 Statement statement = conn.createStatement();
@@ -58,14 +58,22 @@ public class PSQLConnectionTrafico {
             float resultConverted[] = coordConverter.convertUTMToLatLong(Float.toString(pm.getStX()), Float.toString(pm.getStY()));
             try {
                 Statement statement = conn.createStatement();
-                statement.execute(
-                        "INSERT INTO \"UbicacionesLatLong\" " +
+
+                //Comprobamos si está ya en la BD UbicacionesLatLong
+                if (!this.checkIfExists("UbicacionesLatLong", pm)) {
+                    statement.execute(
+                            "INSERT INTO \"UbicacionesLatLong\" " +
                                 "VALUES (" + pm.getIdelem() + ", " + resultConverted[0] +
                                 ", " + resultConverted[1] + ");");
-                System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido insertado en la BD: UbicacionesLatLong");
+                    System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido insertado en la BD: UbicacionesLatLong");
+                }
+                else {
+                    System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ya se encontraba en la BD: UbicacionesLatLong");
+                }
+
                 statement.execute(
                         "INSERT INTO \"PuntosDeMedicion\" " +
-                        "VALUES (" + pm.getIdelem() + ", '" + pm.getDescripcion() + "', " +
+                            "VALUES (" + pm.getIdelem() + ", '" + pm.getDescripcion() + "', " +
                                 pm.getIntensidad() + ", " + pm.getCarga() + ", " +
                                 pm.getNivelServicio() + ", '" + pm.getFechaActualizacion() + "');");
                 System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido insertado en la BD: PuntosDeMedicion");
@@ -77,7 +85,7 @@ public class PSQLConnectionTrafico {
         }
     }
 
-    private boolean checkIfExists(PuntoDeMedicion pm) {
+    private boolean checkIfExists(String database, PuntoDeMedicion pm) {
 
         boolean query = false;
         try {
@@ -85,7 +93,7 @@ public class PSQLConnectionTrafico {
             Statement statement = conn.createStatement();
             ResultSet resultSet = statement.executeQuery(
                     "SELECT EXISTS " +
-                    "(SELECT * FROM \"PuntosDeMedicion\" " +
+                    "(SELECT * FROM \"" + database + "\" " +
                     "WHERE idelem = " + pm.getIdelem() + ");");
             while (resultSet.next()) {
                 query = resultSet.getBoolean("exists");
@@ -99,4 +107,5 @@ public class PSQLConnectionTrafico {
         return query;
 
     }
+
 }

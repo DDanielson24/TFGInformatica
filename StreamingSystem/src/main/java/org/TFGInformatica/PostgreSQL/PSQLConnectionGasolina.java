@@ -30,7 +30,7 @@ public class PSQLConnectionGasolina {
     public boolean addRow(EstacionDeServicio es) {
 
         boolean query = false;
-        if (this.checkIfExists(es)) { //UPDATE
+        if (this.checkIfExists("EstacionesDeServicio", es)) { //UPDATE
 
             try {
                 Statement statement = conn.createStatement();
@@ -53,12 +53,20 @@ public class PSQLConnectionGasolina {
 
             try {
                 Statement statement = conn.createStatement();
-                statement.execute(
-                        "INSERT INTO \"UbicacionesLatLong\" " +
-                                "VALUES (" + es.getIdelem() + ", " + es.getLatitud() +
-                                ", " + es.getLongitud() + ");");
-                System.out.println("EstacionDeServicio: " + es.getRotulo() + ", " + es.getDireccion() +
-                       ", " + es.getMunicipio() + " ha sido insertado en la BD: UbicacionesLatLong");
+
+                if (!this.checkIfExists("UbicacionesLatLong", es)) {
+                    statement.execute(
+                                "INSERT INTO \"UbicacionesLatLong\" " +
+                                    "VALUES (" + es.getIdelem() + ", " + es.getLatitud() +
+                                    ", " + es.getLongitud() + ");");
+                    System.out.println("EstacionDeServicio: " + es.getRotulo() + ", " + es.getDireccion() +
+                            ", " + es.getMunicipio() + " ha sido insertado en la BD: UbicacionesLatLong");
+                }
+                else {
+                    System.out.println("EstacionDeServicio: " + es.getRotulo() + ", " + es.getDireccion() +
+                            ", " + ", " + es.getMunicipio() + " ya se encontraba en la BD: UbicacionesLatLong");
+                }
+
                 statement.execute(
                         "INSERT INTO \"EstacionesDeServicio\" (idelem, rotulo, direccion, " +
                                 "municipio, fecha_actualizacion) " +
@@ -81,7 +89,7 @@ public class PSQLConnectionGasolina {
         }
     }
 
-    private boolean checkIfExists(EstacionDeServicio es) {
+    private boolean checkIfExists(String database, EstacionDeServicio es) {
 
         boolean query = false;
         try {
@@ -89,9 +97,8 @@ public class PSQLConnectionGasolina {
             Statement statement = conn.createStatement();
             ResultSet resultSet = statement.executeQuery(
                     "SELECT EXISTS" +
-                        "(SELECT * FROM \"EstacionesDeServicio\" " +
-                        "WHERE rotulo = '" + es.getRotulo() + "' AND direccion = '" + es.getDireccion() +
-                        "'AND municipio = '" + es.getMunicipio() + "');");
+                        "(SELECT * FROM \"" + database + "\" " +
+                        "WHERE idelem = " + es.getIdelem() + ");");
             while (resultSet.next()) {
                 query = resultSet.getBoolean("exists");
             }
