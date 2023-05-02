@@ -19,19 +19,6 @@ public class TraficoProducer {
 
     public static void main(String[] args) {
 
-        /*//1. Ejecutar el script pullRepo.sh que hará el git pull al repositorio remoto
-        try {
-            ProcessBuilder pb = new ProcessBuilder("/home/daniel/Escritorio/TFGInformatica/pullRepo.sh");
-            Process p = pb.start();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            String line = null;
-            while ((line = reader.readLine()) != null) {
-                System.out.println("Script pullRepo.sh: " + line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-
         //3. Crear el productor de Kafka y enviar a través del topic
         //Creamos las propiedades necesarias para el Productor
         Properties props = new Properties();
@@ -40,14 +27,14 @@ public class TraficoProducer {
         props.setProperty("value.serializer", KafkaAvroSerializer.class.getName());
         props.setProperty("schema.registry.url", "https://192.168.0.37::8081");
 
-        //Creamos el productor y el WatchService en el directorio data - NO EN PRODUCCIÓN AÚN
+        //Creamos el productor y el WatchService en el directorio data
         KafkaProducer<String, PuntoDeMedicion> traficoProducer = new KafkaProducer<String, PuntoDeMedicion>(props);
         System.out.println("El productor ha sido creado. Analizando el directorio data para actualizaciones...");
 
         try {
             WatchService watchService = FileSystems.getDefault().newWatchService();
             Path path = Paths.get("/home/daniel/Escritorio/TFGInformatica/StreamingSystem/data/");
-            path.register(watchService, StandardWatchEventKinds.ENTRY_CREATE, StandardWatchEventKinds.ENTRY_MODIFY, StandardWatchEventKinds.ENTRY_DELETE);
+            path.register(watchService, StandardWatchEventKinds.ENTRY_CREATE, StandardWatchEventKinds.ENTRY_MODIFY);
             WatchKey key;
 
             //Bucle en el que el productor estará atento a si su fichero de datos ha sido actualizado
