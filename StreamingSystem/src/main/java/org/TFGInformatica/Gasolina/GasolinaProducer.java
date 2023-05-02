@@ -45,7 +45,7 @@ public class GasolinaProducer {
         props.setProperty("value.serializer", KafkaAvroSerializer.class.getName());
         props.setProperty("schema.registry.url", "http://10.0.2.15:8081");
 
-        //Creamos el productor y enviamos el PM
+        //Creamos el productor y el WatchService en el directorio data - NO EN PRODUCCIÓN AÚN
         KafkaProducer<String, EstacionDeServicio> gasolinaProducer = new KafkaProducer<String, EstacionDeServicio>(props);
         for (EstacionDeServicio es: listaEDSs) {
 
