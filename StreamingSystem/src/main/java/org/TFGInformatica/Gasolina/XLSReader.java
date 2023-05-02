@@ -88,10 +88,10 @@ public class XLSReader {
                     es.setRotulo(row.getCell(26).toString());
 
                     //Hashcode
+                    System.out.println("Hashcode: " + es.hashCode());
                     if (!this.hashcodeUsados.contains(es.hashCode())) {
                         es.setIdelem(es.hashCode());
                         this.hashcodeUsados.add(es.hashCode());
-                        System.out.println("Hashcode: " + es.hashCode());
                     }
                     else {
                         throw new Exception("EXCEPCIÓN: HAY UNA CLAVE PRIMARIA REPETIDA");

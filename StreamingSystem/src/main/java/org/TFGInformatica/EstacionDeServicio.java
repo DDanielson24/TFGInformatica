@@ -90,6 +90,13 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
    */
   public EstacionDeServicio() {}
 
+  @Override
+  public int hashCode() {
+    int hashCode = (this.rotulo.hashCode() * this.direccion.hashCode() * this.municipio.hashCode() *
+                    Float.hashCode(this.latitud) * Float.hashCode(this.longitud));
+    return hashCode;
+  }
+
   /**
    * All-args constructor.
    * @param idelem The new value for idelem
