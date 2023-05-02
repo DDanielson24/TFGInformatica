@@ -24,7 +24,6 @@ public class XMLReader {
         this.original_file = path;
         this.deleteTagsSet = new HashSet<>();
         this.deleteTagsSet.add("accesoAsociado");
-        this.deleteTagsSet.add("intensidad");
         this.deleteTagsSet.add("ocupacion");
         this.deleteTagsSet.add("intensidadSat");
         this.deleteTagsSet.add("subarea");
@@ -69,11 +68,12 @@ public class XMLReader {
                                     }
                                     else if (child.getNodeName().equals("descripcion")) {
                                         pm.setDescripcion(childs.item(j).getTextContent());
-
+                                    }
+                                    else if(child.getNodeName().equals("intensidad")) {
+                                        pm.setIntensidad(Integer.parseInt(childs.item(j).getTextContent()));
                                     }
                                     else if (child.getNodeName().equals("carga")) {
                                         pm.setCarga(Integer.parseInt(childs.item(j).getTextContent()));
-
                                     }
                                     else if (child.getNodeName().equals("nivelServicio")) {
                                         pm.setNivelServicio(Integer.parseInt(childs.item(j).getTextContent()));

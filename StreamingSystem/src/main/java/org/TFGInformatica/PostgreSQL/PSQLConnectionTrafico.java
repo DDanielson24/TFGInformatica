@@ -34,14 +34,14 @@ public class PSQLConnectionTrafico {
     public boolean addRow(PuntoDeMedicion pm) {
 
         boolean query = false;
-        System.out.println("La fecha es: " + pm.getFechaActualizacion());
-        if (this.checkIfExists(pm)) { //UPDATE
+        if (this.checkIfExists("PuntosDeMedicion", pm)) { //UPDATE
 
             try {
                 Statement statement = conn.createStatement();
                 statement.execute(
                         "UPDATE \"PuntosDeMedicion\" " +
-                        "SET carga = " + pm.getCarga() + ", " +
+                        "SET intensidad = " + pm.getIntensidad() + ", " +
+                            "carga = " + pm.getCarga() + ", " +
                             "nivel_servicio = " + pm.getNivelServicio() + ", " +
                             "fecha_actualizacion = '" + pm.getFechaActualizacion() + "' " +
                         "WHERE idelem = " + pm.getIdelem() + ";");
@@ -56,17 +56,27 @@ public class PSQLConnectionTrafico {
         else { //INSERT
 
             float resultConverted[] = coordConverter.convertUTMToLatLong(Float.toString(pm.getStX()), Float.toString(pm.getStY()));
-            System.out.println(resultConverted[0]);
-            System.out.println(resultConverted[1]);
             try {
                 Statement statement = conn.createStatement();
+
+                //Comprobamos si está ya en la BD UbicacionesLatLong
+                if (!this.checkIfExists("UbicacionesLatLong", pm)) {
+                    statement.execute(
+                            "INSERT INTO \"UbicacionesLatLong\" " +
+                                "VALUES (" + pm.getIdelem() + ", " + resultConverted[0] +
+                                ", " + resultConverted[1] + ");");
+                    System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido insertado en la BD: UbicacionesLatLong");
+                }
+                else {
+                    System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ya se encontraba en la BD: UbicacionesLatLong");
+                }
+
                 statement.execute(
                         "INSERT INTO \"PuntosDeMedicion\" " +
-                        "VALUES (" + pm.getIdelem() + ", '" + pm.getDescripcion() + "', " +
-                                pm.getCarga() + ", " + pm.getNivelServicio() + ", " +
-                                resultConverted[0] + ", " + resultConverted[1] + ", '" +
-                                pm.getFechaActualizacion() + "');");
-                System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido insertado en la BD");
+                            "VALUES (" + pm.getIdelem() + ", '" + pm.getDescripcion() + "', " +
+                                pm.getIntensidad() + ", " + pm.getCarga() + ", " +
+                                pm.getNivelServicio() + ", '" + pm.getFechaActualizacion() + "');");
+                System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido insertado en la BD: PuntosDeMedicion");
                 query = true;
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -75,7 +85,7 @@ public class PSQLConnectionTrafico {
         }
     }
 
-    private boolean checkIfExists(PuntoDeMedicion pm) {
+    private boolean checkIfExists(String database, PuntoDeMedicion pm) {
 
         boolean query = false;
         try {
@@ -83,7 +93,7 @@ public class PSQLConnectionTrafico {
             Statement statement = conn.createStatement();
             ResultSet resultSet = statement.executeQuery(
                     "SELECT EXISTS " +
-                    "(SELECT * FROM \"PuntosDeMedicion\" " +
+                    "(SELECT * FROM \"" + database + "\" " +
                     "WHERE idelem = " + pm.getIdelem() + ");");
             while (resultSet.next()) {
                 query = resultSet.getBoolean("exists");
@@ -97,4 +107,5 @@ public class PSQLConnectionTrafico {
         return query;
 
     }
+
 }

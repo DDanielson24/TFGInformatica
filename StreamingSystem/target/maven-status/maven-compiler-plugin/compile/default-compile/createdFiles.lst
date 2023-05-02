@@ -1,6 +1,15 @@
-org/TFGInformatica/EstacionDeServicio$1.class
-org/TFGInformatica/EstacionDeServicio$Builder.class
+org/TFGInformatica/PostgreSQL/PSQLConnectionTrafico.class
+org/TFGInformatica/Gasolina/GasolinaProducer.class
 org/TFGInformatica/EstacionDeServicio.class
 org/TFGInformatica/PuntoDeMedicion$Builder.class
+org/TFGInformatica/Trafico/TraficoProducer.class
+org/TFGInformatica/Trafico/XMLReader.class
 org/TFGInformatica/PuntoDeMedicion$1.class
+org/TFGInformatica/PostgreSQL/PSQLConnectionGasolina.class
+org/TFGInformatica/EstacionDeServicio$1.class
+org/TFGInformatica/Gasolina/GasolinaConsumer.class
+org/TFGInformatica/EstacionDeServicio$Builder.class
+org/TFGInformatica/Gasolina/XLSReader.class
+org/TFGInformatica/Trafico/TraficoConsumer.class
+org/TFGInformatica/PostgreSQL/CoordConverter.class
 org/TFGInformatica/PuntoDeMedicion.class

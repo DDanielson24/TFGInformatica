@@ -3,11 +3,10 @@
     "namespace": "org.TFGInformatica",
     "name": "EstacionDeServicio",
     "fields": [
+        { "name": "idelem", "type": "int" },
         { "name": "rotulo", "type": "string" },
         { "name": "direccion", "type": "string" },
-        { "name": "margen", "type": "string" },
         { "name": "municipio", "type": "string" },
-        { "name": "codigoPostal", "type": "int" },
         { "name": "precioGasolina95", "type": "float" },
         { "name": "precioGasolina98", "type": "float" },
         { "name": "precioGasoleoA", "type": "float" },

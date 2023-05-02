@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 3156670346356032387L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"EstacionDeServicio\",\"namespace\":\"org.TFGInformatica\",\"fields\":[{\"name\":\"rotulo\",\"type\":\"string\"},{\"name\":\"direccion\",\"type\":\"string\"},{\"name\":\"margen\",\"type\":\"string\"},{\"name\":\"municipio\",\"type\":\"string\"},{\"name\":\"codigoPostal\",\"type\":\"int\"},{\"name\":\"precioGasolina95\",\"type\":\"float\"},{\"name\":\"precioGasolina98\",\"type\":\"float\"},{\"name\":\"precioGasoleoA\",\"type\":\"float\"},{\"name\":\"precioGasoleoPremium\",\"type\":\"float\"},{\"name\":\"longitud\",\"type\":\"float\"},{\"name\":\"latitud\",\"type\":\"float\"},{\"name\":\"fechaActualizacion\",\"type\":\"string\"}]}");
+  private static final long serialVersionUID = -8289631113296799706L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"EstacionDeServicio\",\"namespace\":\"org.TFGInformatica\",\"fields\":[{\"name\":\"idelem\",\"type\":\"int\"},{\"name\":\"rotulo\",\"type\":\"string\"},{\"name\":\"direccion\",\"type\":\"string\"},{\"name\":\"municipio\",\"type\":\"string\"},{\"name\":\"precioGasolina95\",\"type\":\"float\"},{\"name\":\"precioGasolina98\",\"type\":\"float\"},{\"name\":\"precioGasoleoA\",\"type\":\"float\"},{\"name\":\"precioGasoleoPremium\",\"type\":\"float\"},{\"name\":\"longitud\",\"type\":\"float\"},{\"name\":\"latitud\",\"type\":\"float\"},{\"name\":\"fechaActualizacion\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -71,11 +71,10 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
     return DECODER.decode(b);
   }
 
+   private int idelem;
    private java.lang.CharSequence rotulo;
    private java.lang.CharSequence direccion;
-   private java.lang.CharSequence margen;
    private java.lang.CharSequence municipio;
-   private int codigoPostal;
    private float precioGasolina95;
    private float precioGasolina98;
    private float precioGasoleoA;
@@ -91,13 +90,19 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
    */
   public EstacionDeServicio() {}
 
+  @Override
+  public int hashCode() {
+    int hashCode = (this.rotulo.hashCode() * this.direccion.hashCode() * this.municipio.hashCode() *
+                    Float.hashCode(this.latitud) * Float.hashCode(this.longitud));
+    return hashCode;
+  }
+
   /**
    * All-args constructor.
+   * @param idelem The new value for idelem
    * @param rotulo The new value for rotulo
    * @param direccion The new value for direccion
-   * @param margen The new value for margen
    * @param municipio The new value for municipio
-   * @param codigoPostal The new value for codigoPostal
    * @param precioGasolina95 The new value for precioGasolina95
    * @param precioGasolina98 The new value for precioGasolina98
    * @param precioGasoleoA The new value for precioGasoleoA
@@ -106,12 +111,11 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
    * @param latitud The new value for latitud
    * @param fechaActualizacion The new value for fechaActualizacion
    */
-  public EstacionDeServicio(java.lang.CharSequence rotulo, java.lang.CharSequence direccion, java.lang.CharSequence margen, java.lang.CharSequence municipio, java.lang.Integer codigoPostal, java.lang.Float precioGasolina95, java.lang.Float precioGasolina98, java.lang.Float precioGasoleoA, java.lang.Float precioGasoleoPremium, java.lang.Float longitud, java.lang.Float latitud, java.lang.CharSequence fechaActualizacion) {
+  public EstacionDeServicio(java.lang.Integer idelem, java.lang.CharSequence rotulo, java.lang.CharSequence direccion, java.lang.CharSequence municipio, java.lang.Float precioGasolina95, java.lang.Float precioGasolina98, java.lang.Float precioGasoleoA, java.lang.Float precioGasoleoPremium, java.lang.Float longitud, java.lang.Float latitud, java.lang.CharSequence fechaActualizacion) {
+    this.idelem = idelem;
     this.rotulo = rotulo;
     this.direccion = direccion;
-    this.margen = margen;
     this.municipio = municipio;
-    this.codigoPostal = codigoPostal;
     this.precioGasolina95 = precioGasolina95;
     this.precioGasolina98 = precioGasolina98;
     this.precioGasoleoA = precioGasoleoA;
@@ -126,18 +130,17 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
   // Used by DatumWriter.  Applications should not call.
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return rotulo;
-    case 1: return direccion;
-    case 2: return margen;
+    case 0: return idelem;
+    case 1: return rotulo;
+    case 2: return direccion;
     case 3: return municipio;
-    case 4: return codigoPostal;
-    case 5: return precioGasolina95;
-    case 6: return precioGasolina98;
-    case 7: return precioGasoleoA;
-    case 8: return precioGasoleoPremium;
-    case 9: return longitud;
-    case 10: return latitud;
-    case 11: return fechaActualizacion;
+    case 4: return precioGasolina95;
+    case 5: return precioGasolina98;
+    case 6: return precioGasoleoA;
+    case 7: return precioGasoleoPremium;
+    case 8: return longitud;
+    case 9: return latitud;
+    case 10: return fechaActualizacion;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -146,20 +149,36 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: rotulo = (java.lang.CharSequence)value$; break;
-    case 1: direccion = (java.lang.CharSequence)value$; break;
-    case 2: margen = (java.lang.CharSequence)value$; break;
+    case 0: idelem = (java.lang.Integer)value$; break;
+    case 1: rotulo = (java.lang.CharSequence)value$; break;
+    case 2: direccion = (java.lang.CharSequence)value$; break;
     case 3: municipio = (java.lang.CharSequence)value$; break;
-    case 4: codigoPostal = (java.lang.Integer)value$; break;
-    case 5: precioGasolina95 = (java.lang.Float)value$; break;
-    case 6: precioGasolina98 = (java.lang.Float)value$; break;
-    case 7: precioGasoleoA = (java.lang.Float)value$; break;
-    case 8: precioGasoleoPremium = (java.lang.Float)value$; break;
-    case 9: longitud = (java.lang.Float)value$; break;
-    case 10: latitud = (java.lang.Float)value$; break;
-    case 11: fechaActualizacion = (java.lang.CharSequence)value$; break;
+    case 4: precioGasolina95 = (java.lang.Float)value$; break;
+    case 5: precioGasolina98 = (java.lang.Float)value$; break;
+    case 6: precioGasoleoA = (java.lang.Float)value$; break;
+    case 7: precioGasoleoPremium = (java.lang.Float)value$; break;
+    case 8: longitud = (java.lang.Float)value$; break;
+    case 9: latitud = (java.lang.Float)value$; break;
+    case 10: fechaActualizacion = (java.lang.CharSequence)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
+  }
+
+  /**
+   * Gets the value of the 'idelem' field.
+   * @return The value of the 'idelem' field.
+   */
+  public int getIdelem() {
+    return idelem;
+  }
+
+
+  /**
+   * Sets the value of the 'idelem' field.
+   * @param value the value to set.
+   */
+  public void setIdelem(int value) {
+    this.idelem = value;
   }
 
   /**
@@ -197,23 +216,6 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
   }
 
   /**
-   * Gets the value of the 'margen' field.
-   * @return The value of the 'margen' field.
-   */
-  public java.lang.CharSequence getMargen() {
-    return margen;
-  }
-
-
-  /**
-   * Sets the value of the 'margen' field.
-   * @param value the value to set.
-   */
-  public void setMargen(java.lang.CharSequence value) {
-    this.margen = value;
-  }
-
-  /**
    * Gets the value of the 'municipio' field.
    * @return The value of the 'municipio' field.
    */
@@ -228,23 +230,6 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
    */
   public void setMunicipio(java.lang.CharSequence value) {
     this.municipio = value;
-  }
-
-  /**
-   * Gets the value of the 'codigoPostal' field.
-   * @return The value of the 'codigoPostal' field.
-   */
-  public int getCodigoPostal() {
-    return codigoPostal;
-  }
-
-
-  /**
-   * Sets the value of the 'codigoPostal' field.
-   * @param value the value to set.
-   */
-  public void setCodigoPostal(int value) {
-    this.codigoPostal = value;
   }
 
   /**
@@ -407,11 +392,10 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<EstacionDeServicio>
     implements org.apache.avro.data.RecordBuilder<EstacionDeServicio> {
 
+    private int idelem;
     private java.lang.CharSequence rotulo;
     private java.lang.CharSequence direccion;
-    private java.lang.CharSequence margen;
     private java.lang.CharSequence municipio;
-    private int codigoPostal;
     private float precioGasolina95;
     private float precioGasolina98;
     private float precioGasoleoA;
@@ -431,53 +415,49 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
      */
     private Builder(org.TFGInformatica.EstacionDeServicio.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.rotulo)) {
-        this.rotulo = data().deepCopy(fields()[0].schema(), other.rotulo);
+      if (isValidValue(fields()[0], other.idelem)) {
+        this.idelem = data().deepCopy(fields()[0].schema(), other.idelem);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
-      if (isValidValue(fields()[1], other.direccion)) {
-        this.direccion = data().deepCopy(fields()[1].schema(), other.direccion);
+      if (isValidValue(fields()[1], other.rotulo)) {
+        this.rotulo = data().deepCopy(fields()[1].schema(), other.rotulo);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (isValidValue(fields()[2], other.margen)) {
-        this.margen = data().deepCopy(fields()[2].schema(), other.margen);
+      if (isValidValue(fields()[2], other.direccion)) {
+        this.direccion = data().deepCopy(fields()[2].schema(), other.direccion);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
       if (isValidValue(fields()[3], other.municipio)) {
         this.municipio = data().deepCopy(fields()[3].schema(), other.municipio);
         fieldSetFlags()[3] = other.fieldSetFlags()[3];
       }
-      if (isValidValue(fields()[4], other.codigoPostal)) {
-        this.codigoPostal = data().deepCopy(fields()[4].schema(), other.codigoPostal);
+      if (isValidValue(fields()[4], other.precioGasolina95)) {
+        this.precioGasolina95 = data().deepCopy(fields()[4].schema(), other.precioGasolina95);
         fieldSetFlags()[4] = other.fieldSetFlags()[4];
       }
-      if (isValidValue(fields()[5], other.precioGasolina95)) {
-        this.precioGasolina95 = data().deepCopy(fields()[5].schema(), other.precioGasolina95);
+      if (isValidValue(fields()[5], other.precioGasolina98)) {
+        this.precioGasolina98 = data().deepCopy(fields()[5].schema(), other.precioGasolina98);
         fieldSetFlags()[5] = other.fieldSetFlags()[5];
       }
-      if (isValidValue(fields()[6], other.precioGasolina98)) {
-        this.precioGasolina98 = data().deepCopy(fields()[6].schema(), other.precioGasolina98);
+      if (isValidValue(fields()[6], other.precioGasoleoA)) {
+        this.precioGasoleoA = data().deepCopy(fields()[6].schema(), other.precioGasoleoA);
         fieldSetFlags()[6] = other.fieldSetFlags()[6];
       }
-      if (isValidValue(fields()[7], other.precioGasoleoA)) {
-        this.precioGasoleoA = data().deepCopy(fields()[7].schema(), other.precioGasoleoA);
+      if (isValidValue(fields()[7], other.precioGasoleoPremium)) {
+        this.precioGasoleoPremium = data().deepCopy(fields()[7].schema(), other.precioGasoleoPremium);
         fieldSetFlags()[7] = other.fieldSetFlags()[7];
       }
-      if (isValidValue(fields()[8], other.precioGasoleoPremium)) {
-        this.precioGasoleoPremium = data().deepCopy(fields()[8].schema(), other.precioGasoleoPremium);
+      if (isValidValue(fields()[8], other.longitud)) {
+        this.longitud = data().deepCopy(fields()[8].schema(), other.longitud);
         fieldSetFlags()[8] = other.fieldSetFlags()[8];
       }
-      if (isValidValue(fields()[9], other.longitud)) {
-        this.longitud = data().deepCopy(fields()[9].schema(), other.longitud);
+      if (isValidValue(fields()[9], other.latitud)) {
+        this.latitud = data().deepCopy(fields()[9].schema(), other.latitud);
         fieldSetFlags()[9] = other.fieldSetFlags()[9];
       }
-      if (isValidValue(fields()[10], other.latitud)) {
-        this.latitud = data().deepCopy(fields()[10].schema(), other.latitud);
+      if (isValidValue(fields()[10], other.fechaActualizacion)) {
+        this.fechaActualizacion = data().deepCopy(fields()[10].schema(), other.fechaActualizacion);
         fieldSetFlags()[10] = other.fieldSetFlags()[10];
-      }
-      if (isValidValue(fields()[11], other.fechaActualizacion)) {
-        this.fechaActualizacion = data().deepCopy(fields()[11].schema(), other.fechaActualizacion);
-        fieldSetFlags()[11] = other.fieldSetFlags()[11];
       }
     }
 
@@ -487,54 +467,89 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
      */
     private Builder(org.TFGInformatica.EstacionDeServicio other) {
       super(SCHEMA$);
-      if (isValidValue(fields()[0], other.rotulo)) {
-        this.rotulo = data().deepCopy(fields()[0].schema(), other.rotulo);
+      if (isValidValue(fields()[0], other.idelem)) {
+        this.idelem = data().deepCopy(fields()[0].schema(), other.idelem);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.direccion)) {
-        this.direccion = data().deepCopy(fields()[1].schema(), other.direccion);
+      if (isValidValue(fields()[1], other.rotulo)) {
+        this.rotulo = data().deepCopy(fields()[1].schema(), other.rotulo);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.margen)) {
-        this.margen = data().deepCopy(fields()[2].schema(), other.margen);
+      if (isValidValue(fields()[2], other.direccion)) {
+        this.direccion = data().deepCopy(fields()[2].schema(), other.direccion);
         fieldSetFlags()[2] = true;
       }
       if (isValidValue(fields()[3], other.municipio)) {
         this.municipio = data().deepCopy(fields()[3].schema(), other.municipio);
         fieldSetFlags()[3] = true;
       }
-      if (isValidValue(fields()[4], other.codigoPostal)) {
-        this.codigoPostal = data().deepCopy(fields()[4].schema(), other.codigoPostal);
+      if (isValidValue(fields()[4], other.precioGasolina95)) {
+        this.precioGasolina95 = data().deepCopy(fields()[4].schema(), other.precioGasolina95);
         fieldSetFlags()[4] = true;
       }
-      if (isValidValue(fields()[5], other.precioGasolina95)) {
-        this.precioGasolina95 = data().deepCopy(fields()[5].schema(), other.precioGasolina95);
+      if (isValidValue(fields()[5], other.precioGasolina98)) {
+        this.precioGasolina98 = data().deepCopy(fields()[5].schema(), other.precioGasolina98);
         fieldSetFlags()[5] = true;
       }
-      if (isValidValue(fields()[6], other.precioGasolina98)) {
-        this.precioGasolina98 = data().deepCopy(fields()[6].schema(), other.precioGasolina98);
+      if (isValidValue(fields()[6], other.precioGasoleoA)) {
+        this.precioGasoleoA = data().deepCopy(fields()[6].schema(), other.precioGasoleoA);
         fieldSetFlags()[6] = true;
       }
-      if (isValidValue(fields()[7], other.precioGasoleoA)) {
-        this.precioGasoleoA = data().deepCopy(fields()[7].schema(), other.precioGasoleoA);
+      if (isValidValue(fields()[7], other.precioGasoleoPremium)) {
+        this.precioGasoleoPremium = data().deepCopy(fields()[7].schema(), other.precioGasoleoPremium);
         fieldSetFlags()[7] = true;
       }
-      if (isValidValue(fields()[8], other.precioGasoleoPremium)) {
-        this.precioGasoleoPremium = data().deepCopy(fields()[8].schema(), other.precioGasoleoPremium);
+      if (isValidValue(fields()[8], other.longitud)) {
+        this.longitud = data().deepCopy(fields()[8].schema(), other.longitud);
         fieldSetFlags()[8] = true;
       }
-      if (isValidValue(fields()[9], other.longitud)) {
-        this.longitud = data().deepCopy(fields()[9].schema(), other.longitud);
+      if (isValidValue(fields()[9], other.latitud)) {
+        this.latitud = data().deepCopy(fields()[9].schema(), other.latitud);
         fieldSetFlags()[9] = true;
       }
-      if (isValidValue(fields()[10], other.latitud)) {
-        this.latitud = data().deepCopy(fields()[10].schema(), other.latitud);
+      if (isValidValue(fields()[10], other.fechaActualizacion)) {
+        this.fechaActualizacion = data().deepCopy(fields()[10].schema(), other.fechaActualizacion);
         fieldSetFlags()[10] = true;
       }
-      if (isValidValue(fields()[11], other.fechaActualizacion)) {
-        this.fechaActualizacion = data().deepCopy(fields()[11].schema(), other.fechaActualizacion);
-        fieldSetFlags()[11] = true;
-      }
+    }
+
+    /**
+      * Gets the value of the 'idelem' field.
+      * @return The value.
+      */
+    public int getIdelem() {
+      return idelem;
+    }
+
+
+    /**
+      * Sets the value of the 'idelem' field.
+      * @param value The value of 'idelem'.
+      * @return This builder.
+      */
+    public org.TFGInformatica.EstacionDeServicio.Builder setIdelem(int value) {
+      validate(fields()[0], value);
+      this.idelem = value;
+      fieldSetFlags()[0] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'idelem' field has been set.
+      * @return True if the 'idelem' field has been set, false otherwise.
+      */
+    public boolean hasIdelem() {
+      return fieldSetFlags()[0];
+    }
+
+
+    /**
+      * Clears the value of the 'idelem' field.
+      * @return This builder.
+      */
+    public org.TFGInformatica.EstacionDeServicio.Builder clearIdelem() {
+      fieldSetFlags()[0] = false;
+      return this;
     }
 
     /**
@@ -552,9 +567,9 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return This builder.
       */
     public org.TFGInformatica.EstacionDeServicio.Builder setRotulo(java.lang.CharSequence value) {
-      validate(fields()[0], value);
+      validate(fields()[1], value);
       this.rotulo = value;
-      fieldSetFlags()[0] = true;
+      fieldSetFlags()[1] = true;
       return this;
     }
 
@@ -563,7 +578,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return True if the 'rotulo' field has been set, false otherwise.
       */
     public boolean hasRotulo() {
-      return fieldSetFlags()[0];
+      return fieldSetFlags()[1];
     }
 
 
@@ -573,7 +588,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       */
     public org.TFGInformatica.EstacionDeServicio.Builder clearRotulo() {
       rotulo = null;
-      fieldSetFlags()[0] = false;
+      fieldSetFlags()[1] = false;
       return this;
     }
 
@@ -592,9 +607,9 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return This builder.
       */
     public org.TFGInformatica.EstacionDeServicio.Builder setDireccion(java.lang.CharSequence value) {
-      validate(fields()[1], value);
+      validate(fields()[2], value);
       this.direccion = value;
-      fieldSetFlags()[1] = true;
+      fieldSetFlags()[2] = true;
       return this;
     }
 
@@ -603,7 +618,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return True if the 'direccion' field has been set, false otherwise.
       */
     public boolean hasDireccion() {
-      return fieldSetFlags()[1];
+      return fieldSetFlags()[2];
     }
 
 
@@ -613,46 +628,6 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       */
     public org.TFGInformatica.EstacionDeServicio.Builder clearDireccion() {
       direccion = null;
-      fieldSetFlags()[1] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'margen' field.
-      * @return The value.
-      */
-    public java.lang.CharSequence getMargen() {
-      return margen;
-    }
-
-
-    /**
-      * Sets the value of the 'margen' field.
-      * @param value The value of 'margen'.
-      * @return This builder.
-      */
-    public org.TFGInformatica.EstacionDeServicio.Builder setMargen(java.lang.CharSequence value) {
-      validate(fields()[2], value);
-      this.margen = value;
-      fieldSetFlags()[2] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'margen' field has been set.
-      * @return True if the 'margen' field has been set, false otherwise.
-      */
-    public boolean hasMargen() {
-      return fieldSetFlags()[2];
-    }
-
-
-    /**
-      * Clears the value of the 'margen' field.
-      * @return This builder.
-      */
-    public org.TFGInformatica.EstacionDeServicio.Builder clearMargen() {
-      margen = null;
       fieldSetFlags()[2] = false;
       return this;
     }
@@ -698,45 +673,6 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
     }
 
     /**
-      * Gets the value of the 'codigoPostal' field.
-      * @return The value.
-      */
-    public int getCodigoPostal() {
-      return codigoPostal;
-    }
-
-
-    /**
-      * Sets the value of the 'codigoPostal' field.
-      * @param value The value of 'codigoPostal'.
-      * @return This builder.
-      */
-    public org.TFGInformatica.EstacionDeServicio.Builder setCodigoPostal(int value) {
-      validate(fields()[4], value);
-      this.codigoPostal = value;
-      fieldSetFlags()[4] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'codigoPostal' field has been set.
-      * @return True if the 'codigoPostal' field has been set, false otherwise.
-      */
-    public boolean hasCodigoPostal() {
-      return fieldSetFlags()[4];
-    }
-
-
-    /**
-      * Clears the value of the 'codigoPostal' field.
-      * @return This builder.
-      */
-    public org.TFGInformatica.EstacionDeServicio.Builder clearCodigoPostal() {
-      fieldSetFlags()[4] = false;
-      return this;
-    }
-
-    /**
       * Gets the value of the 'precioGasolina95' field.
       * @return The value.
       */
@@ -751,9 +687,9 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return This builder.
       */
     public org.TFGInformatica.EstacionDeServicio.Builder setPrecioGasolina95(float value) {
-      validate(fields()[5], value);
+      validate(fields()[4], value);
       this.precioGasolina95 = value;
-      fieldSetFlags()[5] = true;
+      fieldSetFlags()[4] = true;
       return this;
     }
 
@@ -762,7 +698,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return True if the 'precioGasolina95' field has been set, false otherwise.
       */
     public boolean hasPrecioGasolina95() {
-      return fieldSetFlags()[5];
+      return fieldSetFlags()[4];
     }
 
 
@@ -771,7 +707,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return This builder.
       */
     public org.TFGInformatica.EstacionDeServicio.Builder clearPrecioGasolina95() {
-      fieldSetFlags()[5] = false;
+      fieldSetFlags()[4] = false;
       return this;
     }
 
@@ -790,9 +726,9 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return This builder.
       */
     public org.TFGInformatica.EstacionDeServicio.Builder setPrecioGasolina98(float value) {
-      validate(fields()[6], value);
+      validate(fields()[5], value);
       this.precioGasolina98 = value;
-      fieldSetFlags()[6] = true;
+      fieldSetFlags()[5] = true;
       return this;
     }
 
@@ -801,7 +737,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return True if the 'precioGasolina98' field has been set, false otherwise.
       */
     public boolean hasPrecioGasolina98() {
-      return fieldSetFlags()[6];
+      return fieldSetFlags()[5];
     }
 
 
@@ -810,7 +746,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return This builder.
       */
     public org.TFGInformatica.EstacionDeServicio.Builder clearPrecioGasolina98() {
-      fieldSetFlags()[6] = false;
+      fieldSetFlags()[5] = false;
       return this;
     }
 
@@ -829,9 +765,9 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return This builder.
       */
     public org.TFGInformatica.EstacionDeServicio.Builder setPrecioGasoleoA(float value) {
-      validate(fields()[7], value);
+      validate(fields()[6], value);
       this.precioGasoleoA = value;
-      fieldSetFlags()[7] = true;
+      fieldSetFlags()[6] = true;
       return this;
     }
 
@@ -840,7 +776,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return True if the 'precioGasoleoA' field has been set, false otherwise.
       */
     public boolean hasPrecioGasoleoA() {
-      return fieldSetFlags()[7];
+      return fieldSetFlags()[6];
     }
 
 
@@ -849,7 +785,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return This builder.
       */
     public org.TFGInformatica.EstacionDeServicio.Builder clearPrecioGasoleoA() {
-      fieldSetFlags()[7] = false;
+      fieldSetFlags()[6] = false;
       return this;
     }
 
@@ -868,9 +804,9 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return This builder.
       */
     public org.TFGInformatica.EstacionDeServicio.Builder setPrecioGasoleoPremium(float value) {
-      validate(fields()[8], value);
+      validate(fields()[7], value);
       this.precioGasoleoPremium = value;
-      fieldSetFlags()[8] = true;
+      fieldSetFlags()[7] = true;
       return this;
     }
 
@@ -879,7 +815,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return True if the 'precioGasoleoPremium' field has been set, false otherwise.
       */
     public boolean hasPrecioGasoleoPremium() {
-      return fieldSetFlags()[8];
+      return fieldSetFlags()[7];
     }
 
 
@@ -888,7 +824,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return This builder.
       */
     public org.TFGInformatica.EstacionDeServicio.Builder clearPrecioGasoleoPremium() {
-      fieldSetFlags()[8] = false;
+      fieldSetFlags()[7] = false;
       return this;
     }
 
@@ -907,9 +843,9 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return This builder.
       */
     public org.TFGInformatica.EstacionDeServicio.Builder setLongitud(float value) {
-      validate(fields()[9], value);
+      validate(fields()[8], value);
       this.longitud = value;
-      fieldSetFlags()[9] = true;
+      fieldSetFlags()[8] = true;
       return this;
     }
 
@@ -918,7 +854,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return True if the 'longitud' field has been set, false otherwise.
       */
     public boolean hasLongitud() {
-      return fieldSetFlags()[9];
+      return fieldSetFlags()[8];
     }
 
 
@@ -927,7 +863,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return This builder.
       */
     public org.TFGInformatica.EstacionDeServicio.Builder clearLongitud() {
-      fieldSetFlags()[9] = false;
+      fieldSetFlags()[8] = false;
       return this;
     }
 
@@ -946,9 +882,9 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return This builder.
       */
     public org.TFGInformatica.EstacionDeServicio.Builder setLatitud(float value) {
-      validate(fields()[10], value);
+      validate(fields()[9], value);
       this.latitud = value;
-      fieldSetFlags()[10] = true;
+      fieldSetFlags()[9] = true;
       return this;
     }
 
@@ -957,7 +893,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return True if the 'latitud' field has been set, false otherwise.
       */
     public boolean hasLatitud() {
-      return fieldSetFlags()[10];
+      return fieldSetFlags()[9];
     }
 
 
@@ -966,7 +902,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return This builder.
       */
     public org.TFGInformatica.EstacionDeServicio.Builder clearLatitud() {
-      fieldSetFlags()[10] = false;
+      fieldSetFlags()[9] = false;
       return this;
     }
 
@@ -985,9 +921,9 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return This builder.
       */
     public org.TFGInformatica.EstacionDeServicio.Builder setFechaActualizacion(java.lang.CharSequence value) {
-      validate(fields()[11], value);
+      validate(fields()[10], value);
       this.fechaActualizacion = value;
-      fieldSetFlags()[11] = true;
+      fieldSetFlags()[10] = true;
       return this;
     }
 
@@ -996,7 +932,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       * @return True if the 'fechaActualizacion' field has been set, false otherwise.
       */
     public boolean hasFechaActualizacion() {
-      return fieldSetFlags()[11];
+      return fieldSetFlags()[10];
     }
 
 
@@ -1006,7 +942,7 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       */
     public org.TFGInformatica.EstacionDeServicio.Builder clearFechaActualizacion() {
       fechaActualizacion = null;
-      fieldSetFlags()[11] = false;
+      fieldSetFlags()[10] = false;
       return this;
     }
 
@@ -1015,18 +951,17 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
     public EstacionDeServicio build() {
       try {
         EstacionDeServicio record = new EstacionDeServicio();
-        record.rotulo = fieldSetFlags()[0] ? this.rotulo : (java.lang.CharSequence) defaultValue(fields()[0]);
-        record.direccion = fieldSetFlags()[1] ? this.direccion : (java.lang.CharSequence) defaultValue(fields()[1]);
-        record.margen = fieldSetFlags()[2] ? this.margen : (java.lang.CharSequence) defaultValue(fields()[2]);
+        record.idelem = fieldSetFlags()[0] ? this.idelem : (java.lang.Integer) defaultValue(fields()[0]);
+        record.rotulo = fieldSetFlags()[1] ? this.rotulo : (java.lang.CharSequence) defaultValue(fields()[1]);
+        record.direccion = fieldSetFlags()[2] ? this.direccion : (java.lang.CharSequence) defaultValue(fields()[2]);
         record.municipio = fieldSetFlags()[3] ? this.municipio : (java.lang.CharSequence) defaultValue(fields()[3]);
-        record.codigoPostal = fieldSetFlags()[4] ? this.codigoPostal : (java.lang.Integer) defaultValue(fields()[4]);
-        record.precioGasolina95 = fieldSetFlags()[5] ? this.precioGasolina95 : (java.lang.Float) defaultValue(fields()[5]);
-        record.precioGasolina98 = fieldSetFlags()[6] ? this.precioGasolina98 : (java.lang.Float) defaultValue(fields()[6]);
-        record.precioGasoleoA = fieldSetFlags()[7] ? this.precioGasoleoA : (java.lang.Float) defaultValue(fields()[7]);
-        record.precioGasoleoPremium = fieldSetFlags()[8] ? this.precioGasoleoPremium : (java.lang.Float) defaultValue(fields()[8]);
-        record.longitud = fieldSetFlags()[9] ? this.longitud : (java.lang.Float) defaultValue(fields()[9]);
-        record.latitud = fieldSetFlags()[10] ? this.latitud : (java.lang.Float) defaultValue(fields()[10]);
-        record.fechaActualizacion = fieldSetFlags()[11] ? this.fechaActualizacion : (java.lang.CharSequence) defaultValue(fields()[11]);
+        record.precioGasolina95 = fieldSetFlags()[4] ? this.precioGasolina95 : (java.lang.Float) defaultValue(fields()[4]);
+        record.precioGasolina98 = fieldSetFlags()[5] ? this.precioGasolina98 : (java.lang.Float) defaultValue(fields()[5]);
+        record.precioGasoleoA = fieldSetFlags()[6] ? this.precioGasoleoA : (java.lang.Float) defaultValue(fields()[6]);
+        record.precioGasoleoPremium = fieldSetFlags()[7] ? this.precioGasoleoPremium : (java.lang.Float) defaultValue(fields()[7]);
+        record.longitud = fieldSetFlags()[8] ? this.longitud : (java.lang.Float) defaultValue(fields()[8]);
+        record.latitud = fieldSetFlags()[9] ? this.latitud : (java.lang.Float) defaultValue(fields()[9]);
+        record.fechaActualizacion = fieldSetFlags()[10] ? this.fechaActualizacion : (java.lang.CharSequence) defaultValue(fields()[10]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -1059,15 +994,13 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
   @Override public void customEncode(org.apache.avro.io.Encoder out)
     throws java.io.IOException
   {
+    out.writeInt(this.idelem);
+
     out.writeString(this.rotulo);
 
     out.writeString(this.direccion);
 
-    out.writeString(this.margen);
-
     out.writeString(this.municipio);
-
-    out.writeInt(this.codigoPostal);
 
     out.writeFloat(this.precioGasolina95);
 
@@ -1090,15 +1023,13 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
   {
     org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
     if (fieldOrder == null) {
+      this.idelem = in.readInt();
+
       this.rotulo = in.readString(this.rotulo instanceof Utf8 ? (Utf8)this.rotulo : null);
 
       this.direccion = in.readString(this.direccion instanceof Utf8 ? (Utf8)this.direccion : null);
 
-      this.margen = in.readString(this.margen instanceof Utf8 ? (Utf8)this.margen : null);
-
       this.municipio = in.readString(this.municipio instanceof Utf8 ? (Utf8)this.municipio : null);
-
-      this.codigoPostal = in.readInt();
 
       this.precioGasolina95 = in.readFloat();
 
@@ -1115,18 +1046,18 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
       this.fechaActualizacion = in.readString(this.fechaActualizacion instanceof Utf8 ? (Utf8)this.fechaActualizacion : null);
 
     } else {
-      for (int i = 0; i < 12; i++) {
+      for (int i = 0; i < 11; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
-          this.rotulo = in.readString(this.rotulo instanceof Utf8 ? (Utf8)this.rotulo : null);
+          this.idelem = in.readInt();
           break;
 
         case 1:
-          this.direccion = in.readString(this.direccion instanceof Utf8 ? (Utf8)this.direccion : null);
+          this.rotulo = in.readString(this.rotulo instanceof Utf8 ? (Utf8)this.rotulo : null);
           break;
 
         case 2:
-          this.margen = in.readString(this.margen instanceof Utf8 ? (Utf8)this.margen : null);
+          this.direccion = in.readString(this.direccion instanceof Utf8 ? (Utf8)this.direccion : null);
           break;
 
         case 3:
@@ -1134,34 +1065,30 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
           break;
 
         case 4:
-          this.codigoPostal = in.readInt();
-          break;
-
-        case 5:
           this.precioGasolina95 = in.readFloat();
           break;
 
-        case 6:
+        case 5:
           this.precioGasolina98 = in.readFloat();
           break;
 
-        case 7:
+        case 6:
           this.precioGasoleoA = in.readFloat();
           break;
 
-        case 8:
+        case 7:
           this.precioGasoleoPremium = in.readFloat();
           break;
 
-        case 9:
+        case 8:
           this.longitud = in.readFloat();
           break;
 
-        case 10:
+        case 9:
           this.latitud = in.readFloat();
           break;
 
-        case 11:
+        case 10:
           this.fechaActualizacion = in.readString(this.fechaActualizacion instanceof Utf8 ? (Utf8)this.fechaActualizacion : null);
           break;
 

@@ -7,9 +7,7 @@ import org.apache.poi.ss.usermodel.Row;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 import org.TFGInformatica.EstacionDeServicio;
 
@@ -17,11 +15,14 @@ public class XLSReader {
 
     private String original_file;
 
+    //Hashcode
+    private Set<Integer> hashcodeUsados = new HashSet<>();
+
     public XLSReader(String path) {
         this.original_file = path;
     }
 
-    public List<EstacionDeServicio> readXLS() {
+    public List<EstacionDeServicio> readXLS() throws Exception {
         List<EstacionDeServicio> listaDevolver = new LinkedList<>();
 
         try {
@@ -37,15 +38,12 @@ public class XLSReader {
                 Row row = it.next();
 
                 if (row.getCell(0).toString().equals("MADRID")) {
-                    filasMadrid++;
-                    System.out.println("FilaMadrid: " + filasMadrid);
                     EstacionDeServicio es = new EstacionDeServicio();
+
                     Float precioGasolina95 = 0f;
                     Float precioGasolina98 = 0f;
 
                     es.setMunicipio(row.getCell(1).toString());
-                    es.setMargen(row.getCell(5).toString());
-                    es.setCodigoPostal(Integer.parseInt(row.getCell(3).toString()));
                     es.setDireccion(row.getCell(4).toString());
                     es.setLongitud(this.floatConverter(row.getCell(6).toString()));
                     es.setLatitud(this.floatConverter(row.getCell(7).toString()));
@@ -88,6 +86,16 @@ public class XLSReader {
                         es.setPrecioGasoleoPremium(this.floatConverter(row.getCell(15).toString()));
                     }
                     es.setRotulo(row.getCell(26).toString());
+
+                    //Hashcode
+                    System.out.println("Hashcode: " + es.hashCode());
+                    if (!this.hashcodeUsados.contains(es.hashCode())) {
+                        es.setIdelem(es.hashCode());
+                        this.hashcodeUsados.add(es.hashCode());
+                    }
+                    else {
+                        throw new Exception("EXCEPCIÓN: HAY UNA CLAVE PRIMARIA REPETIDA");
+                    }
 
                     System.out.println("EstacionDeServicio: " + es.getMunicipio()+ " - " + es.getDireccion() + " creado exitosamente");
                     listaDevolver.add(es);

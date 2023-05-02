@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -4490928446538705185L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"PuntoDeMedicion\",\"namespace\":\"org.TFGInformatica\",\"fields\":[{\"name\":\"idelem\",\"type\":\"int\"},{\"name\":\"descripcion\",\"type\":\"string\"},{\"name\":\"carga\",\"type\":\"int\"},{\"name\":\"nivelServicio\",\"type\":\"int\"},{\"name\":\"st_x\",\"type\":\"float\"},{\"name\":\"st_y\",\"type\":\"float\"},{\"name\":\"fechaActualizacion\",\"type\":\"string\"}]}");
+  private static final long serialVersionUID = -2857412741985089963L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"PuntoDeMedicion\",\"namespace\":\"org.TFGInformatica\",\"fields\":[{\"name\":\"idelem\",\"type\":\"int\"},{\"name\":\"descripcion\",\"type\":\"string\"},{\"name\":\"intensidad\",\"type\":\"int\"},{\"name\":\"carga\",\"type\":\"int\"},{\"name\":\"nivelServicio\",\"type\":\"int\"},{\"name\":\"st_x\",\"type\":\"float\"},{\"name\":\"st_y\",\"type\":\"float\"},{\"name\":\"fechaActualizacion\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -73,6 +73,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
 
    private int idelem;
    private java.lang.CharSequence descripcion;
+   private int intensidad;
    private int carga;
    private int nivelServicio;
    private float st_x;
@@ -90,15 +91,17 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
    * All-args constructor.
    * @param idelem The new value for idelem
    * @param descripcion The new value for descripcion
+   * @param intensidad The new value for intensidad
    * @param carga The new value for carga
    * @param nivelServicio The new value for nivelServicio
    * @param st_x The new value for st_x
    * @param st_y The new value for st_y
    * @param fechaActualizacion The new value for fechaActualizacion
    */
-  public PuntoDeMedicion(java.lang.Integer idelem, java.lang.CharSequence descripcion, java.lang.Integer carga, java.lang.Integer nivelServicio, java.lang.Float st_x, java.lang.Float st_y, java.lang.CharSequence fechaActualizacion) {
+  public PuntoDeMedicion(java.lang.Integer idelem, java.lang.CharSequence descripcion, java.lang.Integer intensidad, java.lang.Integer carga, java.lang.Integer nivelServicio, java.lang.Float st_x, java.lang.Float st_y, java.lang.CharSequence fechaActualizacion) {
     this.idelem = idelem;
     this.descripcion = descripcion;
+    this.intensidad = intensidad;
     this.carga = carga;
     this.nivelServicio = nivelServicio;
     this.st_x = st_x;
@@ -113,11 +116,12 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
     switch (field$) {
     case 0: return idelem;
     case 1: return descripcion;
-    case 2: return carga;
-    case 3: return nivelServicio;
-    case 4: return st_x;
-    case 5: return st_y;
-    case 6: return fechaActualizacion;
+    case 2: return intensidad;
+    case 3: return carga;
+    case 4: return nivelServicio;
+    case 5: return st_x;
+    case 6: return st_y;
+    case 7: return fechaActualizacion;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -128,11 +132,12 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
     switch (field$) {
     case 0: idelem = (java.lang.Integer)value$; break;
     case 1: descripcion = (java.lang.CharSequence)value$; break;
-    case 2: carga = (java.lang.Integer)value$; break;
-    case 3: nivelServicio = (java.lang.Integer)value$; break;
-    case 4: st_x = (java.lang.Float)value$; break;
-    case 5: st_y = (java.lang.Float)value$; break;
-    case 6: fechaActualizacion = (java.lang.CharSequence)value$; break;
+    case 2: intensidad = (java.lang.Integer)value$; break;
+    case 3: carga = (java.lang.Integer)value$; break;
+    case 4: nivelServicio = (java.lang.Integer)value$; break;
+    case 5: st_x = (java.lang.Float)value$; break;
+    case 6: st_y = (java.lang.Float)value$; break;
+    case 7: fechaActualizacion = (java.lang.CharSequence)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -169,6 +174,23 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
    */
   public void setDescripcion(java.lang.CharSequence value) {
     this.descripcion = value;
+  }
+
+  /**
+   * Gets the value of the 'intensidad' field.
+   * @return The value of the 'intensidad' field.
+   */
+  public int getIntensidad() {
+    return intensidad;
+  }
+
+
+  /**
+   * Sets the value of the 'intensidad' field.
+   * @param value the value to set.
+   */
+  public void setIntensidad(int value) {
+    this.intensidad = value;
   }
 
   /**
@@ -299,6 +321,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
 
     private int idelem;
     private java.lang.CharSequence descripcion;
+    private int intensidad;
     private int carga;
     private int nivelServicio;
     private float st_x;
@@ -324,25 +347,29 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
         this.descripcion = data().deepCopy(fields()[1].schema(), other.descripcion);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (isValidValue(fields()[2], other.carga)) {
-        this.carga = data().deepCopy(fields()[2].schema(), other.carga);
+      if (isValidValue(fields()[2], other.intensidad)) {
+        this.intensidad = data().deepCopy(fields()[2].schema(), other.intensidad);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
-      if (isValidValue(fields()[3], other.nivelServicio)) {
-        this.nivelServicio = data().deepCopy(fields()[3].schema(), other.nivelServicio);
+      if (isValidValue(fields()[3], other.carga)) {
+        this.carga = data().deepCopy(fields()[3].schema(), other.carga);
         fieldSetFlags()[3] = other.fieldSetFlags()[3];
       }
-      if (isValidValue(fields()[4], other.st_x)) {
-        this.st_x = data().deepCopy(fields()[4].schema(), other.st_x);
+      if (isValidValue(fields()[4], other.nivelServicio)) {
+        this.nivelServicio = data().deepCopy(fields()[4].schema(), other.nivelServicio);
         fieldSetFlags()[4] = other.fieldSetFlags()[4];
       }
-      if (isValidValue(fields()[5], other.st_y)) {
-        this.st_y = data().deepCopy(fields()[5].schema(), other.st_y);
+      if (isValidValue(fields()[5], other.st_x)) {
+        this.st_x = data().deepCopy(fields()[5].schema(), other.st_x);
         fieldSetFlags()[5] = other.fieldSetFlags()[5];
       }
-      if (isValidValue(fields()[6], other.fechaActualizacion)) {
-        this.fechaActualizacion = data().deepCopy(fields()[6].schema(), other.fechaActualizacion);
+      if (isValidValue(fields()[6], other.st_y)) {
+        this.st_y = data().deepCopy(fields()[6].schema(), other.st_y);
         fieldSetFlags()[6] = other.fieldSetFlags()[6];
+      }
+      if (isValidValue(fields()[7], other.fechaActualizacion)) {
+        this.fechaActualizacion = data().deepCopy(fields()[7].schema(), other.fechaActualizacion);
+        fieldSetFlags()[7] = other.fieldSetFlags()[7];
       }
     }
 
@@ -360,25 +387,29 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
         this.descripcion = data().deepCopy(fields()[1].schema(), other.descripcion);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.carga)) {
-        this.carga = data().deepCopy(fields()[2].schema(), other.carga);
+      if (isValidValue(fields()[2], other.intensidad)) {
+        this.intensidad = data().deepCopy(fields()[2].schema(), other.intensidad);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.nivelServicio)) {
-        this.nivelServicio = data().deepCopy(fields()[3].schema(), other.nivelServicio);
+      if (isValidValue(fields()[3], other.carga)) {
+        this.carga = data().deepCopy(fields()[3].schema(), other.carga);
         fieldSetFlags()[3] = true;
       }
-      if (isValidValue(fields()[4], other.st_x)) {
-        this.st_x = data().deepCopy(fields()[4].schema(), other.st_x);
+      if (isValidValue(fields()[4], other.nivelServicio)) {
+        this.nivelServicio = data().deepCopy(fields()[4].schema(), other.nivelServicio);
         fieldSetFlags()[4] = true;
       }
-      if (isValidValue(fields()[5], other.st_y)) {
-        this.st_y = data().deepCopy(fields()[5].schema(), other.st_y);
+      if (isValidValue(fields()[5], other.st_x)) {
+        this.st_x = data().deepCopy(fields()[5].schema(), other.st_x);
         fieldSetFlags()[5] = true;
       }
-      if (isValidValue(fields()[6], other.fechaActualizacion)) {
-        this.fechaActualizacion = data().deepCopy(fields()[6].schema(), other.fechaActualizacion);
+      if (isValidValue(fields()[6], other.st_y)) {
+        this.st_y = data().deepCopy(fields()[6].schema(), other.st_y);
         fieldSetFlags()[6] = true;
+      }
+      if (isValidValue(fields()[7], other.fechaActualizacion)) {
+        this.fechaActualizacion = data().deepCopy(fields()[7].schema(), other.fechaActualizacion);
+        fieldSetFlags()[7] = true;
       }
     }
 
@@ -462,6 +493,45 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
     }
 
     /**
+      * Gets the value of the 'intensidad' field.
+      * @return The value.
+      */
+    public int getIntensidad() {
+      return intensidad;
+    }
+
+
+    /**
+      * Sets the value of the 'intensidad' field.
+      * @param value The value of 'intensidad'.
+      * @return This builder.
+      */
+    public org.TFGInformatica.PuntoDeMedicion.Builder setIntensidad(int value) {
+      validate(fields()[2], value);
+      this.intensidad = value;
+      fieldSetFlags()[2] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'intensidad' field has been set.
+      * @return True if the 'intensidad' field has been set, false otherwise.
+      */
+    public boolean hasIntensidad() {
+      return fieldSetFlags()[2];
+    }
+
+
+    /**
+      * Clears the value of the 'intensidad' field.
+      * @return This builder.
+      */
+    public org.TFGInformatica.PuntoDeMedicion.Builder clearIntensidad() {
+      fieldSetFlags()[2] = false;
+      return this;
+    }
+
+    /**
       * Gets the value of the 'carga' field.
       * @return The value.
       */
@@ -476,9 +546,9 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @return This builder.
       */
     public org.TFGInformatica.PuntoDeMedicion.Builder setCarga(int value) {
-      validate(fields()[2], value);
+      validate(fields()[3], value);
       this.carga = value;
-      fieldSetFlags()[2] = true;
+      fieldSetFlags()[3] = true;
       return this;
     }
 
@@ -487,7 +557,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @return True if the 'carga' field has been set, false otherwise.
       */
     public boolean hasCarga() {
-      return fieldSetFlags()[2];
+      return fieldSetFlags()[3];
     }
 
 
@@ -496,7 +566,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @return This builder.
       */
     public org.TFGInformatica.PuntoDeMedicion.Builder clearCarga() {
-      fieldSetFlags()[2] = false;
+      fieldSetFlags()[3] = false;
       return this;
     }
 
@@ -515,9 +585,9 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @return This builder.
       */
     public org.TFGInformatica.PuntoDeMedicion.Builder setNivelServicio(int value) {
-      validate(fields()[3], value);
+      validate(fields()[4], value);
       this.nivelServicio = value;
-      fieldSetFlags()[3] = true;
+      fieldSetFlags()[4] = true;
       return this;
     }
 
@@ -526,7 +596,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @return True if the 'nivelServicio' field has been set, false otherwise.
       */
     public boolean hasNivelServicio() {
-      return fieldSetFlags()[3];
+      return fieldSetFlags()[4];
     }
 
 
@@ -535,7 +605,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @return This builder.
       */
     public org.TFGInformatica.PuntoDeMedicion.Builder clearNivelServicio() {
-      fieldSetFlags()[3] = false;
+      fieldSetFlags()[4] = false;
       return this;
     }
 
@@ -554,9 +624,9 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @return This builder.
       */
     public org.TFGInformatica.PuntoDeMedicion.Builder setStX(float value) {
-      validate(fields()[4], value);
+      validate(fields()[5], value);
       this.st_x = value;
-      fieldSetFlags()[4] = true;
+      fieldSetFlags()[5] = true;
       return this;
     }
 
@@ -565,7 +635,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @return True if the 'st_x' field has been set, false otherwise.
       */
     public boolean hasStX() {
-      return fieldSetFlags()[4];
+      return fieldSetFlags()[5];
     }
 
 
@@ -574,7 +644,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @return This builder.
       */
     public org.TFGInformatica.PuntoDeMedicion.Builder clearStX() {
-      fieldSetFlags()[4] = false;
+      fieldSetFlags()[5] = false;
       return this;
     }
 
@@ -593,9 +663,9 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @return This builder.
       */
     public org.TFGInformatica.PuntoDeMedicion.Builder setStY(float value) {
-      validate(fields()[5], value);
+      validate(fields()[6], value);
       this.st_y = value;
-      fieldSetFlags()[5] = true;
+      fieldSetFlags()[6] = true;
       return this;
     }
 
@@ -604,7 +674,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @return True if the 'st_y' field has been set, false otherwise.
       */
     public boolean hasStY() {
-      return fieldSetFlags()[5];
+      return fieldSetFlags()[6];
     }
 
 
@@ -613,7 +683,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @return This builder.
       */
     public org.TFGInformatica.PuntoDeMedicion.Builder clearStY() {
-      fieldSetFlags()[5] = false;
+      fieldSetFlags()[6] = false;
       return this;
     }
 
@@ -632,9 +702,9 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @return This builder.
       */
     public org.TFGInformatica.PuntoDeMedicion.Builder setFechaActualizacion(java.lang.CharSequence value) {
-      validate(fields()[6], value);
+      validate(fields()[7], value);
       this.fechaActualizacion = value;
-      fieldSetFlags()[6] = true;
+      fieldSetFlags()[7] = true;
       return this;
     }
 
@@ -643,7 +713,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       * @return True if the 'fechaActualizacion' field has been set, false otherwise.
       */
     public boolean hasFechaActualizacion() {
-      return fieldSetFlags()[6];
+      return fieldSetFlags()[7];
     }
 
 
@@ -653,7 +723,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       */
     public org.TFGInformatica.PuntoDeMedicion.Builder clearFechaActualizacion() {
       fechaActualizacion = null;
-      fieldSetFlags()[6] = false;
+      fieldSetFlags()[7] = false;
       return this;
     }
 
@@ -664,11 +734,12 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
         PuntoDeMedicion record = new PuntoDeMedicion();
         record.idelem = fieldSetFlags()[0] ? this.idelem : (java.lang.Integer) defaultValue(fields()[0]);
         record.descripcion = fieldSetFlags()[1] ? this.descripcion : (java.lang.CharSequence) defaultValue(fields()[1]);
-        record.carga = fieldSetFlags()[2] ? this.carga : (java.lang.Integer) defaultValue(fields()[2]);
-        record.nivelServicio = fieldSetFlags()[3] ? this.nivelServicio : (java.lang.Integer) defaultValue(fields()[3]);
-        record.st_x = fieldSetFlags()[4] ? this.st_x : (java.lang.Float) defaultValue(fields()[4]);
-        record.st_y = fieldSetFlags()[5] ? this.st_y : (java.lang.Float) defaultValue(fields()[5]);
-        record.fechaActualizacion = fieldSetFlags()[6] ? this.fechaActualizacion : (java.lang.CharSequence) defaultValue(fields()[6]);
+        record.intensidad = fieldSetFlags()[2] ? this.intensidad : (java.lang.Integer) defaultValue(fields()[2]);
+        record.carga = fieldSetFlags()[3] ? this.carga : (java.lang.Integer) defaultValue(fields()[3]);
+        record.nivelServicio = fieldSetFlags()[4] ? this.nivelServicio : (java.lang.Integer) defaultValue(fields()[4]);
+        record.st_x = fieldSetFlags()[5] ? this.st_x : (java.lang.Float) defaultValue(fields()[5]);
+        record.st_y = fieldSetFlags()[6] ? this.st_y : (java.lang.Float) defaultValue(fields()[6]);
+        record.fechaActualizacion = fieldSetFlags()[7] ? this.fechaActualizacion : (java.lang.CharSequence) defaultValue(fields()[7]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -705,6 +776,8 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
 
     out.writeString(this.descripcion);
 
+    out.writeInt(this.intensidad);
+
     out.writeInt(this.carga);
 
     out.writeInt(this.nivelServicio);
@@ -726,6 +799,8 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
 
       this.descripcion = in.readString(this.descripcion instanceof Utf8 ? (Utf8)this.descripcion : null);
 
+      this.intensidad = in.readInt();
+
       this.carga = in.readInt();
 
       this.nivelServicio = in.readInt();
@@ -737,7 +812,7 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
       this.fechaActualizacion = in.readString(this.fechaActualizacion instanceof Utf8 ? (Utf8)this.fechaActualizacion : null);
 
     } else {
-      for (int i = 0; i < 7; i++) {
+      for (int i = 0; i < 8; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           this.idelem = in.readInt();
@@ -748,22 +823,26 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
           break;
 
         case 2:
-          this.carga = in.readInt();
+          this.intensidad = in.readInt();
           break;
 
         case 3:
-          this.nivelServicio = in.readInt();
+          this.carga = in.readInt();
           break;
 
         case 4:
-          this.st_x = in.readFloat();
+          this.nivelServicio = in.readInt();
           break;
 
         case 5:
-          this.st_y = in.readFloat();
+          this.st_x = in.readFloat();
           break;
 
         case 6:
+          this.st_y = in.readFloat();
+          break;
+
+        case 7:
           this.fechaActualizacion = in.readString(this.fechaActualizacion instanceof Utf8 ? (Utf8)this.fechaActualizacion : null);
           break;
 
