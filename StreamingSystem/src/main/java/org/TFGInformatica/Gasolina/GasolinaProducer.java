@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.*;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
 
@@ -20,11 +21,19 @@ public class GasolinaProducer {
 
         //3. Crear el productor de Kafka y enviar a través del topic
         //Creamos las propiedades necesarias para el Productor
+        //UBUNTU VIRTUAL BOX
         Properties props = new Properties();
         props.setProperty("bootstrap.servers", "10.0.2.15:9092");
         props.setProperty("key.serializer", StringSerializer.class.getName());
         props.setProperty("value.serializer", KafkaAvroSerializer.class.getName());
         props.setProperty("schema.registry.url", "http://10.0.2.15:8081");
+
+        //KALI LINUX
+        /*Properties props = new Properties();
+        props.setProperty("bootstrap.servers", "192.168.0.37::9092");
+        props.setProperty("key.serializer", StringSerializer.class.getName());
+        props.setProperty("value.serializer", KafkaAvroSerializer.class.getName());
+        props.setProperty("schema.registry.url", "https://192.168.0.37::8081");*/
 
         //Creamos el productor y el WatchService en el directorio data
         KafkaProducer<String, EstacionDeServicio> gasolinaProducer = new KafkaProducer<String, EstacionDeServicio>(props);
@@ -48,7 +57,8 @@ public class GasolinaProducer {
                             //2. Leer el archivo realizando las transformaciones necesarias
                             System.out.println("Comienza la lectura del archivo XLS");
                             XLSReader xmlReader = new XLSReader("/home/daniel/Escritorio/TFGInformatica/StreamingSystem/data/ficheroGasolina.xls");
-                            List<EstacionDeServicio> listaEDSs = xmlReader.readXLS();
+                            List<EstacionDeServicio> listaEDSs = new LinkedList<>();
+                            listaEDSs = xmlReader.readXLS();
 
                             System.out.println("La longitud de la lista es: " + listaEDSs.size());
 

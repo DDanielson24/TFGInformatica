@@ -21,11 +21,19 @@ public class TraficoProducer {
 
         //3. Crear el productor de Kafka y enviar a través del topic
         //Creamos las propiedades necesarias para el Productor
+        //UBUNTU VIRTUAL BOX
         Properties props = new Properties();
+        props.setProperty("bootstrap.servers", "10.0.2.15:9092");
+        props.setProperty("key.serializer", StringSerializer.class.getName());
+        props.setProperty("value.serializer", KafkaAvroSerializer.class.getName());
+        props.setProperty("schema.registry.url", "http://10.0.2.15:8081");
+
+        //KALI LINUX
+        /*Properties props = new Properties();
         props.setProperty("bootstrap.servers", "192.168.0.37::9092");
         props.setProperty("key.serializer", StringSerializer.class.getName());
         props.setProperty("value.serializer", KafkaAvroSerializer.class.getName());
-        props.setProperty("schema.registry.url", "https://192.168.0.37::8081");
+        props.setProperty("schema.registry.url", "https://192.168.0.37::8081");*/
 
         //Creamos el productor y el WatchService en el directorio data
         KafkaProducer<String, PuntoDeMedicion> traficoProducer = new KafkaProducer<String, PuntoDeMedicion>(props);

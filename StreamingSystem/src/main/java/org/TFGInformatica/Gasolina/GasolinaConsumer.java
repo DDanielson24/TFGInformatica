@@ -22,24 +22,24 @@ public class GasolinaConsumer {
         //1. Crear el consumidor de Kafka y leer a través del topic
         //Creamos las propiedades necesarias para el consumidor
         //UBUNTU VIRTUAL BOX
-        /*Properties props = new Properties();
+        Properties props = new Properties();
         props.setProperty("bootstrap.servers", "10.0.2.15:9092");
         props.setProperty("key.deserializer", StringDeserializer.class.getName());
         props.setProperty("value.deserializer", KafkaAvroDeserializer.class.getName());
         props.setProperty("group.id", "gasolinaConsumerGroup");
         props.setProperty("auto.offset.reset", "latest");
         props.setProperty("specific.avro.reader", "true");
-        props.setProperty("schema.registry.url", "http://10.0.2.15:8081");*/
+        props.setProperty("schema.registry.url", "http://10.0.2.15:8081");
 
         //KALI LINUX
-        Properties props = new Properties();
+        /*Properties props = new Properties();
         props.setProperty("bootstrap.servers", "192.168.0.33:9092");
         props.setProperty("key.deserializer", StringDeserializer.class.getName());
         props.setProperty("value.deserializer", KafkaAvroDeserializer.class.getName());
         props.setProperty("group.id", "gasolinaConsumerGroup");
         props.setProperty("auto.offset.reset", "latest");
         props.setProperty("specific.avro.reader", "true");
-        props.setProperty("schema.registry.url", "http://192.168.0.33:8081");
+        props.setProperty("schema.registry.url", "http://192.168.0.33:8081");*/
 
         //Creamos el consumidor, nos suscribimos y leemos las ES
         KafkaConsumer<String, EstacionDeServicio> gasolinaConsumer = new KafkaConsumer<String, EstacionDeServicio>(props);

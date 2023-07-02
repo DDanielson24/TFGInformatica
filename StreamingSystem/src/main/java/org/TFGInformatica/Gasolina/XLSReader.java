@@ -22,7 +22,7 @@ public class XLSReader {
         this.original_file = path;
     }
 
-    public List<EstacionDeServicio> readXLS() throws Exception {
+    public List<EstacionDeServicio> readXLS() {
         List<EstacionDeServicio> listaDevolver = new LinkedList<>();
 
         try {
@@ -87,14 +87,14 @@ public class XLSReader {
                     }
                     es.setRotulo(row.getCell(26).toString());
 
-                    //Hashcode
+                    //Hashcode - PENDIENTE DE SER REVISADO
                     System.out.println("Hashcode: " + es.hashCode());
                     if (!this.hashcodeUsados.contains(es.hashCode())) {
                         es.setIdelem(es.hashCode());
                         this.hashcodeUsados.add(es.hashCode());
                     }
                     else {
-                        throw new Exception("EXCEPCIÓN: HAY UNA CLAVE PRIMARIA REPETIDA");
+                        System.out.println("Clave primaria ya usada... Not yet implemented");
                     }
 
                     System.out.println("EstacionDeServicio: " + es.getMunicipio()+ " - " + es.getDireccion() + " creado exitosamente");

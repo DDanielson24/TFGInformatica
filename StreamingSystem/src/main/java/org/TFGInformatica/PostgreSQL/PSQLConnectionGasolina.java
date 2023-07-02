@@ -3,6 +3,8 @@ package org.TFGInformatica.PostgreSQL;
 import org.TFGInformatica.EstacionDeServicio;
 
 import java.sql.*;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 
 public class PSQLConnectionGasolina {
 
@@ -197,6 +199,11 @@ public class PSQLConnectionGasolina {
     }
 
     private void actualizarPrecioMedioCarburante (EstacionDeServicio es) {
+        DecimalFormat df = new DecimalFormat("0.000");
+        DecimalFormatSymbols dfs = new DecimalFormatSymbols();
+        dfs.setDecimalSeparator('.');
+        df.setDecimalFormatSymbols(dfs);
+
         int tiposCarburanteOfertados = 0;
         float suma_precio_carburante = 0f;
         Float precioGasolina95 = es.getPrecioGasolina95();
@@ -223,17 +230,27 @@ public class PSQLConnectionGasolina {
         }
 
         float precio_medio_carburante = 0f;
+        String precio_medio_carburante_redondeado = "";
         if (tiposCarburanteOfertados != 0) {
             precio_medio_carburante = suma_precio_carburante / tiposCarburanteOfertados;
         }
+        precio_medio_carburante_redondeado = df.format(precio_medio_carburante);
 
         //Insertamos el valor promedio en la base de datos
         try {
             Statement statement = conn.createStatement();
-            statement.execute(
-                    "UPDATE \"EstacionesDeServicio\" " +
-                    "SET precio_medio_carburante = " + precio_medio_carburante + " " +
-                    "WHERE idelem = " + es.getIdelem() + ";");
+            if (tiposCarburanteOfertados == 0) {
+                statement.execute(
+                        "UPDATE \"EstacionesDeServicio\" " +
+                            "SET precio_medio_carburante = NULL " +
+                            "WHERE idelem = " + es.getIdelem() + ";");
+            }
+            else {
+                statement.execute(
+                        "UPDATE \"EstacionesDeServicio\" " +
+                            "SET precio_medio_carburante = " + precio_medio_carburante_redondeado + " " +
+                            "WHERE idelem = " + es.getIdelem() + ";");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
