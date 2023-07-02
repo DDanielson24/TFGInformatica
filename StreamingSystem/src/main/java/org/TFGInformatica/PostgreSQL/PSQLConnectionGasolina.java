@@ -41,7 +41,6 @@ public class PSQLConnectionGasolina {
                 this.actualizarGasolina98(es);
                 this.actualizarGasoleoA(es);
                 this.actualizarGasoleoPremium(es);
-                this.actualizarPrecioMedioCarburante(es);
                 System.out.println("EstacionDeServicio: " + es.getRotulo() + ", " + es.getDireccion() +
                                    ", " + ", " + es.getMunicipio() + " ha sido actualizado en la BD");
                 query = true;
@@ -80,7 +79,6 @@ public class PSQLConnectionGasolina {
                 this.actualizarGasolina98(es);
                 this.actualizarGasoleoA(es);
                 this.actualizarGasoleoPremium(es);
-                this.actualizarPrecioMedioCarburante(es);
                 System.out.println("EstacionDeServicio: " + es.getRotulo() + ", " + es.getDireccion() +
                         ", " + ", " + es.getMunicipio() + " ha sido insertado en la BD: EstacionesDeServicio");
                 query = true;
@@ -192,64 +190,6 @@ public class PSQLConnectionGasolina {
                             "UPDATE \"EstacionesDeServicio\" " +
                                 "SET precio_gasoleo_premium = " + precioGasoleoPremium + " " +
                                 "WHERE idelem = " + es.getIdelem() + ";");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void actualizarPrecioMedioCarburante (EstacionDeServicio es) {
-        DecimalFormat df = new DecimalFormat("0.000");
-        DecimalFormatSymbols dfs = new DecimalFormatSymbols();
-        dfs.setDecimalSeparator('.');
-        df.setDecimalFormatSymbols(dfs);
-
-        int tiposCarburanteOfertados = 0;
-        float suma_precio_carburante = 0f;
-        Float precioGasolina95 = es.getPrecioGasolina95();
-        Float precioGasolina98 = es.getPrecioGasolina98();
-        Float precioGasoleoA = es.getPrecioGasoleoA();
-        Float precioGasoleoPremium = es.getPrecioGasoleoPremium();
-
-        //Comprobamos los tipos de carburantes ofertados, es decir, aquellos que no tienen valor 0
-        if (!precioGasolina95.equals(0f)) {
-            tiposCarburanteOfertados++;
-            suma_precio_carburante = suma_precio_carburante + precioGasolina95;
-        }
-        if (!precioGasolina98.equals(0f)) {
-            tiposCarburanteOfertados++;
-            suma_precio_carburante = suma_precio_carburante + precioGasolina98;
-        }
-        if (!precioGasoleoA.equals(0f)) {
-            tiposCarburanteOfertados++;
-            suma_precio_carburante = suma_precio_carburante + precioGasoleoA;
-        }
-        if (!precioGasoleoPremium.equals(0f)) {
-            tiposCarburanteOfertados++;
-            suma_precio_carburante = suma_precio_carburante + precioGasoleoPremium;
-        }
-
-        float precio_medio_carburante = 0f;
-        String precio_medio_carburante_redondeado = "";
-        if (tiposCarburanteOfertados != 0) {
-            precio_medio_carburante = suma_precio_carburante / tiposCarburanteOfertados;
-        }
-        precio_medio_carburante_redondeado = df.format(precio_medio_carburante);
-
-        //Insertamos el valor promedio en la base de datos
-        try {
-            Statement statement = conn.createStatement();
-            if (tiposCarburanteOfertados == 0) {
-                statement.execute(
-                        "UPDATE \"EstacionesDeServicio\" " +
-                            "SET precio_medio_carburante = NULL " +
-                            "WHERE idelem = " + es.getIdelem() + ";");
-            }
-            else {
-                statement.execute(
-                        "UPDATE \"EstacionesDeServicio\" " +
-                            "SET precio_medio_carburante = " + precio_medio_carburante_redondeado + " " +
-                            "WHERE idelem = " + es.getIdelem() + ";");
             }
         } catch (SQLException e) {
             e.printStackTrace();
