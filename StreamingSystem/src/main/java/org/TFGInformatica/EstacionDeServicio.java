@@ -91,6 +91,11 @@ public class EstacionDeServicio extends org.apache.avro.specific.SpecificRecordB
   public EstacionDeServicio() {}
 
   @Override
+  public String toString() {
+    return "{ \"idelem\": " + this.getIdelem() + ", \"rotulo\": " + this.getRotulo() + ", \"direccion\": " + this.getDireccion() + ", \"municipio\": " + this.getMunicipio() + ", \"precio_gasolina_95\": " + this.getPrecioGasolina95() + ", \"precio_gasolina_98\": " + this.getPrecioGasolina98() + ", \"precio_gasoleo_a\": " + this.getPrecioGasoleoA() + ", \"precio_gasoleo_premium\": " + this.getPrecioGasoleoPremium() + ", \"fecha_actualizacion\": " + this.getFechaActualizacion() + "}";
+  }
+
+  @Override
   public int hashCode() {
     int hashCode = (this.rotulo.hashCode() * this.direccion.hashCode() * this.municipio.hashCode() *
                     Float.hashCode(this.latitud) * Float.hashCode(this.longitud));

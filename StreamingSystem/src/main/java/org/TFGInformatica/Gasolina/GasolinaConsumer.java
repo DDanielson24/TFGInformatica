@@ -57,8 +57,7 @@ public class GasolinaConsumer {
 
                     //2. Para cada ES, comprobar que no hay error y enviar a la base de datos
                     EstacionDeServicio es = record.value();
-                    System.out.println("EstacionDeServicio: " + es.getRotulo() + ", " + es.getDireccion() +
-                            ", " + es.getMunicipio() + " recibido exitosamente");
+                    System.out.println("EstacionDeServicio: " + es.toString() + " recibido exitosamente");
 
                     //Llamamos al método para añadir filas a la BD
                     psqlConnectionGasolina.addRow(es);

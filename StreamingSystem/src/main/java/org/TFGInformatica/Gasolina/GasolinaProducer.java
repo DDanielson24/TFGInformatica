@@ -12,6 +12,7 @@ import java.nio.file.*;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.TFGInformatica.EstacionDeServicio;
 
@@ -52,6 +53,9 @@ public class GasolinaProducer {
                         if (event.context().toString().endsWith("ficheroGasolina.xls")) {
                             //El fichero de datos ha sido actualizado
                             System.out.println("WatchService: El fichero " + event.context() + " ha sido actualizado");
+
+                            //Timeout para esperar a que el fichero termine de ser descargado
+                            TimeUnit.SECONDS.sleep(15);
 
                             //Por tanto, se procesa el nuevo fichero
                             //2. Leer el archivo realizando las transformaciones necesarias

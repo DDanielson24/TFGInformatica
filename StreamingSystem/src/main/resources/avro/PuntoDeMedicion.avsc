@@ -1,7 +1,7 @@
 {
     "type": "record",
     "namespace": "org.TFGInformatica",
-    "name": "PuntoDeMedicion",
+    "name": "TraficoPuntoDeMedicion",
     "fields": [
         { "name": "idelem", "type": "int" },
         { "name": "descripcion", "type": "string" },

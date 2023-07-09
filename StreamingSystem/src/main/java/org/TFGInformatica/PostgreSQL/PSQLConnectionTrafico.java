@@ -1,6 +1,7 @@
 package org.TFGInformatica.PostgreSQL;
 
 import org.TFGInformatica.PuntoDeMedicion;
+import org.TFGInformatica.TraficoPuntoDeMedicion;
 
 import javax.xml.transform.Result;
 import java.sql.*;
@@ -31,75 +32,101 @@ public class PSQLConnectionTrafico {
         }
     }
 
-    public boolean addRow(PuntoDeMedicion pm) {
+    public boolean addRow(TraficoPuntoDeMedicion pm) {
 
         boolean query = false;
-        if (this.checkIfExists("PuntosDeMedicion", pm)) { //UPDATE
 
-            try {
-                Statement statement = conn.createStatement();
+        float resultConverted[] = coordConverter.convertUTMToLatLong(Float.toString(pm.getStX()), Float.toString(pm.getStY()));
+        try {
+            Statement statement = conn.createStatement();
+
+            //Comprobamos si está ya en la BD UbicacionesLatLong
+            if (!this.checkIfExists("UbicacionesLatLong", pm)) {
                 statement.execute(
-                        "UPDATE \"PuntosDeMedicion\" " +
-                        "SET intensidad = " + pm.getIntensidad() + ", " +
-                            "carga = " + pm.getCarga() + ", " +
-                            "nivel_servicio = " + pm.getNivelServicio() + ", " +
-                            "fecha_actualizacion = '" + pm.getFechaActualizacion() + "' " +
-                        "WHERE idelem = " + pm.getIdelem() + ";");
-                System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido actualizado en la BD");
-                query = true;
-            } catch (SQLException e) {
-                e.printStackTrace();
+                        "INSERT INTO \"UbicacionesLatLong\" " +
+                            "VALUES (" + pm.getIdelem() + ", " + resultConverted[0] +
+                            ", " + resultConverted[1] + ");");
+                System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido insertado en la BD: UbicacionesLatLong");
             }
-            return query;
+            else {
+                System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ya se encontraba en la BD: UbicacionesLatLong");
+            }
 
-        }
-        else { //INSERT
+            //Comprobamos si está ya en la BD PuntosDeMedicionHistorico
+            if (!this.checkIfExists("PuntosDeMedicionHistorico", pm)) {
+                statement.execute(
+                        "INSERT INTO \"PuntosDeMedicionHistorico\" " +
+                            "VALUES (" + pm.getIdelem() + ", '" + pm.getDescripcion() + "', " +
+                            pm.getIntensidad() + ", " + pm.getCarga() + ", " +
+                            pm.getNivelServicio() + ", '" + pm.getFechaActualizacion() + "');");
+                System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido insertado en la BD: PuntosDeMedicionHistorico");
+            }
+            else {
+                System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ya se encontraba en la BD: PuntosDeMedicionHistorico");
+            }
 
-            float resultConverted[] = coordConverter.convertUTMToLatLong(Float.toString(pm.getStX()), Float.toString(pm.getStY()));
-            try {
-                Statement statement = conn.createStatement();
-
-                //Comprobamos si está ya en la BD UbicacionesLatLong
-                if (!this.checkIfExists("UbicacionesLatLong", pm)) {
-                    statement.execute(
-                            "INSERT INTO \"UbicacionesLatLong\" " +
-                                "VALUES (" + pm.getIdelem() + ", " + resultConverted[0] +
-                                ", " + resultConverted[1] + ");");
-                    System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido insertado en la BD: UbicacionesLatLong");
-                }
-                else {
-                    System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ya se encontraba en la BD: UbicacionesLatLong");
-                }
-
+            //Comprobamos si está ya en la BD PuntosDeMedicion
+            if (!this.checkIfExists("PuntosDeMedicion", pm)) {
                 statement.execute(
                         "INSERT INTO \"PuntosDeMedicion\" " +
                             "VALUES (" + pm.getIdelem() + ", '" + pm.getDescripcion() + "', " +
-                                pm.getIntensidad() + ", " + pm.getCarga() + ", " +
-                                pm.getNivelServicio() + ", '" + pm.getFechaActualizacion() + "');");
-                System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido insertado en la BD: PuntosDeMedicion");
-                query = true;
-            } catch (SQLException e) {
-                e.printStackTrace();
+                            pm.getIntensidad() + ", " + pm.getCarga() + ", " +
+                            pm.getNivelServicio() + ", '" + pm.getFechaActualizacion() + "');");
+                System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido actualizado en la BD: PuntosDeMedicion");
             }
-            return query;
+            else {
+                statement.execute(
+                        "UPDATE \"PuntosDeMedicion\" " +
+                            "SET intensidad = " + pm.getIntensidad() + ", " +
+                            "carga = " + pm.getCarga() + ", " +
+                            "nivel_servicio = " + pm.getNivelServicio() + ", " +
+                            "fecha_actualizacion = '" + pm.getFechaActualizacion() + "' " +
+                            "WHERE idelem = " + pm.getIdelem() + ";");
+                System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido actualizado en la BD: PuntosDeMedicion");
+            }
+            query = true;
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+        return query;
     }
 
-    private boolean checkIfExists(String database, PuntoDeMedicion pm) {
+    private boolean checkIfExists(String database, TraficoPuntoDeMedicion pm) {
 
         boolean query = false;
         try {
 
             Statement statement = conn.createStatement();
-            ResultSet resultSet = statement.executeQuery(
-                    "SELECT EXISTS " +
-                    "(SELECT * FROM \"" + database + "\" " +
-                    "WHERE idelem = " + pm.getIdelem() + ");");
-            while (resultSet.next()) {
-                query = resultSet.getBoolean("exists");
+
+            if (database.equals("PuntosDeMedicion")) {
+                ResultSet resultSet = statement.executeQuery(
+                        "SELECT EXISTS " +
+                            "(SELECT * FROM \"" + database + "\" " +
+                            "WHERE idelem = " + pm.getIdelem() + ");");
+                while (resultSet.next()) {
+                    query = resultSet.getBoolean("exists");
+                }
+            }
+            else if (database.equals("PuntosDeMedicionHistorico")) {
+                ResultSet resultSet = statement.executeQuery(
+                        "SELECT EXISTS " +
+                            "(SELECT * FROM \"" + database + "\" " +
+                            "WHERE idelem = " + pm.getIdelem() + " " +
+                            "AND fecha_actualizacion = '" + pm.getFechaActualizacion() + "');");
+                while (resultSet.next()) {
+                    query = resultSet.getBoolean("exists");
+                }
+            }
+            else if (database.equals("UbicacionesLatLong")) {
+                ResultSet resultSet = statement.executeQuery(
+                        "SELECT EXISTS " +
+                            "(SELECT * FROM \"" + database + "\" " +
+                            "WHERE idelem = " + pm.getIdelem() + ");");
+                while (resultSet.next()) {
+                    query = resultSet.getBoolean("exists");
+                }
             }
             return query;
-
         } catch (SQLException e) {
             e.printStackTrace();
         }

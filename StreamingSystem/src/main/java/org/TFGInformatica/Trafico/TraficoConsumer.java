@@ -1,6 +1,7 @@
 package org.TFGInformatica.Trafico;
 
 import io.confluent.kafka.serializers.KafkaAvroDeserializer;
+import org.TFGInformatica.TraficoPuntoDeMedicion;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
@@ -40,7 +41,7 @@ public class TraficoConsumer {
         props.setProperty("schema.registry.url", "http://192.168.0.33:8081");*/
 
         //Creamos el consumidor, nos suscribimos y leemos los PM
-        KafkaConsumer<String, PuntoDeMedicion> traficoConsumer = new KafkaConsumer<String, PuntoDeMedicion>(props);
+        KafkaConsumer<String, TraficoPuntoDeMedicion> traficoConsumer = new KafkaConsumer<String, TraficoPuntoDeMedicion>(props);
         traficoConsumer.subscribe(Arrays.asList("traficoData"));
 
         //Creamos la clase para conectarse a la BD y nos conectamos
@@ -50,12 +51,12 @@ public class TraficoConsumer {
         try {
 
             while (true) {
-                ConsumerRecords<String, PuntoDeMedicion> records = traficoConsumer.poll(Duration.ofMillis(100));
-                for (ConsumerRecord<String, PuntoDeMedicion> record: records) {
+                ConsumerRecords<String, TraficoPuntoDeMedicion> records = traficoConsumer.poll(Duration.ofMillis(100));
+                for (ConsumerRecord<String, TraficoPuntoDeMedicion> record: records) {
 
                     //2. Para cada PM, comprobar que no hay error y enviar a la base de datos
-                    PuntoDeMedicion pm = record.value();
-                    System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " recibido exitosamente");
+                    TraficoPuntoDeMedicion pm = record.value();
+                    System.out.println("PuntoDeMedicion: " + pm.toString() + " recibido exitosamente");
 
                     //Llamamos al método para añadir filas a la BD
                     psqlConnectionTrafico.addRow(pm);

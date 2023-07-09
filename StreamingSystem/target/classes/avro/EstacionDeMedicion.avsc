@@ -1,0 +1,26 @@
+{
+    "type": "record",
+    "namespace": "org.TFGInformatica",
+    "name": "ContaminacionEstacionDeMedicion",
+    "fields": [
+        { "name": "idelem", "type": "int" },
+        { "name": "descripcion", "type": "string" },
+        { "name": "m01", "type": "float" },
+        { "name": "m06", "type": "float" },
+        { "name": "m07", "type": "float" },
+        { "name": "m08", "type": "float" },
+        { "name": "m09", "type": "float" },
+        { "name": "m10", "type": "float" },
+        { "name": "m12", "type": "float" },
+        { "name": "m14", "type": "float" },
+        { "name": "m20", "type": "float" },
+        { "name": "m30", "type": "float" },
+        { "name": "m35", "type": "float" },
+        { "name": "m37", "type": "float" },
+        { "name": "m38", "type": "float" },
+        { "name": "m39", "type": "float" },
+        { "name": "m42", "type": "float" },
+        { "name": "m43", "type": "float" },
+        { "name": "fechaActualizacion", "type": "string" }
+    ]
+}

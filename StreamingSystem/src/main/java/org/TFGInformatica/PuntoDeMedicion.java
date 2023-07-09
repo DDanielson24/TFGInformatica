@@ -87,6 +87,11 @@ public class PuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase
    */
   public PuntoDeMedicion() {}
 
+  @Override
+  public String toString() {
+    return "{ \"idelem\": " + this.getIdelem() + ", \"descripcion\": " + this.getDescripcion() + ", \"intensidad\": " + this.getIntensidad() + ", \"carga\": " + this.getCarga() + ", \"nivel_servicio\": " + this.getNivelServicio() + ", \"fecha_actualizacion\": " + this.getFechaActualizacion() + "}";
+  }
+
   /**
    * All-args constructor.
    * @param idelem The new value for idelem
