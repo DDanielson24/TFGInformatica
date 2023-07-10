@@ -71,7 +71,7 @@ public class ContaminacionXMLReader {
                                     }
                                 }
                                 if (child.getNodeName().equals("punto_muestreo")) {
-                                    em.setDescripcion(childs.item(j).getTextContent());
+                                    em.setDescripcion(Integer.parseInt(childs.item(j).getTextContent().substring(0,8)));
                                 }
                                 if (child.getNodeName().equals("magnitud")) {
                                     magnitudMedida = Integer.parseInt(childs.item(j).getTextContent());
@@ -107,57 +107,43 @@ public class ContaminacionXMLReader {
                     em.setFechaActualizacion(fecha_actualizacion);
 
                     if (magnitudMedida == 1) {
-                        em.setM01(valorMagnitudMedia);
+                        em.setSo2(valorMagnitudMedia);
                     }
                     else if (magnitudMedida == 6) {
-                        em.setM06(valorMagnitudMedia);
+                        em.setCo(valorMagnitudMedia);
                     }
                     else if (magnitudMedida == 7) {
-                        em.setM07(valorMagnitudMedia);
+                        em.setNo(valorMagnitudMedia);
                     }
                     else if (magnitudMedida == 8) {
-                        em.setM08(valorMagnitudMedia);
+                        em.setNo2(valorMagnitudMedia);
                     }
                     else if (magnitudMedida == 9) {
-                        em.setM06(valorMagnitudMedia);
+                        em.setPm25(valorMagnitudMedia);
                     }
                     else if (magnitudMedida == 10) {
-                        em.setM10(valorMagnitudMedia);
+                        em.setPm10(valorMagnitudMedia);
                     }
                     else if (magnitudMedida == 12) {
-                        em.setM12(valorMagnitudMedia);
+                        em.setNox(valorMagnitudMedia);
                     }
                     else if (magnitudMedida == 14) {
-                        em.setM14(valorMagnitudMedia);
+                        em.setO3(valorMagnitudMedia);
                     }
                     else if (magnitudMedida == 20) {
-                        em.setM20(valorMagnitudMedia);
+                        em.setTol(valorMagnitudMedia);
                     }
                     else if (magnitudMedida == 30) {
-                        em.setM30(valorMagnitudMedia);
+                        em.setBen(valorMagnitudMedia);
                     }
                     else if (magnitudMedida == 35) {
-                        em.setM35(valorMagnitudMedia);
-                    }
-                    else if (magnitudMedida == 37) {
-                        em.setM37(valorMagnitudMedia);
-                    }
-                    else if (magnitudMedida == 38) {
-                        em.setM38(valorMagnitudMedia);
-                    }
-                    else if (magnitudMedida == 39) {
-                        em.setM39(valorMagnitudMedia);
-                    }
-                    else if (magnitudMedida == 42) {
-                        em.setM42(valorMagnitudMedia);
-                    }
-                    else if (magnitudMedida == 43) {
-                        em.setM43(valorMagnitudMedia);
+                        em.setEbe(valorMagnitudMedia);
                     }
 
                     //Comprobamos si no ha surgido un error en la creación del PM. Si no, añadimos a la lista
                     if (!error) {
                         this.estacionesYaCreadas.put(em.getIdelem(), em);
+                        System.out.println("EstacionDeMedicion: " + em.getIdelem() + " creado exitosamente");
                     }
                 }
             }

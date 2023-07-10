@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43568546-4822-45e4-b1cb-6881c237efe8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/StreamingSystem/src/main/java/org/TFGInformatica/PostgreSQL/PSQLConnectionGasolina.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamingSystem/src/main/java/org/TFGInformatica/PostgreSQL/PSQLConnectionGasolina.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StreamingSystem/src/main/java/org/TFGInformatica/PostgreSQL/PSQLConnectionTrafico.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamingSystem/src/main/java/org/TFGInformatica/PostgreSQL/PSQLConnectionTrafico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StreamingSystem/src/main/java/org/TFGInformatica/Trafico/TraficoConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamingSystem/src/main/java/org/TFGInformatica/Trafico/TraficoConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StreamingSystem/src/main/java/org/TFGInformatica/Trafico/TraficoProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamingSystem/src/main/java/org/TFGInformatica/Trafico/TraficoProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamingSystem/data/ficheroContaminacion.xml" beforeDir="false" afterPath="$PROJECT_DIR$/StreamingSystem/data/ficheroContaminacion.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamingSystem/data/ficheroTrafico.xml" beforeDir="false" afterPath="$PROJECT_DIR$/StreamingSystem/data/ficheroTrafico.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamingSystem/src/main/java/org/TFGInformatica/Contaminacion/ContaminacionConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamingSystem/src/main/java/org/TFGInformatica/Contaminacion/ContaminacionConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamingSystem/src/main/java/org/TFGInformatica/Contaminacion/ContaminacionProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamingSystem/src/main/java/org/TFGInformatica/Contaminacion/ContaminacionProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamingSystem/src/main/resources/avro/EstacionDeMedicion.avsc" beforeDir="false" afterPath="$PROJECT_DIR$/StreamingSystem/src/main/resources/avro/EstacionDeMedicion.avsc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

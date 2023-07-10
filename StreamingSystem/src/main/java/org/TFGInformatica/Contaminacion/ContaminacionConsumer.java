@@ -1,6 +1,8 @@
 package org.TFGInformatica.Contaminacion;
 
 import io.confluent.kafka.serializers.KafkaAvroDeserializer;
+import org.TFGInformatica.ContaminacionEstacionDeMedicion;
+import org.TFGInformatica.PostgreSQL.PSQLConnectionContaminacion;
 import org.TFGInformatica.PostgreSQL.PSQLConnectionGasolina;
 import org.TFGInformatica.PuntoDeMedicion;
 import org.apache.kafka.clients.consumer.Consumer;
@@ -12,8 +14,6 @@ import org.apache.kafka.common.serialization.StringDeserializer;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Properties;
-
-import org.TFGInformatica.EstacionDeServicio;
 
 public class ContaminacionConsumer {
 
@@ -41,5 +41,32 @@ public class ContaminacionConsumer {
         props.setProperty("specific.avro.reader", "true");
         props.setProperty("schema.registry.url", "http://192.168.0.33:8081");*/
 
+        //Creamos el consumidor, nos suscribimos y leemos los PM
+        KafkaConsumer<String, ContaminacionEstacionDeMedicion> contaminacionConsumer = new KafkaConsumer<String, ContaminacionEstacionDeMedicion>(props);
+        contaminacionConsumer.subscribe(Arrays.asList("contaminacionData"));
+
+        //Creamos la clase para conectarse a la BD y nos conectamos
+        PSQLConnectionContaminacion psqlConnectionContaminacion = new PSQLConnectionContaminacion();
+        psqlConnectionContaminacion.connect();
+
+        try {
+
+            while (true) {
+                ConsumerRecords<String, ContaminacionEstacionDeMedicion> records = contaminacionConsumer.poll(Duration.ofMillis(100));
+                for (ConsumerRecord<String, ContaminacionEstacionDeMedicion> record: records) {
+
+                    //2. Para cada PM, comprobar que no hay error y enviar a la base de datos
+                    ContaminacionEstacionDeMedicion em = record.value();
+                    System.out.println("EstacionDeMedicion: " + em.toString() + " recibido exitosamente");
+
+                    //Llamamos al método para añadir filas a la BD
+                    psqlConnectionContaminacion.addRow(em);
+
+                }
+            }
+
+        } finally {
+            contaminacionConsumer.close();
+        }
     }
 }

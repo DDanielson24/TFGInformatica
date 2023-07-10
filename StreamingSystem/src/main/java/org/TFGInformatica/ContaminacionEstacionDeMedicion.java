@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -9060368838604227222L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ContaminacionEstacionDeMedicion\",\"namespace\":\"org.TFGInformatica\",\"fields\":[{\"name\":\"idelem\",\"type\":\"int\"},{\"name\":\"descripcion\",\"type\":\"string\"},{\"name\":\"m01\",\"type\":\"float\"},{\"name\":\"m06\",\"type\":\"float\"},{\"name\":\"m07\",\"type\":\"float\"},{\"name\":\"m08\",\"type\":\"float\"},{\"name\":\"m09\",\"type\":\"float\"},{\"name\":\"m10\",\"type\":\"float\"},{\"name\":\"m12\",\"type\":\"float\"},{\"name\":\"m14\",\"type\":\"float\"},{\"name\":\"m20\",\"type\":\"float\"},{\"name\":\"m30\",\"type\":\"float\"},{\"name\":\"m35\",\"type\":\"float\"},{\"name\":\"m37\",\"type\":\"float\"},{\"name\":\"m38\",\"type\":\"float\"},{\"name\":\"m39\",\"type\":\"float\"},{\"name\":\"m42\",\"type\":\"float\"},{\"name\":\"m43\",\"type\":\"float\"},{\"name\":\"fechaActualizacion\",\"type\":\"string\"}]}");
+  private static final long serialVersionUID = 1786433626916135949L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ContaminacionEstacionDeMedicion\",\"namespace\":\"org.TFGInformatica\",\"fields\":[{\"name\":\"idelem\",\"type\":\"int\"},{\"name\":\"descripcion\",\"type\":\"int\"},{\"name\":\"so2\",\"type\":\"float\"},{\"name\":\"co\",\"type\":\"float\"},{\"name\":\"no\",\"type\":\"float\"},{\"name\":\"no2\",\"type\":\"float\"},{\"name\":\"pm25\",\"type\":\"float\"},{\"name\":\"pm10\",\"type\":\"float\"},{\"name\":\"nox\",\"type\":\"float\"},{\"name\":\"o3\",\"type\":\"float\"},{\"name\":\"tol\",\"type\":\"float\"},{\"name\":\"ben\",\"type\":\"float\"},{\"name\":\"ebe\",\"type\":\"float\"},{\"name\":\"fechaActualizacion\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -72,23 +72,18 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
   }
 
    private int idelem;
-   private java.lang.CharSequence descripcion;
-   private float m01;
-   private float m06;
-   private float m07;
-   private float m08;
-   private float m09;
-   private float m10;
-   private float m12;
-   private float m14;
-   private float m20;
-   private float m30;
-   private float m35;
-   private float m37;
-   private float m38;
-   private float m39;
-   private float m42;
-   private float m43;
+   private int descripcion;
+   private float so2;
+   private float co;
+   private float no;
+   private float no2;
+   private float pm25;
+   private float pm10;
+   private float nox;
+   private float o3;
+   private float tol;
+   private float ben;
+   private float ebe;
    private java.lang.CharSequence fechaActualizacion;
 
   /**
@@ -102,43 +97,33 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
    * All-args constructor.
    * @param idelem The new value for idelem
    * @param descripcion The new value for descripcion
-   * @param m01 The new value for m01
-   * @param m06 The new value for m06
-   * @param m07 The new value for m07
-   * @param m08 The new value for m08
-   * @param m09 The new value for m09
-   * @param m10 The new value for m10
-   * @param m12 The new value for m12
-   * @param m14 The new value for m14
-   * @param m20 The new value for m20
-   * @param m30 The new value for m30
-   * @param m35 The new value for m35
-   * @param m37 The new value for m37
-   * @param m38 The new value for m38
-   * @param m39 The new value for m39
-   * @param m42 The new value for m42
-   * @param m43 The new value for m43
+   * @param so2 The new value for so2
+   * @param co The new value for co
+   * @param no The new value for no
+   * @param no2 The new value for no2
+   * @param pm25 The new value for pm25
+   * @param pm10 The new value for pm10
+   * @param nox The new value for nox
+   * @param o3 The new value for o3
+   * @param tol The new value for tol
+   * @param ben The new value for ben
+   * @param ebe The new value for ebe
    * @param fechaActualizacion The new value for fechaActualizacion
    */
-  public ContaminacionEstacionDeMedicion(java.lang.Integer idelem, java.lang.CharSequence descripcion, java.lang.Float m01, java.lang.Float m06, java.lang.Float m07, java.lang.Float m08, java.lang.Float m09, java.lang.Float m10, java.lang.Float m12, java.lang.Float m14, java.lang.Float m20, java.lang.Float m30, java.lang.Float m35, java.lang.Float m37, java.lang.Float m38, java.lang.Float m39, java.lang.Float m42, java.lang.Float m43, java.lang.CharSequence fechaActualizacion) {
+  public ContaminacionEstacionDeMedicion(java.lang.Integer idelem, java.lang.Integer descripcion, java.lang.Float so2, java.lang.Float co, java.lang.Float no, java.lang.Float no2, java.lang.Float pm25, java.lang.Float pm10, java.lang.Float nox, java.lang.Float o3, java.lang.Float tol, java.lang.Float ben, java.lang.Float ebe, java.lang.CharSequence fechaActualizacion) {
     this.idelem = idelem;
     this.descripcion = descripcion;
-    this.m01 = m01;
-    this.m06 = m06;
-    this.m07 = m07;
-    this.m08 = m08;
-    this.m09 = m09;
-    this.m10 = m10;
-    this.m12 = m12;
-    this.m14 = m14;
-    this.m20 = m20;
-    this.m30 = m30;
-    this.m35 = m35;
-    this.m37 = m37;
-    this.m38 = m38;
-    this.m39 = m39;
-    this.m42 = m42;
-    this.m43 = m43;
+    this.so2 = so2;
+    this.co = co;
+    this.no = no;
+    this.no2 = no2;
+    this.pm25 = pm25;
+    this.pm10 = pm10;
+    this.nox = nox;
+    this.o3 = o3;
+    this.tol = tol;
+    this.ben = ben;
+    this.ebe = ebe;
     this.fechaActualizacion = fechaActualizacion;
   }
 
@@ -149,23 +134,18 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
     switch (field$) {
     case 0: return idelem;
     case 1: return descripcion;
-    case 2: return m01;
-    case 3: return m06;
-    case 4: return m07;
-    case 5: return m08;
-    case 6: return m09;
-    case 7: return m10;
-    case 8: return m12;
-    case 9: return m14;
-    case 10: return m20;
-    case 11: return m30;
-    case 12: return m35;
-    case 13: return m37;
-    case 14: return m38;
-    case 15: return m39;
-    case 16: return m42;
-    case 17: return m43;
-    case 18: return fechaActualizacion;
+    case 2: return so2;
+    case 3: return co;
+    case 4: return no;
+    case 5: return no2;
+    case 6: return pm25;
+    case 7: return pm10;
+    case 8: return nox;
+    case 9: return o3;
+    case 10: return tol;
+    case 11: return ben;
+    case 12: return ebe;
+    case 13: return fechaActualizacion;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -175,24 +155,19 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: idelem = (java.lang.Integer)value$; break;
-    case 1: descripcion = (java.lang.CharSequence)value$; break;
-    case 2: m01 = (java.lang.Float)value$; break;
-    case 3: m06 = (java.lang.Float)value$; break;
-    case 4: m07 = (java.lang.Float)value$; break;
-    case 5: m08 = (java.lang.Float)value$; break;
-    case 6: m09 = (java.lang.Float)value$; break;
-    case 7: m10 = (java.lang.Float)value$; break;
-    case 8: m12 = (java.lang.Float)value$; break;
-    case 9: m14 = (java.lang.Float)value$; break;
-    case 10: m20 = (java.lang.Float)value$; break;
-    case 11: m30 = (java.lang.Float)value$; break;
-    case 12: m35 = (java.lang.Float)value$; break;
-    case 13: m37 = (java.lang.Float)value$; break;
-    case 14: m38 = (java.lang.Float)value$; break;
-    case 15: m39 = (java.lang.Float)value$; break;
-    case 16: m42 = (java.lang.Float)value$; break;
-    case 17: m43 = (java.lang.Float)value$; break;
-    case 18: fechaActualizacion = (java.lang.CharSequence)value$; break;
+    case 1: descripcion = (java.lang.Integer)value$; break;
+    case 2: so2 = (java.lang.Float)value$; break;
+    case 3: co = (java.lang.Float)value$; break;
+    case 4: no = (java.lang.Float)value$; break;
+    case 5: no2 = (java.lang.Float)value$; break;
+    case 6: pm25 = (java.lang.Float)value$; break;
+    case 7: pm10 = (java.lang.Float)value$; break;
+    case 8: nox = (java.lang.Float)value$; break;
+    case 9: o3 = (java.lang.Float)value$; break;
+    case 10: tol = (java.lang.Float)value$; break;
+    case 11: ben = (java.lang.Float)value$; break;
+    case 12: ebe = (java.lang.Float)value$; break;
+    case 13: fechaActualizacion = (java.lang.CharSequence)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -218,7 +193,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
    * Gets the value of the 'descripcion' field.
    * @return The value of the 'descripcion' field.
    */
-  public java.lang.CharSequence getDescripcion() {
+  public int getDescripcion() {
     return descripcion;
   }
 
@@ -227,280 +202,195 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
    * Sets the value of the 'descripcion' field.
    * @param value the value to set.
    */
-  public void setDescripcion(java.lang.CharSequence value) {
+  public void setDescripcion(int value) {
     this.descripcion = value;
   }
 
   /**
-   * Gets the value of the 'm01' field.
-   * @return The value of the 'm01' field.
+   * Gets the value of the 'so2' field.
+   * @return The value of the 'so2' field.
    */
-  public float getM01() {
-    return m01;
+  public float getSo2() {
+    return so2;
   }
 
 
   /**
-   * Sets the value of the 'm01' field.
+   * Sets the value of the 'so2' field.
    * @param value the value to set.
    */
-  public void setM01(float value) {
-    this.m01 = value;
+  public void setSo2(float value) {
+    this.so2 = value;
   }
 
   /**
-   * Gets the value of the 'm06' field.
-   * @return The value of the 'm06' field.
+   * Gets the value of the 'co' field.
+   * @return The value of the 'co' field.
    */
-  public float getM06() {
-    return m06;
+  public float getCo() {
+    return co;
   }
 
 
   /**
-   * Sets the value of the 'm06' field.
+   * Sets the value of the 'co' field.
    * @param value the value to set.
    */
-  public void setM06(float value) {
-    this.m06 = value;
+  public void setCo(float value) {
+    this.co = value;
   }
 
   /**
-   * Gets the value of the 'm07' field.
-   * @return The value of the 'm07' field.
+   * Gets the value of the 'no' field.
+   * @return The value of the 'no' field.
    */
-  public float getM07() {
-    return m07;
+  public float getNo() {
+    return no;
   }
 
 
   /**
-   * Sets the value of the 'm07' field.
+   * Sets the value of the 'no' field.
    * @param value the value to set.
    */
-  public void setM07(float value) {
-    this.m07 = value;
+  public void setNo(float value) {
+    this.no = value;
   }
 
   /**
-   * Gets the value of the 'm08' field.
-   * @return The value of the 'm08' field.
+   * Gets the value of the 'no2' field.
+   * @return The value of the 'no2' field.
    */
-  public float getM08() {
-    return m08;
+  public float getNo2() {
+    return no2;
   }
 
 
   /**
-   * Sets the value of the 'm08' field.
+   * Sets the value of the 'no2' field.
    * @param value the value to set.
    */
-  public void setM08(float value) {
-    this.m08 = value;
+  public void setNo2(float value) {
+    this.no2 = value;
   }
 
   /**
-   * Gets the value of the 'm09' field.
-   * @return The value of the 'm09' field.
+   * Gets the value of the 'pm25' field.
+   * @return The value of the 'pm25' field.
    */
-  public float getM09() {
-    return m09;
+  public float getPm25() {
+    return pm25;
   }
 
 
   /**
-   * Sets the value of the 'm09' field.
+   * Sets the value of the 'pm25' field.
    * @param value the value to set.
    */
-  public void setM09(float value) {
-    this.m09 = value;
+  public void setPm25(float value) {
+    this.pm25 = value;
   }
 
   /**
-   * Gets the value of the 'm10' field.
-   * @return The value of the 'm10' field.
+   * Gets the value of the 'pm10' field.
+   * @return The value of the 'pm10' field.
    */
-  public float getM10() {
-    return m10;
+  public float getPm10() {
+    return pm10;
   }
 
 
   /**
-   * Sets the value of the 'm10' field.
+   * Sets the value of the 'pm10' field.
    * @param value the value to set.
    */
-  public void setM10(float value) {
-    this.m10 = value;
+  public void setPm10(float value) {
+    this.pm10 = value;
   }
 
   /**
-   * Gets the value of the 'm12' field.
-   * @return The value of the 'm12' field.
+   * Gets the value of the 'nox' field.
+   * @return The value of the 'nox' field.
    */
-  public float getM12() {
-    return m12;
+  public float getNox() {
+    return nox;
   }
 
 
   /**
-   * Sets the value of the 'm12' field.
+   * Sets the value of the 'nox' field.
    * @param value the value to set.
    */
-  public void setM12(float value) {
-    this.m12 = value;
+  public void setNox(float value) {
+    this.nox = value;
   }
 
   /**
-   * Gets the value of the 'm14' field.
-   * @return The value of the 'm14' field.
+   * Gets the value of the 'o3' field.
+   * @return The value of the 'o3' field.
    */
-  public float getM14() {
-    return m14;
+  public float getO3() {
+    return o3;
   }
 
 
   /**
-   * Sets the value of the 'm14' field.
+   * Sets the value of the 'o3' field.
    * @param value the value to set.
    */
-  public void setM14(float value) {
-    this.m14 = value;
+  public void setO3(float value) {
+    this.o3 = value;
   }
 
   /**
-   * Gets the value of the 'm20' field.
-   * @return The value of the 'm20' field.
+   * Gets the value of the 'tol' field.
+   * @return The value of the 'tol' field.
    */
-  public float getM20() {
-    return m20;
+  public float getTol() {
+    return tol;
   }
 
 
   /**
-   * Sets the value of the 'm20' field.
+   * Sets the value of the 'tol' field.
    * @param value the value to set.
    */
-  public void setM20(float value) {
-    this.m20 = value;
+  public void setTol(float value) {
+    this.tol = value;
   }
 
   /**
-   * Gets the value of the 'm30' field.
-   * @return The value of the 'm30' field.
+   * Gets the value of the 'ben' field.
+   * @return The value of the 'ben' field.
    */
-  public float getM30() {
-    return m30;
+  public float getBen() {
+    return ben;
   }
 
 
   /**
-   * Sets the value of the 'm30' field.
+   * Sets the value of the 'ben' field.
    * @param value the value to set.
    */
-  public void setM30(float value) {
-    this.m30 = value;
+  public void setBen(float value) {
+    this.ben = value;
   }
 
   /**
-   * Gets the value of the 'm35' field.
-   * @return The value of the 'm35' field.
+   * Gets the value of the 'ebe' field.
+   * @return The value of the 'ebe' field.
    */
-  public float getM35() {
-    return m35;
+  public float getEbe() {
+    return ebe;
   }
 
 
   /**
-   * Sets the value of the 'm35' field.
+   * Sets the value of the 'ebe' field.
    * @param value the value to set.
    */
-  public void setM35(float value) {
-    this.m35 = value;
-  }
-
-  /**
-   * Gets the value of the 'm37' field.
-   * @return The value of the 'm37' field.
-   */
-  public float getM37() {
-    return m37;
-  }
-
-
-  /**
-   * Sets the value of the 'm37' field.
-   * @param value the value to set.
-   */
-  public void setM37(float value) {
-    this.m37 = value;
-  }
-
-  /**
-   * Gets the value of the 'm38' field.
-   * @return The value of the 'm38' field.
-   */
-  public float getM38() {
-    return m38;
-  }
-
-
-  /**
-   * Sets the value of the 'm38' field.
-   * @param value the value to set.
-   */
-  public void setM38(float value) {
-    this.m38 = value;
-  }
-
-  /**
-   * Gets the value of the 'm39' field.
-   * @return The value of the 'm39' field.
-   */
-  public float getM39() {
-    return m39;
-  }
-
-
-  /**
-   * Sets the value of the 'm39' field.
-   * @param value the value to set.
-   */
-  public void setM39(float value) {
-    this.m39 = value;
-  }
-
-  /**
-   * Gets the value of the 'm42' field.
-   * @return The value of the 'm42' field.
-   */
-  public float getM42() {
-    return m42;
-  }
-
-
-  /**
-   * Sets the value of the 'm42' field.
-   * @param value the value to set.
-   */
-  public void setM42(float value) {
-    this.m42 = value;
-  }
-
-  /**
-   * Gets the value of the 'm43' field.
-   * @return The value of the 'm43' field.
-   */
-  public float getM43() {
-    return m43;
-  }
-
-
-  /**
-   * Sets the value of the 'm43' field.
-   * @param value the value to set.
-   */
-  public void setM43(float value) {
-    this.m43 = value;
+  public void setEbe(float value) {
+    this.ebe = value;
   }
 
   /**
@@ -562,23 +452,18 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
     implements org.apache.avro.data.RecordBuilder<ContaminacionEstacionDeMedicion> {
 
     private int idelem;
-    private java.lang.CharSequence descripcion;
-    private float m01;
-    private float m06;
-    private float m07;
-    private float m08;
-    private float m09;
-    private float m10;
-    private float m12;
-    private float m14;
-    private float m20;
-    private float m30;
-    private float m35;
-    private float m37;
-    private float m38;
-    private float m39;
-    private float m42;
-    private float m43;
+    private int descripcion;
+    private float so2;
+    private float co;
+    private float no;
+    private float no2;
+    private float pm25;
+    private float pm10;
+    private float nox;
+    private float o3;
+    private float tol;
+    private float ben;
+    private float ebe;
     private java.lang.CharSequence fechaActualizacion;
 
     /** Creates a new Builder */
@@ -600,73 +485,53 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
         this.descripcion = data().deepCopy(fields()[1].schema(), other.descripcion);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (isValidValue(fields()[2], other.m01)) {
-        this.m01 = data().deepCopy(fields()[2].schema(), other.m01);
+      if (isValidValue(fields()[2], other.so2)) {
+        this.so2 = data().deepCopy(fields()[2].schema(), other.so2);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
-      if (isValidValue(fields()[3], other.m06)) {
-        this.m06 = data().deepCopy(fields()[3].schema(), other.m06);
+      if (isValidValue(fields()[3], other.co)) {
+        this.co = data().deepCopy(fields()[3].schema(), other.co);
         fieldSetFlags()[3] = other.fieldSetFlags()[3];
       }
-      if (isValidValue(fields()[4], other.m07)) {
-        this.m07 = data().deepCopy(fields()[4].schema(), other.m07);
+      if (isValidValue(fields()[4], other.no)) {
+        this.no = data().deepCopy(fields()[4].schema(), other.no);
         fieldSetFlags()[4] = other.fieldSetFlags()[4];
       }
-      if (isValidValue(fields()[5], other.m08)) {
-        this.m08 = data().deepCopy(fields()[5].schema(), other.m08);
+      if (isValidValue(fields()[5], other.no2)) {
+        this.no2 = data().deepCopy(fields()[5].schema(), other.no2);
         fieldSetFlags()[5] = other.fieldSetFlags()[5];
       }
-      if (isValidValue(fields()[6], other.m09)) {
-        this.m09 = data().deepCopy(fields()[6].schema(), other.m09);
+      if (isValidValue(fields()[6], other.pm25)) {
+        this.pm25 = data().deepCopy(fields()[6].schema(), other.pm25);
         fieldSetFlags()[6] = other.fieldSetFlags()[6];
       }
-      if (isValidValue(fields()[7], other.m10)) {
-        this.m10 = data().deepCopy(fields()[7].schema(), other.m10);
+      if (isValidValue(fields()[7], other.pm10)) {
+        this.pm10 = data().deepCopy(fields()[7].schema(), other.pm10);
         fieldSetFlags()[7] = other.fieldSetFlags()[7];
       }
-      if (isValidValue(fields()[8], other.m12)) {
-        this.m12 = data().deepCopy(fields()[8].schema(), other.m12);
+      if (isValidValue(fields()[8], other.nox)) {
+        this.nox = data().deepCopy(fields()[8].schema(), other.nox);
         fieldSetFlags()[8] = other.fieldSetFlags()[8];
       }
-      if (isValidValue(fields()[9], other.m14)) {
-        this.m14 = data().deepCopy(fields()[9].schema(), other.m14);
+      if (isValidValue(fields()[9], other.o3)) {
+        this.o3 = data().deepCopy(fields()[9].schema(), other.o3);
         fieldSetFlags()[9] = other.fieldSetFlags()[9];
       }
-      if (isValidValue(fields()[10], other.m20)) {
-        this.m20 = data().deepCopy(fields()[10].schema(), other.m20);
+      if (isValidValue(fields()[10], other.tol)) {
+        this.tol = data().deepCopy(fields()[10].schema(), other.tol);
         fieldSetFlags()[10] = other.fieldSetFlags()[10];
       }
-      if (isValidValue(fields()[11], other.m30)) {
-        this.m30 = data().deepCopy(fields()[11].schema(), other.m30);
+      if (isValidValue(fields()[11], other.ben)) {
+        this.ben = data().deepCopy(fields()[11].schema(), other.ben);
         fieldSetFlags()[11] = other.fieldSetFlags()[11];
       }
-      if (isValidValue(fields()[12], other.m35)) {
-        this.m35 = data().deepCopy(fields()[12].schema(), other.m35);
+      if (isValidValue(fields()[12], other.ebe)) {
+        this.ebe = data().deepCopy(fields()[12].schema(), other.ebe);
         fieldSetFlags()[12] = other.fieldSetFlags()[12];
       }
-      if (isValidValue(fields()[13], other.m37)) {
-        this.m37 = data().deepCopy(fields()[13].schema(), other.m37);
+      if (isValidValue(fields()[13], other.fechaActualizacion)) {
+        this.fechaActualizacion = data().deepCopy(fields()[13].schema(), other.fechaActualizacion);
         fieldSetFlags()[13] = other.fieldSetFlags()[13];
-      }
-      if (isValidValue(fields()[14], other.m38)) {
-        this.m38 = data().deepCopy(fields()[14].schema(), other.m38);
-        fieldSetFlags()[14] = other.fieldSetFlags()[14];
-      }
-      if (isValidValue(fields()[15], other.m39)) {
-        this.m39 = data().deepCopy(fields()[15].schema(), other.m39);
-        fieldSetFlags()[15] = other.fieldSetFlags()[15];
-      }
-      if (isValidValue(fields()[16], other.m42)) {
-        this.m42 = data().deepCopy(fields()[16].schema(), other.m42);
-        fieldSetFlags()[16] = other.fieldSetFlags()[16];
-      }
-      if (isValidValue(fields()[17], other.m43)) {
-        this.m43 = data().deepCopy(fields()[17].schema(), other.m43);
-        fieldSetFlags()[17] = other.fieldSetFlags()[17];
-      }
-      if (isValidValue(fields()[18], other.fechaActualizacion)) {
-        this.fechaActualizacion = data().deepCopy(fields()[18].schema(), other.fechaActualizacion);
-        fieldSetFlags()[18] = other.fieldSetFlags()[18];
       }
     }
 
@@ -684,73 +549,53 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
         this.descripcion = data().deepCopy(fields()[1].schema(), other.descripcion);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.m01)) {
-        this.m01 = data().deepCopy(fields()[2].schema(), other.m01);
+      if (isValidValue(fields()[2], other.so2)) {
+        this.so2 = data().deepCopy(fields()[2].schema(), other.so2);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.m06)) {
-        this.m06 = data().deepCopy(fields()[3].schema(), other.m06);
+      if (isValidValue(fields()[3], other.co)) {
+        this.co = data().deepCopy(fields()[3].schema(), other.co);
         fieldSetFlags()[3] = true;
       }
-      if (isValidValue(fields()[4], other.m07)) {
-        this.m07 = data().deepCopy(fields()[4].schema(), other.m07);
+      if (isValidValue(fields()[4], other.no)) {
+        this.no = data().deepCopy(fields()[4].schema(), other.no);
         fieldSetFlags()[4] = true;
       }
-      if (isValidValue(fields()[5], other.m08)) {
-        this.m08 = data().deepCopy(fields()[5].schema(), other.m08);
+      if (isValidValue(fields()[5], other.no2)) {
+        this.no2 = data().deepCopy(fields()[5].schema(), other.no2);
         fieldSetFlags()[5] = true;
       }
-      if (isValidValue(fields()[6], other.m09)) {
-        this.m09 = data().deepCopy(fields()[6].schema(), other.m09);
+      if (isValidValue(fields()[6], other.pm25)) {
+        this.pm25 = data().deepCopy(fields()[6].schema(), other.pm25);
         fieldSetFlags()[6] = true;
       }
-      if (isValidValue(fields()[7], other.m10)) {
-        this.m10 = data().deepCopy(fields()[7].schema(), other.m10);
+      if (isValidValue(fields()[7], other.pm10)) {
+        this.pm10 = data().deepCopy(fields()[7].schema(), other.pm10);
         fieldSetFlags()[7] = true;
       }
-      if (isValidValue(fields()[8], other.m12)) {
-        this.m12 = data().deepCopy(fields()[8].schema(), other.m12);
+      if (isValidValue(fields()[8], other.nox)) {
+        this.nox = data().deepCopy(fields()[8].schema(), other.nox);
         fieldSetFlags()[8] = true;
       }
-      if (isValidValue(fields()[9], other.m14)) {
-        this.m14 = data().deepCopy(fields()[9].schema(), other.m14);
+      if (isValidValue(fields()[9], other.o3)) {
+        this.o3 = data().deepCopy(fields()[9].schema(), other.o3);
         fieldSetFlags()[9] = true;
       }
-      if (isValidValue(fields()[10], other.m20)) {
-        this.m20 = data().deepCopy(fields()[10].schema(), other.m20);
+      if (isValidValue(fields()[10], other.tol)) {
+        this.tol = data().deepCopy(fields()[10].schema(), other.tol);
         fieldSetFlags()[10] = true;
       }
-      if (isValidValue(fields()[11], other.m30)) {
-        this.m30 = data().deepCopy(fields()[11].schema(), other.m30);
+      if (isValidValue(fields()[11], other.ben)) {
+        this.ben = data().deepCopy(fields()[11].schema(), other.ben);
         fieldSetFlags()[11] = true;
       }
-      if (isValidValue(fields()[12], other.m35)) {
-        this.m35 = data().deepCopy(fields()[12].schema(), other.m35);
+      if (isValidValue(fields()[12], other.ebe)) {
+        this.ebe = data().deepCopy(fields()[12].schema(), other.ebe);
         fieldSetFlags()[12] = true;
       }
-      if (isValidValue(fields()[13], other.m37)) {
-        this.m37 = data().deepCopy(fields()[13].schema(), other.m37);
+      if (isValidValue(fields()[13], other.fechaActualizacion)) {
+        this.fechaActualizacion = data().deepCopy(fields()[13].schema(), other.fechaActualizacion);
         fieldSetFlags()[13] = true;
-      }
-      if (isValidValue(fields()[14], other.m38)) {
-        this.m38 = data().deepCopy(fields()[14].schema(), other.m38);
-        fieldSetFlags()[14] = true;
-      }
-      if (isValidValue(fields()[15], other.m39)) {
-        this.m39 = data().deepCopy(fields()[15].schema(), other.m39);
-        fieldSetFlags()[15] = true;
-      }
-      if (isValidValue(fields()[16], other.m42)) {
-        this.m42 = data().deepCopy(fields()[16].schema(), other.m42);
-        fieldSetFlags()[16] = true;
-      }
-      if (isValidValue(fields()[17], other.m43)) {
-        this.m43 = data().deepCopy(fields()[17].schema(), other.m43);
-        fieldSetFlags()[17] = true;
-      }
-      if (isValidValue(fields()[18], other.fechaActualizacion)) {
-        this.fechaActualizacion = data().deepCopy(fields()[18].schema(), other.fechaActualizacion);
-        fieldSetFlags()[18] = true;
       }
     }
 
@@ -797,7 +642,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * Gets the value of the 'descripcion' field.
       * @return The value.
       */
-    public java.lang.CharSequence getDescripcion() {
+    public int getDescripcion() {
       return descripcion;
     }
 
@@ -807,7 +652,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @param value The value of 'descripcion'.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setDescripcion(java.lang.CharSequence value) {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setDescripcion(int value) {
       validate(fields()[1], value);
       this.descripcion = value;
       fieldSetFlags()[1] = true;
@@ -828,632 +673,436 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearDescripcion() {
-      descripcion = null;
       fieldSetFlags()[1] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'm01' field.
+      * Gets the value of the 'so2' field.
       * @return The value.
       */
-    public float getM01() {
-      return m01;
+    public float getSo2() {
+      return so2;
     }
 
 
     /**
-      * Sets the value of the 'm01' field.
-      * @param value The value of 'm01'.
+      * Sets the value of the 'so2' field.
+      * @param value The value of 'so2'.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setM01(float value) {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setSo2(float value) {
       validate(fields()[2], value);
-      this.m01 = value;
+      this.so2 = value;
       fieldSetFlags()[2] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'm01' field has been set.
-      * @return True if the 'm01' field has been set, false otherwise.
+      * Checks whether the 'so2' field has been set.
+      * @return True if the 'so2' field has been set, false otherwise.
       */
-    public boolean hasM01() {
+    public boolean hasSo2() {
       return fieldSetFlags()[2];
     }
 
 
     /**
-      * Clears the value of the 'm01' field.
+      * Clears the value of the 'so2' field.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearM01() {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearSo2() {
       fieldSetFlags()[2] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'm06' field.
+      * Gets the value of the 'co' field.
       * @return The value.
       */
-    public float getM06() {
-      return m06;
+    public float getCo() {
+      return co;
     }
 
 
     /**
-      * Sets the value of the 'm06' field.
-      * @param value The value of 'm06'.
+      * Sets the value of the 'co' field.
+      * @param value The value of 'co'.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setM06(float value) {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setCo(float value) {
       validate(fields()[3], value);
-      this.m06 = value;
+      this.co = value;
       fieldSetFlags()[3] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'm06' field has been set.
-      * @return True if the 'm06' field has been set, false otherwise.
+      * Checks whether the 'co' field has been set.
+      * @return True if the 'co' field has been set, false otherwise.
       */
-    public boolean hasM06() {
+    public boolean hasCo() {
       return fieldSetFlags()[3];
     }
 
 
     /**
-      * Clears the value of the 'm06' field.
+      * Clears the value of the 'co' field.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearM06() {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearCo() {
       fieldSetFlags()[3] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'm07' field.
+      * Gets the value of the 'no' field.
       * @return The value.
       */
-    public float getM07() {
-      return m07;
+    public float getNo() {
+      return no;
     }
 
 
     /**
-      * Sets the value of the 'm07' field.
-      * @param value The value of 'm07'.
+      * Sets the value of the 'no' field.
+      * @param value The value of 'no'.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setM07(float value) {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setNo(float value) {
       validate(fields()[4], value);
-      this.m07 = value;
+      this.no = value;
       fieldSetFlags()[4] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'm07' field has been set.
-      * @return True if the 'm07' field has been set, false otherwise.
+      * Checks whether the 'no' field has been set.
+      * @return True if the 'no' field has been set, false otherwise.
       */
-    public boolean hasM07() {
+    public boolean hasNo() {
       return fieldSetFlags()[4];
     }
 
 
     /**
-      * Clears the value of the 'm07' field.
+      * Clears the value of the 'no' field.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearM07() {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearNo() {
       fieldSetFlags()[4] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'm08' field.
+      * Gets the value of the 'no2' field.
       * @return The value.
       */
-    public float getM08() {
-      return m08;
+    public float getNo2() {
+      return no2;
     }
 
 
     /**
-      * Sets the value of the 'm08' field.
-      * @param value The value of 'm08'.
+      * Sets the value of the 'no2' field.
+      * @param value The value of 'no2'.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setM08(float value) {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setNo2(float value) {
       validate(fields()[5], value);
-      this.m08 = value;
+      this.no2 = value;
       fieldSetFlags()[5] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'm08' field has been set.
-      * @return True if the 'm08' field has been set, false otherwise.
+      * Checks whether the 'no2' field has been set.
+      * @return True if the 'no2' field has been set, false otherwise.
       */
-    public boolean hasM08() {
+    public boolean hasNo2() {
       return fieldSetFlags()[5];
     }
 
 
     /**
-      * Clears the value of the 'm08' field.
+      * Clears the value of the 'no2' field.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearM08() {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearNo2() {
       fieldSetFlags()[5] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'm09' field.
+      * Gets the value of the 'pm25' field.
       * @return The value.
       */
-    public float getM09() {
-      return m09;
+    public float getPm25() {
+      return pm25;
     }
 
 
     /**
-      * Sets the value of the 'm09' field.
-      * @param value The value of 'm09'.
+      * Sets the value of the 'pm25' field.
+      * @param value The value of 'pm25'.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setM09(float value) {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setPm25(float value) {
       validate(fields()[6], value);
-      this.m09 = value;
+      this.pm25 = value;
       fieldSetFlags()[6] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'm09' field has been set.
-      * @return True if the 'm09' field has been set, false otherwise.
+      * Checks whether the 'pm25' field has been set.
+      * @return True if the 'pm25' field has been set, false otherwise.
       */
-    public boolean hasM09() {
+    public boolean hasPm25() {
       return fieldSetFlags()[6];
     }
 
 
     /**
-      * Clears the value of the 'm09' field.
+      * Clears the value of the 'pm25' field.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearM09() {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearPm25() {
       fieldSetFlags()[6] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'm10' field.
+      * Gets the value of the 'pm10' field.
       * @return The value.
       */
-    public float getM10() {
-      return m10;
+    public float getPm10() {
+      return pm10;
     }
 
 
     /**
-      * Sets the value of the 'm10' field.
-      * @param value The value of 'm10'.
+      * Sets the value of the 'pm10' field.
+      * @param value The value of 'pm10'.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setM10(float value) {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setPm10(float value) {
       validate(fields()[7], value);
-      this.m10 = value;
+      this.pm10 = value;
       fieldSetFlags()[7] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'm10' field has been set.
-      * @return True if the 'm10' field has been set, false otherwise.
+      * Checks whether the 'pm10' field has been set.
+      * @return True if the 'pm10' field has been set, false otherwise.
       */
-    public boolean hasM10() {
+    public boolean hasPm10() {
       return fieldSetFlags()[7];
     }
 
 
     /**
-      * Clears the value of the 'm10' field.
+      * Clears the value of the 'pm10' field.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearM10() {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearPm10() {
       fieldSetFlags()[7] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'm12' field.
+      * Gets the value of the 'nox' field.
       * @return The value.
       */
-    public float getM12() {
-      return m12;
+    public float getNox() {
+      return nox;
     }
 
 
     /**
-      * Sets the value of the 'm12' field.
-      * @param value The value of 'm12'.
+      * Sets the value of the 'nox' field.
+      * @param value The value of 'nox'.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setM12(float value) {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setNox(float value) {
       validate(fields()[8], value);
-      this.m12 = value;
+      this.nox = value;
       fieldSetFlags()[8] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'm12' field has been set.
-      * @return True if the 'm12' field has been set, false otherwise.
+      * Checks whether the 'nox' field has been set.
+      * @return True if the 'nox' field has been set, false otherwise.
       */
-    public boolean hasM12() {
+    public boolean hasNox() {
       return fieldSetFlags()[8];
     }
 
 
     /**
-      * Clears the value of the 'm12' field.
+      * Clears the value of the 'nox' field.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearM12() {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearNox() {
       fieldSetFlags()[8] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'm14' field.
+      * Gets the value of the 'o3' field.
       * @return The value.
       */
-    public float getM14() {
-      return m14;
+    public float getO3() {
+      return o3;
     }
 
 
     /**
-      * Sets the value of the 'm14' field.
-      * @param value The value of 'm14'.
+      * Sets the value of the 'o3' field.
+      * @param value The value of 'o3'.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setM14(float value) {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setO3(float value) {
       validate(fields()[9], value);
-      this.m14 = value;
+      this.o3 = value;
       fieldSetFlags()[9] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'm14' field has been set.
-      * @return True if the 'm14' field has been set, false otherwise.
+      * Checks whether the 'o3' field has been set.
+      * @return True if the 'o3' field has been set, false otherwise.
       */
-    public boolean hasM14() {
+    public boolean hasO3() {
       return fieldSetFlags()[9];
     }
 
 
     /**
-      * Clears the value of the 'm14' field.
+      * Clears the value of the 'o3' field.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearM14() {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearO3() {
       fieldSetFlags()[9] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'm20' field.
+      * Gets the value of the 'tol' field.
       * @return The value.
       */
-    public float getM20() {
-      return m20;
+    public float getTol() {
+      return tol;
     }
 
 
     /**
-      * Sets the value of the 'm20' field.
-      * @param value The value of 'm20'.
+      * Sets the value of the 'tol' field.
+      * @param value The value of 'tol'.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setM20(float value) {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setTol(float value) {
       validate(fields()[10], value);
-      this.m20 = value;
+      this.tol = value;
       fieldSetFlags()[10] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'm20' field has been set.
-      * @return True if the 'm20' field has been set, false otherwise.
+      * Checks whether the 'tol' field has been set.
+      * @return True if the 'tol' field has been set, false otherwise.
       */
-    public boolean hasM20() {
+    public boolean hasTol() {
       return fieldSetFlags()[10];
     }
 
 
     /**
-      * Clears the value of the 'm20' field.
+      * Clears the value of the 'tol' field.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearM20() {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearTol() {
       fieldSetFlags()[10] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'm30' field.
+      * Gets the value of the 'ben' field.
       * @return The value.
       */
-    public float getM30() {
-      return m30;
+    public float getBen() {
+      return ben;
     }
 
 
     /**
-      * Sets the value of the 'm30' field.
-      * @param value The value of 'm30'.
+      * Sets the value of the 'ben' field.
+      * @param value The value of 'ben'.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setM30(float value) {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setBen(float value) {
       validate(fields()[11], value);
-      this.m30 = value;
+      this.ben = value;
       fieldSetFlags()[11] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'm30' field has been set.
-      * @return True if the 'm30' field has been set, false otherwise.
+      * Checks whether the 'ben' field has been set.
+      * @return True if the 'ben' field has been set, false otherwise.
       */
-    public boolean hasM30() {
+    public boolean hasBen() {
       return fieldSetFlags()[11];
     }
 
 
     /**
-      * Clears the value of the 'm30' field.
+      * Clears the value of the 'ben' field.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearM30() {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearBen() {
       fieldSetFlags()[11] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'm35' field.
+      * Gets the value of the 'ebe' field.
       * @return The value.
       */
-    public float getM35() {
-      return m35;
+    public float getEbe() {
+      return ebe;
     }
 
 
     /**
-      * Sets the value of the 'm35' field.
-      * @param value The value of 'm35'.
+      * Sets the value of the 'ebe' field.
+      * @param value The value of 'ebe'.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setM35(float value) {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setEbe(float value) {
       validate(fields()[12], value);
-      this.m35 = value;
+      this.ebe = value;
       fieldSetFlags()[12] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'm35' field has been set.
-      * @return True if the 'm35' field has been set, false otherwise.
+      * Checks whether the 'ebe' field has been set.
+      * @return True if the 'ebe' field has been set, false otherwise.
       */
-    public boolean hasM35() {
+    public boolean hasEbe() {
       return fieldSetFlags()[12];
     }
 
 
     /**
-      * Clears the value of the 'm35' field.
+      * Clears the value of the 'ebe' field.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearM35() {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearEbe() {
       fieldSetFlags()[12] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'm37' field.
-      * @return The value.
-      */
-    public float getM37() {
-      return m37;
-    }
-
-
-    /**
-      * Sets the value of the 'm37' field.
-      * @param value The value of 'm37'.
-      * @return This builder.
-      */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setM37(float value) {
-      validate(fields()[13], value);
-      this.m37 = value;
-      fieldSetFlags()[13] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'm37' field has been set.
-      * @return True if the 'm37' field has been set, false otherwise.
-      */
-    public boolean hasM37() {
-      return fieldSetFlags()[13];
-    }
-
-
-    /**
-      * Clears the value of the 'm37' field.
-      * @return This builder.
-      */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearM37() {
-      fieldSetFlags()[13] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'm38' field.
-      * @return The value.
-      */
-    public float getM38() {
-      return m38;
-    }
-
-
-    /**
-      * Sets the value of the 'm38' field.
-      * @param value The value of 'm38'.
-      * @return This builder.
-      */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setM38(float value) {
-      validate(fields()[14], value);
-      this.m38 = value;
-      fieldSetFlags()[14] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'm38' field has been set.
-      * @return True if the 'm38' field has been set, false otherwise.
-      */
-    public boolean hasM38() {
-      return fieldSetFlags()[14];
-    }
-
-
-    /**
-      * Clears the value of the 'm38' field.
-      * @return This builder.
-      */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearM38() {
-      fieldSetFlags()[14] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'm39' field.
-      * @return The value.
-      */
-    public float getM39() {
-      return m39;
-    }
-
-
-    /**
-      * Sets the value of the 'm39' field.
-      * @param value The value of 'm39'.
-      * @return This builder.
-      */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setM39(float value) {
-      validate(fields()[15], value);
-      this.m39 = value;
-      fieldSetFlags()[15] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'm39' field has been set.
-      * @return True if the 'm39' field has been set, false otherwise.
-      */
-    public boolean hasM39() {
-      return fieldSetFlags()[15];
-    }
-
-
-    /**
-      * Clears the value of the 'm39' field.
-      * @return This builder.
-      */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearM39() {
-      fieldSetFlags()[15] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'm42' field.
-      * @return The value.
-      */
-    public float getM42() {
-      return m42;
-    }
-
-
-    /**
-      * Sets the value of the 'm42' field.
-      * @param value The value of 'm42'.
-      * @return This builder.
-      */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setM42(float value) {
-      validate(fields()[16], value);
-      this.m42 = value;
-      fieldSetFlags()[16] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'm42' field has been set.
-      * @return True if the 'm42' field has been set, false otherwise.
-      */
-    public boolean hasM42() {
-      return fieldSetFlags()[16];
-    }
-
-
-    /**
-      * Clears the value of the 'm42' field.
-      * @return This builder.
-      */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearM42() {
-      fieldSetFlags()[16] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'm43' field.
-      * @return The value.
-      */
-    public float getM43() {
-      return m43;
-    }
-
-
-    /**
-      * Sets the value of the 'm43' field.
-      * @param value The value of 'm43'.
-      * @return This builder.
-      */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setM43(float value) {
-      validate(fields()[17], value);
-      this.m43 = value;
-      fieldSetFlags()[17] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'm43' field has been set.
-      * @return True if the 'm43' field has been set, false otherwise.
-      */
-    public boolean hasM43() {
-      return fieldSetFlags()[17];
-    }
-
-
-    /**
-      * Clears the value of the 'm43' field.
-      * @return This builder.
-      */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearM43() {
-      fieldSetFlags()[17] = false;
       return this;
     }
 
@@ -1472,9 +1121,9 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setFechaActualizacion(java.lang.CharSequence value) {
-      validate(fields()[18], value);
+      validate(fields()[13], value);
       this.fechaActualizacion = value;
-      fieldSetFlags()[18] = true;
+      fieldSetFlags()[13] = true;
       return this;
     }
 
@@ -1483,7 +1132,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return True if the 'fechaActualizacion' field has been set, false otherwise.
       */
     public boolean hasFechaActualizacion() {
-      return fieldSetFlags()[18];
+      return fieldSetFlags()[13];
     }
 
 
@@ -1493,7 +1142,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       */
     public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearFechaActualizacion() {
       fechaActualizacion = null;
-      fieldSetFlags()[18] = false;
+      fieldSetFlags()[13] = false;
       return this;
     }
 
@@ -1503,24 +1152,19 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       try {
         ContaminacionEstacionDeMedicion record = new ContaminacionEstacionDeMedicion();
         record.idelem = fieldSetFlags()[0] ? this.idelem : (java.lang.Integer) defaultValue(fields()[0]);
-        record.descripcion = fieldSetFlags()[1] ? this.descripcion : (java.lang.CharSequence) defaultValue(fields()[1]);
-        record.m01 = fieldSetFlags()[2] ? this.m01 : (java.lang.Float) defaultValue(fields()[2]);
-        record.m06 = fieldSetFlags()[3] ? this.m06 : (java.lang.Float) defaultValue(fields()[3]);
-        record.m07 = fieldSetFlags()[4] ? this.m07 : (java.lang.Float) defaultValue(fields()[4]);
-        record.m08 = fieldSetFlags()[5] ? this.m08 : (java.lang.Float) defaultValue(fields()[5]);
-        record.m09 = fieldSetFlags()[6] ? this.m09 : (java.lang.Float) defaultValue(fields()[6]);
-        record.m10 = fieldSetFlags()[7] ? this.m10 : (java.lang.Float) defaultValue(fields()[7]);
-        record.m12 = fieldSetFlags()[8] ? this.m12 : (java.lang.Float) defaultValue(fields()[8]);
-        record.m14 = fieldSetFlags()[9] ? this.m14 : (java.lang.Float) defaultValue(fields()[9]);
-        record.m20 = fieldSetFlags()[10] ? this.m20 : (java.lang.Float) defaultValue(fields()[10]);
-        record.m30 = fieldSetFlags()[11] ? this.m30 : (java.lang.Float) defaultValue(fields()[11]);
-        record.m35 = fieldSetFlags()[12] ? this.m35 : (java.lang.Float) defaultValue(fields()[12]);
-        record.m37 = fieldSetFlags()[13] ? this.m37 : (java.lang.Float) defaultValue(fields()[13]);
-        record.m38 = fieldSetFlags()[14] ? this.m38 : (java.lang.Float) defaultValue(fields()[14]);
-        record.m39 = fieldSetFlags()[15] ? this.m39 : (java.lang.Float) defaultValue(fields()[15]);
-        record.m42 = fieldSetFlags()[16] ? this.m42 : (java.lang.Float) defaultValue(fields()[16]);
-        record.m43 = fieldSetFlags()[17] ? this.m43 : (java.lang.Float) defaultValue(fields()[17]);
-        record.fechaActualizacion = fieldSetFlags()[18] ? this.fechaActualizacion : (java.lang.CharSequence) defaultValue(fields()[18]);
+        record.descripcion = fieldSetFlags()[1] ? this.descripcion : (java.lang.Integer) defaultValue(fields()[1]);
+        record.so2 = fieldSetFlags()[2] ? this.so2 : (java.lang.Float) defaultValue(fields()[2]);
+        record.co = fieldSetFlags()[3] ? this.co : (java.lang.Float) defaultValue(fields()[3]);
+        record.no = fieldSetFlags()[4] ? this.no : (java.lang.Float) defaultValue(fields()[4]);
+        record.no2 = fieldSetFlags()[5] ? this.no2 : (java.lang.Float) defaultValue(fields()[5]);
+        record.pm25 = fieldSetFlags()[6] ? this.pm25 : (java.lang.Float) defaultValue(fields()[6]);
+        record.pm10 = fieldSetFlags()[7] ? this.pm10 : (java.lang.Float) defaultValue(fields()[7]);
+        record.nox = fieldSetFlags()[8] ? this.nox : (java.lang.Float) defaultValue(fields()[8]);
+        record.o3 = fieldSetFlags()[9] ? this.o3 : (java.lang.Float) defaultValue(fields()[9]);
+        record.tol = fieldSetFlags()[10] ? this.tol : (java.lang.Float) defaultValue(fields()[10]);
+        record.ben = fieldSetFlags()[11] ? this.ben : (java.lang.Float) defaultValue(fields()[11]);
+        record.ebe = fieldSetFlags()[12] ? this.ebe : (java.lang.Float) defaultValue(fields()[12]);
+        record.fechaActualizacion = fieldSetFlags()[13] ? this.fechaActualizacion : (java.lang.CharSequence) defaultValue(fields()[13]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -1555,39 +1199,29 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
   {
     out.writeInt(this.idelem);
 
-    out.writeString(this.descripcion);
+    out.writeInt(this.descripcion);
 
-    out.writeFloat(this.m01);
+    out.writeFloat(this.so2);
 
-    out.writeFloat(this.m06);
+    out.writeFloat(this.co);
 
-    out.writeFloat(this.m07);
+    out.writeFloat(this.no);
 
-    out.writeFloat(this.m08);
+    out.writeFloat(this.no2);
 
-    out.writeFloat(this.m09);
+    out.writeFloat(this.pm25);
 
-    out.writeFloat(this.m10);
+    out.writeFloat(this.pm10);
 
-    out.writeFloat(this.m12);
+    out.writeFloat(this.nox);
 
-    out.writeFloat(this.m14);
+    out.writeFloat(this.o3);
 
-    out.writeFloat(this.m20);
+    out.writeFloat(this.tol);
 
-    out.writeFloat(this.m30);
+    out.writeFloat(this.ben);
 
-    out.writeFloat(this.m35);
-
-    out.writeFloat(this.m37);
-
-    out.writeFloat(this.m38);
-
-    out.writeFloat(this.m39);
-
-    out.writeFloat(this.m42);
-
-    out.writeFloat(this.m43);
+    out.writeFloat(this.ebe);
 
     out.writeString(this.fechaActualizacion);
 
@@ -1600,118 +1234,88 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
     if (fieldOrder == null) {
       this.idelem = in.readInt();
 
-      this.descripcion = in.readString(this.descripcion instanceof Utf8 ? (Utf8)this.descripcion : null);
+      this.descripcion = in.readInt();
 
-      this.m01 = in.readFloat();
+      this.so2 = in.readFloat();
 
-      this.m06 = in.readFloat();
+      this.co = in.readFloat();
 
-      this.m07 = in.readFloat();
+      this.no = in.readFloat();
 
-      this.m08 = in.readFloat();
+      this.no2 = in.readFloat();
 
-      this.m09 = in.readFloat();
+      this.pm25 = in.readFloat();
 
-      this.m10 = in.readFloat();
+      this.pm10 = in.readFloat();
 
-      this.m12 = in.readFloat();
+      this.nox = in.readFloat();
 
-      this.m14 = in.readFloat();
+      this.o3 = in.readFloat();
 
-      this.m20 = in.readFloat();
+      this.tol = in.readFloat();
 
-      this.m30 = in.readFloat();
+      this.ben = in.readFloat();
 
-      this.m35 = in.readFloat();
-
-      this.m37 = in.readFloat();
-
-      this.m38 = in.readFloat();
-
-      this.m39 = in.readFloat();
-
-      this.m42 = in.readFloat();
-
-      this.m43 = in.readFloat();
+      this.ebe = in.readFloat();
 
       this.fechaActualizacion = in.readString(this.fechaActualizacion instanceof Utf8 ? (Utf8)this.fechaActualizacion : null);
 
     } else {
-      for (int i = 0; i < 19; i++) {
+      for (int i = 0; i < 14; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           this.idelem = in.readInt();
           break;
 
         case 1:
-          this.descripcion = in.readString(this.descripcion instanceof Utf8 ? (Utf8)this.descripcion : null);
+          this.descripcion = in.readInt();
           break;
 
         case 2:
-          this.m01 = in.readFloat();
+          this.so2 = in.readFloat();
           break;
 
         case 3:
-          this.m06 = in.readFloat();
+          this.co = in.readFloat();
           break;
 
         case 4:
-          this.m07 = in.readFloat();
+          this.no = in.readFloat();
           break;
 
         case 5:
-          this.m08 = in.readFloat();
+          this.no2 = in.readFloat();
           break;
 
         case 6:
-          this.m09 = in.readFloat();
+          this.pm25 = in.readFloat();
           break;
 
         case 7:
-          this.m10 = in.readFloat();
+          this.pm10 = in.readFloat();
           break;
 
         case 8:
-          this.m12 = in.readFloat();
+          this.nox = in.readFloat();
           break;
 
         case 9:
-          this.m14 = in.readFloat();
+          this.o3 = in.readFloat();
           break;
 
         case 10:
-          this.m20 = in.readFloat();
+          this.tol = in.readFloat();
           break;
 
         case 11:
-          this.m30 = in.readFloat();
+          this.ben = in.readFloat();
           break;
 
         case 12:
-          this.m35 = in.readFloat();
+          this.ebe = in.readFloat();
           break;
 
         case 13:
-          this.m37 = in.readFloat();
-          break;
-
-        case 14:
-          this.m38 = in.readFloat();
-          break;
-
-        case 15:
-          this.m39 = in.readFloat();
-          break;
-
-        case 16:
-          this.m42 = in.readFloat();
-          break;
-
-        case 17:
-          this.m43 = in.readFloat();
-          break;
-
-        case 18:
           this.fechaActualizacion = in.readString(this.fechaActualizacion instanceof Utf8 ? (Utf8)this.fechaActualizacion : null);
           break;
 

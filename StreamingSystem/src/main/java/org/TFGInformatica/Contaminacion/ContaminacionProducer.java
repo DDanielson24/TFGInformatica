@@ -63,14 +63,14 @@ public class ContaminacionProducer {
 
                             System.out.println("La longitud de la lista es: " + listaEMs.size());
 
-                            /*//Se envía la lista de PMs
+                            //Se envía la lista de PMs
                             for (ContaminacionEstacionDeMedicion em : listaEMs) {
 
                                 ProducerRecord<String, ContaminacionEstacionDeMedicion> producerRecord = new ProducerRecord<>("contaminacionData", em);
                                 contaminacionProducer.send(producerRecord);
                                 contaminacionProducer.flush();
 
-                            }*/
+                            }
                         }
                     }
                     key.reset();
