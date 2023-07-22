@@ -5,17 +5,14 @@
     "fields": [
         { "name": "idelem", "type": "int" },
         { "name": "descripcion", "type": "int" },
-        { "name": "so2", "type": "float" },
-        { "name": "co", "type": "float" },
         { "name": "no", "type": "float" },
         { "name": "no2", "type": "float" },
         { "name": "pm25", "type": "float" },
         { "name": "pm10", "type": "float" },
         { "name": "nox", "type": "float" },
         { "name": "o3", "type": "float" },
-        { "name": "tol", "type": "float" },
-        { "name": "ben", "type": "float" },
-        { "name": "ebe", "type": "float" },
+        { "name": "st_x",  "type": "float" },
+        { "name": "st_y",  "type": "float" },
         { "name": "fechaActualizacion", "type": "string" }
     ]
 }

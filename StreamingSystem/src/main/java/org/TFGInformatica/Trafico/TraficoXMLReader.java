@@ -41,6 +41,7 @@ public class TraficoXMLReader {
 
             //Recogemos la fecha de actualización del documento para los PM
             String fecha_actualizacion = doc.getElementsByTagName("fecha_hora").item(0).getTextContent();
+            fecha_actualizacion = fecha_actualizacion.substring(0, 17) + "00";
 
             //Ahora recorremos el documento creando puntos de medición y añadiéndolos a la lista
 
@@ -118,8 +119,6 @@ public class TraficoXMLReader {
                     }
                 }
             }
-
-
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }

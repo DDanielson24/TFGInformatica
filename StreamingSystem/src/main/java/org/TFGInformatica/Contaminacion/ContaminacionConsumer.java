@@ -3,8 +3,6 @@ package org.TFGInformatica.Contaminacion;
 import io.confluent.kafka.serializers.KafkaAvroDeserializer;
 import org.TFGInformatica.ContaminacionEstacionDeMedicion;
 import org.TFGInformatica.PostgreSQL.PSQLConnectionContaminacion;
-import org.TFGInformatica.PostgreSQL.PSQLConnectionGasolina;
-import org.TFGInformatica.PuntoDeMedicion;
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;

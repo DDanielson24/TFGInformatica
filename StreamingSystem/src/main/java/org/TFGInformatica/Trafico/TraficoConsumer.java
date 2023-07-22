@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.Properties;
 
 import org.TFGInformatica.PostgreSQL.PSQLConnectionTrafico;
-import org.TFGInformatica.PuntoDeMedicion;
+import org.TFGInformatica.TraficoPuntoDeMedicion;
 
 public class TraficoConsumer {
 

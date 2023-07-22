@@ -16,10 +16,12 @@ public class ContaminacionXMLReader {
 
     private String original_file;
     private Map<Integer, ContaminacionEstacionDeMedicion> estacionesYaCreadas;
+    private EstacionesCSVReader estacionesCSVReader;
 
-    public ContaminacionXMLReader (String path) {
-        this.original_file = path;
+    public ContaminacionXMLReader (String pathXML, String pathCSV) {
+        this.original_file = pathXML;
         this.estacionesYaCreadas = new HashMap<>();
+        this.estacionesCSVReader = new EstacionesCSVReader(pathCSV);
     }
 
     public List<ContaminacionEstacionDeMedicion> readXML () {
@@ -106,13 +108,7 @@ public class ContaminacionXMLReader {
                     String fecha_actualizacion = año + "/" + mes + "/" + dia + " " + hora + ":00:00";
                     em.setFechaActualizacion(fecha_actualizacion);
 
-                    if (magnitudMedida == 1) {
-                        em.setSo2(valorMagnitudMedia);
-                    }
-                    else if (magnitudMedida == 6) {
-                        em.setCo(valorMagnitudMedia);
-                    }
-                    else if (magnitudMedida == 7) {
+                    if (magnitudMedida == 7) {
                         em.setNo(valorMagnitudMedia);
                     }
                     else if (magnitudMedida == 8) {
@@ -130,20 +126,18 @@ public class ContaminacionXMLReader {
                     else if (magnitudMedida == 14) {
                         em.setO3(valorMagnitudMedia);
                     }
-                    else if (magnitudMedida == 20) {
-                        em.setTol(valorMagnitudMedia);
-                    }
-                    else if (magnitudMedida == 30) {
-                        em.setBen(valorMagnitudMedia);
-                    }
-                    else if (magnitudMedida == 35) {
-                        em.setEbe(valorMagnitudMedia);
-                    }
+
+                    //Asignamos los valores de latitud y longitud de la estación a través de EstacionesCSVReader
+                    float[] latLongEstacion = this.estacionesCSVReader.getLatLongEstacion(em.getIdelem());
+                    em.setStX(latLongEstacion[0]);
+                    em.setStY(latLongEstacion[1]);
 
                     //Comprobamos si no ha surgido un error en la creación del PM. Si no, añadimos a la lista
                     if (!error) {
-                        this.estacionesYaCreadas.put(em.getIdelem(), em);
-                        System.out.println("EstacionDeMedicion: " + em.getIdelem() + " creado exitosamente");
+                        if (!this.estacionesYaCreadas.containsKey(em.getIdelem())) {
+                            this.estacionesYaCreadas.put(em.getIdelem(), em);
+                            System.out.println("EstacionDeMedicion: " + em.getIdelem() + " creado exitosamente");
+                        }
                     }
                 }
             }

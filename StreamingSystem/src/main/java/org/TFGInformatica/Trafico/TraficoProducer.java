@@ -15,7 +15,7 @@ import java.util.Properties;
 import java.nio.file.*;
 import java.util.concurrent.TimeUnit;
 
-import org.TFGInformatica.PuntoDeMedicion;
+import org.TFGInformatica.TraficoPuntoDeMedicion;
 
 public class TraficoProducer {
 
@@ -51,12 +51,13 @@ public class TraficoProducer {
             while(true) {
                 if ((key = watchService.take()) != null) {
                     for (WatchEvent<?> event: key.pollEvents()) {
+
+                        //Timeout para esperar a que el fichero termine de ser descargado
+                        TimeUnit.SECONDS.sleep(15);
+
                         if (event.context().toString().endsWith("ficheroTrafico.xml")) {
                             //El fichero de datos ha sido actualizado
                             System.out.println("WatchService: El fichero " + event.context() + " ha sido actualizado");
-
-                            //Timeout para esperar a que el fichero termine de ser descargado
-                            TimeUnit.SECONDS.sleep(15);
 
                             //Por tanto, se procesa el nuevo fichero
                             //2. Leer el archivo realizando las transformaciones necesarias

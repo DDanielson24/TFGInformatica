@@ -48,17 +48,18 @@ public class ContaminacionProducer {
             while (true) {
                 if ((key = watchService.take()) != null) {
                     for (WatchEvent<?> event : key.pollEvents()) {
+
+                        //Timeout para esperar a que el fichero termine de ser descargado
+                        TimeUnit.SECONDS.sleep(15);
+
                         if (event.context().toString().endsWith("ficheroContaminacion.xml")) {
                             //El fichero de datos ha sido actualizado
                             System.out.println("WatchService: El fichero " + event.context() + " ha sido actualizado");
 
-                            //Timeout para esperar a que el fichero termine de ser descargado
-                            TimeUnit.SECONDS.sleep(15);
-
                             //Por tanto, se procesa el nuevo fichero
                             //2. Leer el archivo realizando las transformaciones necesarias
                             System.out.println("Comienza la lectura del archivo XML");
-                            ContaminacionXMLReader xmlReader = new ContaminacionXMLReader("/home/daniel/Escritorio/TFGInformatica/StreamingSystem/data/ficheroContaminacion.xml");
+                            ContaminacionXMLReader xmlReader = new ContaminacionXMLReader("/home/daniel/Escritorio/TFGInformatica/StreamingSystem/data/ficheroContaminacion.xml", "/home/daniel/Escritorio/TFGInformatica/StreamingSystem/data/ficheroEstaciones.csv");
                             List<ContaminacionEstacionDeMedicion> listaEMs = xmlReader.readXML();
 
                             System.out.println("La longitud de la lista es: " + listaEMs.size());

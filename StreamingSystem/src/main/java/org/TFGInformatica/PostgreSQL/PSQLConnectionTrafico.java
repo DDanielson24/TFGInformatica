@@ -1,6 +1,6 @@
 package org.TFGInformatica.PostgreSQL;
 
-import org.TFGInformatica.PuntoDeMedicion;
+import org.TFGInformatica.TraficoPuntoDeMedicion;
 import org.TFGInformatica.TraficoPuntoDeMedicion;
 
 import javax.xml.transform.Result;
@@ -52,19 +52,6 @@ public class PSQLConnectionTrafico {
                 System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ya se encontraba en la BD: UbicacionesLatLong");
             }
 
-            //Comprobamos si está ya en la BD PuntosDeMedicionHistorico
-            if (!this.checkIfExists("PuntosDeMedicionHistorico", pm)) {
-                statement.execute(
-                        "INSERT INTO \"PuntosDeMedicionHistorico\" " +
-                            "VALUES (" + pm.getIdelem() + ", '" + pm.getDescripcion() + "', " +
-                            pm.getIntensidad() + ", " + pm.getCarga() + ", " +
-                            pm.getNivelServicio() + ", '" + pm.getFechaActualizacion() + "');");
-                System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido insertado en la BD: PuntosDeMedicionHistorico");
-            }
-            else {
-                System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ya se encontraba en la BD: PuntosDeMedicionHistorico");
-            }
-
             //Comprobamos si está ya en la BD PuntosDeMedicion
             if (!this.checkIfExists("PuntosDeMedicion", pm)) {
                 statement.execute(
@@ -72,18 +59,12 @@ public class PSQLConnectionTrafico {
                             "VALUES (" + pm.getIdelem() + ", '" + pm.getDescripcion() + "', " +
                             pm.getIntensidad() + ", " + pm.getCarga() + ", " +
                             pm.getNivelServicio() + ", '" + pm.getFechaActualizacion() + "');");
-                System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido actualizado en la BD: PuntosDeMedicion");
+                System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido insertado en la BD: PuntosDeMedicion");
             }
             else {
-                statement.execute(
-                        "UPDATE \"PuntosDeMedicion\" " +
-                            "SET intensidad = " + pm.getIntensidad() + ", " +
-                            "carga = " + pm.getCarga() + ", " +
-                            "nivel_servicio = " + pm.getNivelServicio() + ", " +
-                            "fecha_actualizacion = '" + pm.getFechaActualizacion() + "' " +
-                            "WHERE idelem = " + pm.getIdelem() + ";");
-                System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido actualizado en la BD: PuntosDeMedicion");
+                System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ya se encontraba en la BD: PuntosDeMedicion");
             }
+
             query = true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -95,19 +76,8 @@ public class PSQLConnectionTrafico {
 
         boolean query = false;
         try {
-
             Statement statement = conn.createStatement();
-
             if (database.equals("PuntosDeMedicion")) {
-                ResultSet resultSet = statement.executeQuery(
-                        "SELECT EXISTS " +
-                            "(SELECT * FROM \"" + database + "\" " +
-                            "WHERE idelem = " + pm.getIdelem() + ");");
-                while (resultSet.next()) {
-                    query = resultSet.getBoolean("exists");
-                }
-            }
-            else if (database.equals("PuntosDeMedicionHistorico")) {
                 ResultSet resultSet = statement.executeQuery(
                         "SELECT EXISTS " +
                             "(SELECT * FROM \"" + database + "\" " +
