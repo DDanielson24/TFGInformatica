@@ -62,7 +62,7 @@ public class TraficoProducer {
                             //Por tanto, se procesa el nuevo fichero
                             //2. Leer el archivo realizando las transformaciones necesarias
                             System.out.println("Comienza la lectura del archivo XML");
-                            TraficoXMLReader xmlReader = new TraficoXMLReader("/home/daniel/Escritorio/TFGInformatica/StreamingSystem/data/ficheroTrafico.xml");
+                            TraficoXMLReader xmlReader = new TraficoXMLReader("/home/daniel/Escritorio/TFGInformatica/StreamingSystem/data/ficheroTrafico.xml", "/home/daniel/Escritorio/TFGInformatica/StreamingSystem/data/ficheroPuntosTrafico.csv");
                             List<TraficoPuntoDeMedicion> listaPMs = xmlReader.readXML();
 
                             System.out.println("La longitud de la lista es: " + listaPMs.size());

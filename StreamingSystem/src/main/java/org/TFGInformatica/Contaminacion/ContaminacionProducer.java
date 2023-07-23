@@ -59,7 +59,7 @@ public class ContaminacionProducer {
                             //Por tanto, se procesa el nuevo fichero
                             //2. Leer el archivo realizando las transformaciones necesarias
                             System.out.println("Comienza la lectura del archivo XML");
-                            ContaminacionXMLReader xmlReader = new ContaminacionXMLReader("/home/daniel/Escritorio/TFGInformatica/StreamingSystem/data/ficheroContaminacion.xml", "/home/daniel/Escritorio/TFGInformatica/StreamingSystem/data/ficheroEstaciones.csv");
+                            ContaminacionXMLReader xmlReader = new ContaminacionXMLReader("/home/daniel/Escritorio/TFGInformatica/StreamingSystem/data/ficheroContaminacion.xml", "/home/daniel/Escritorio/TFGInformatica/StreamingSystem/data/ficheroEstacionesContaminacion.csv");
                             List<ContaminacionEstacionDeMedicion> listaEMs = xmlReader.readXML();
 
                             System.out.println("La longitud de la lista es: " + listaEMs.size());

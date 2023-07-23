@@ -58,7 +58,8 @@ public class PSQLConnectionTrafico {
                         "INSERT INTO \"PuntosDeMedicion\" " +
                             "VALUES (" + pm.getIdelem() + ", '" + pm.getDescripcion() + "', " +
                             pm.getIntensidad() + ", " + pm.getCarga() + ", " +
-                            pm.getNivelServicio() + ", '" + pm.getFechaActualizacion() + "');");
+                            pm.getNivelServicio() + ", " + pm.getDistrito() + ", '" +
+                            pm.getFechaActualizacion() + "');");
                 System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " ha sido insertado en la BD: PuntosDeMedicion");
             }
             else {

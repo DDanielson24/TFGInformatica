@@ -19,9 +19,11 @@ public class TraficoXMLReader {
 
     private String original_file;
     private Set<String> deleteTagsSet;
+    private PuntosCSVReader puntosCSVReader;
 
-    public TraficoXMLReader (String path) {
-        this.original_file = path;
+    public TraficoXMLReader (String pathXML, String pathCSV) {
+        this.original_file = pathXML;
+        this.puntosCSVReader = new PuntosCSVReader(pathCSV);
         this.deleteTagsSet = new HashSet<>();
         this.deleteTagsSet.add("accesoAsociado");
         this.deleteTagsSet.add("ocupacion");
@@ -114,6 +116,13 @@ public class TraficoXMLReader {
                     //Comprobamos si no ha surgido un error en la creación del PM. Si no, añadimos a la lista
                     if (!error) {
                         pm.setFechaActualizacion(fecha_actualizacion);
+
+                        //Añadimos el distrito en el caso de haberlo encontrado en el fichero. Se devuelve un 0 por defecto en caso de no encontrarlo
+                        Integer distrito = this.puntosCSVReader.buscarDistrito(pm.getIdelem());
+                        if (!distrito.equals(0)) {
+                            pm.setDistrito(distrito);
+                        }
+
                         System.out.println("PuntoDeMedicion: " + pm.getIdelem() + " creado exitosamente");
                         listaDevolver.add(pm);
                     }
