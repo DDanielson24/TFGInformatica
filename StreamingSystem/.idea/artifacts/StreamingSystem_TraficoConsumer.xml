@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="StreamingSystem_TraficoConsumer">
-    <output-path>$PROJECT_DIR$/out/artifacts/StreamingSystem_TraficoConsumer</output-path>
+    <output-path>$PROJECT_DIR$/out/artifacts</output-path>
     <root id="archive" name="StreamingSystem_TraficoConsumer.jar">
       <element id="module-output" name="StreamingSystem" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/confluent/logredactor-metrics/1.0.10/logredactor-metrics-1.0.10.jar" path-in-jar="/" />
