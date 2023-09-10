@@ -18,8 +18,7 @@ public class ContaminacionProducer {
 
     public static void main(String[] args) {
 
-        //3. Crear el productor de Kafka y enviar a través del topic
-        //Creamos las propiedades necesarias para el Productor
+        //Crear las propiedades necesarias para el productor
         //UBUNTU VIRTUAL BOX
         Properties props = new Properties();
         props.setProperty("bootstrap.servers", "10.0.2.15:9092");
@@ -56,32 +55,28 @@ public class ContaminacionProducer {
                             //El fichero de datos ha sido actualizado
                             System.out.println("WatchService: El fichero " + event.context() + " ha sido actualizado");
 
-                            //Por tanto, se procesa el nuevo fichero
-                            //2. Leer el archivo realizando las transformaciones necesarias
+                            //Por tanto, se procesa el nuevo fichero realizando las transformaciones necesarias
                             System.out.println("Comienza la lectura del archivo XML");
                             ContaminacionXMLReader xmlReader = new ContaminacionXMLReader("/home/daniel/Escritorio/TFGInformatica/StreamingSystem/data/ficheroContaminacion.xml", "/home/daniel/Escritorio/TFGInformatica/StreamingSystem/data/ficheroEstacionesContaminacion.csv");
                             List<ContaminacionEstacionDeMedicion> listaEMs = xmlReader.readXML();
 
-                            System.out.println("La longitud de la lista es: " + listaEMs.size());
+                            System.out.println("EstacionesDeMedicion leídos del archivo XML: " + listaEMs.size());
 
                             //Se envía la lista de PMs
                             for (ContaminacionEstacionDeMedicion em : listaEMs) {
-
                                 ProducerRecord<String, ContaminacionEstacionDeMedicion> producerRecord = new ProducerRecord<>("contaminacionData", em);
                                 contaminacionProducer.send(producerRecord);
                                 contaminacionProducer.flush();
-
                             }
                         }
                     }
                     key.reset();
                 }
             }
-        } catch (IOException | InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            contaminacionProducer.close();
         }
-
-        contaminacionProducer.close();
-
     }
 }

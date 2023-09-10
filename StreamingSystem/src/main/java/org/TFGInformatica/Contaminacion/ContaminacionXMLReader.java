@@ -29,13 +29,11 @@ public class ContaminacionXMLReader {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 
         try {
-
             DocumentBuilder db = dbf.newDocumentBuilder();
             Document doc = db.parse(new File(this.original_file));
             doc.getDocumentElement().normalize();
 
             //Ahora recorremos el documento creando puntos de medición y añadiéndolos a la lista
-
             NodeList list = doc.getElementsByTagName("Dato_Horario");
             Node node;
 
@@ -45,8 +43,9 @@ public class ContaminacionXMLReader {
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     NodeList childs = node.getChildNodes();
                     Node child;
-
                     ContaminacionEstacionDeMedicion em = null;
+                    Integer magnitudMedida = 0;
+                    Float valorMagnitudMedia = 0.0f;
                     boolean error = false;
 
                     //Para crear la fecha de actualización
@@ -54,17 +53,19 @@ public class ContaminacionXMLReader {
                     String mes = "";
                     String dia = "";
                     String hora = "";
-                    Integer magnitudMedida = 0;
-                    Float valorMagnitudMedia = 0.0f;
 
                     for (int j = 0; j < childs.getLength(); j++) {
                         child = childs.item(j);
 
                         if (child.getNodeType() == Node.ELEMENT_NODE) {
                             try {
+
+                                //Como las estaciones aparecen repetidas en el XML con diferentes magnitudes, tenemos que comprobar si la
+                                // estación había sido creada ya con anterioridad e introducida en la lista
                                 if (child.getNodeName().equals("estacion")) {
-                                    //Tenemos que comprobar si la estación había sido creada ya con anterioridad e introducida en la lista
-                                    Integer idelem = Integer.parseInt(childs.item(j).getTextContent());
+                                    String idelemS = "hola";
+                                    Integer idelem = Integer.parseInt(idelemS);
+                                    /*Integer idelem = Integer.parseInt(childs.item(j).getTextContent());*/
                                     if (this.estacionesYaCreadas.containsKey(idelem)) {
                                         em = this.estacionesYaCreadas.get(idelem);
                                     } else {
@@ -72,6 +73,8 @@ public class ContaminacionXMLReader {
                                         em.setIdelem(idelem);
                                     }
                                 }
+
+                                //Rellenamos el resto de campos de la estación
                                 if (child.getNodeName().equals("punto_muestreo")) {
                                     em.setDescripcion(Integer.parseInt(childs.item(j).getTextContent().substring(0,8)));
                                 }
@@ -94,63 +97,59 @@ public class ContaminacionXMLReader {
                                 }
                                 if (child.getNodeName().startsWith("V")) {
                                     if (childs.item(j).getTextContent().equals("V")) {
-                                        hora = childs.item(j - 2).getNodeName().substring(1);
+                                        hora = childs.item(j).getNodeName().substring(1);
                                     }
                                 }
                             } catch (RuntimeException e) {
                                 error = true;
                                 break;
                             }
-
                         }
                     }
 
-                    String fecha_actualizacion = año + "/" + mes + "/" + dia + " " + hora + ":00:00";
-                    em.setFechaActualizacion(fecha_actualizacion);
-
-                    if (magnitudMedida == 7) {
-                        em.setNo(valorMagnitudMedia);
-                    }
-                    else if (magnitudMedida == 8) {
-                        em.setNo2(valorMagnitudMedia);
-                    }
-                    else if (magnitudMedida == 9) {
-                        em.setPm25(valorMagnitudMedia);
-                    }
-                    else if (magnitudMedida == 10) {
-                        em.setPm10(valorMagnitudMedia);
-                    }
-                    else if (magnitudMedida == 12) {
-                        em.setNox(valorMagnitudMedia);
-                    }
-                    else if (magnitudMedida == 14) {
-                        em.setO3(valorMagnitudMedia);
-                    }
-
-                    //Asignamos los valores de latitud y longitud de la estación a través de EstacionesCSVReader
-                    float[] latLongEstacion = this.estacionesCSVReader.getLatLongEstacion(em.getIdelem());
-                    em.setStX(latLongEstacion[0]);
-                    em.setStY(latLongEstacion[1]);
-
                     //Comprobamos si no ha surgido un error en la creación del PM. Si no, añadimos a la lista
                     if (!error) {
+                        String fecha_actualizacion = año + "/" + mes + "/" + dia + " " + hora + ":00:00";
+                        em.setFechaActualizacion(fecha_actualizacion);
+
+                        if (magnitudMedida == 7) {
+                            em.setNo(valorMagnitudMedia);
+                        }
+                        else if (magnitudMedida == 8) {
+                            em.setNo2(valorMagnitudMedia);
+                        }
+                        else if (magnitudMedida == 9) {
+                            em.setPm25(valorMagnitudMedia);
+                        }
+                        else if (magnitudMedida == 10) {
+                            em.setPm10(valorMagnitudMedia);
+                        }
+                        else if (magnitudMedida == 12) {
+                            em.setNox(valorMagnitudMedia);
+                        }
+                        else if (magnitudMedida == 14) {
+                            em.setO3(valorMagnitudMedia);
+                        }
+
                         if (!this.estacionesYaCreadas.containsKey(em.getIdelem())) {
                             this.estacionesYaCreadas.put(em.getIdelem(), em);
                             System.out.println("EstacionDeMedicion: " + em.getIdelem() + " creado exitosamente");
                         }
                     }
+                    else {
+                        System.out.println("Ha surgido un error al crear la EstacionDeMedicion");
+                    }
                 }
             }
+
+            //Recorremos el conjunto de estaciones del HashMap para añadirlas a la lista y devolverlas
             Iterator<ContaminacionEstacionDeMedicion> iterator = this.estacionesYaCreadas.values().iterator();
             while (iterator.hasNext()) {
                 listaDevolver.add(iterator.next());
             }
-
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
-
         return listaDevolver;
-
     }
 }

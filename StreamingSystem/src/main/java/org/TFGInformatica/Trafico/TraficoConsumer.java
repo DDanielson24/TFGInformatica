@@ -18,8 +18,7 @@ public class TraficoConsumer {
 
     public static void main(String[] args) {
 
-        //1. Crear el consumidor de Kafka y leer a través del topic
-        //Creamos las propiedades necesarias para el consumidor
+        //Crear las propiedades necesarias para el consumidor
         //UBUNTU VIRTUAL BOX
         Properties props = new Properties();
         props.setProperty("bootstrap.servers", "10.0.2.15:9092");
@@ -54,16 +53,14 @@ public class TraficoConsumer {
                 ConsumerRecords<String, TraficoPuntoDeMedicion> records = traficoConsumer.poll(Duration.ofMillis(100));
                 for (ConsumerRecord<String, TraficoPuntoDeMedicion> record: records) {
 
-                    //2. Para cada PM, comprobar que no hay error y enviar a la base de datos
+                    //Para cada PM, enviar a la base de datos
                     TraficoPuntoDeMedicion pm = record.value();
                     System.out.println("PuntoDeMedicion: " + pm.toString() + " recibido exitosamente");
 
                     //Llamamos al método para añadir filas a la BD
                     psqlConnectionTrafico.addRow(pm);
-
                 }
             }
-
         } finally {
             traficoConsumer.close();
         }

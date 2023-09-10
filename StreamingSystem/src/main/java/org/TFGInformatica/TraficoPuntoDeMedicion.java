@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 7008383897744243798L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"TraficoPuntoDeMedicion\",\"namespace\":\"org.TFGInformatica\",\"fields\":[{\"name\":\"idelem\",\"type\":\"int\"},{\"name\":\"descripcion\",\"type\":\"string\"},{\"name\":\"intensidad\",\"type\":\"int\"},{\"name\":\"carga\",\"type\":\"int\"},{\"name\":\"nivelServicio\",\"type\":\"int\"},{\"name\":\"st_x\",\"type\":\"float\"},{\"name\":\"st_y\",\"type\":\"float\"},{\"name\":\"distrito\",\"type\":\"int\"},{\"name\":\"fechaActualizacion\",\"type\":\"string\"}]}");
+  private static final long serialVersionUID = 525728242248307358L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"TraficoPuntoDeMedicion\",\"namespace\":\"org.TFGInformatica\",\"fields\":[{\"name\":\"idelem\",\"type\":\"int\"},{\"name\":\"descripcion\",\"type\":\"string\"},{\"name\":\"intensidad\",\"type\":\"int\"},{\"name\":\"carga\",\"type\":\"int\"},{\"name\":\"nivelServicio\",\"type\":\"int\"},{\"name\":\"distrito\",\"type\":\"int\"},{\"name\":\"fechaActualizacion\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -76,8 +76,6 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
    private int intensidad;
    private int carga;
    private int nivelServicio;
-   private float st_x;
-   private float st_y;
    private int distrito;
    private java.lang.CharSequence fechaActualizacion;
 
@@ -95,19 +93,15 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
    * @param intensidad The new value for intensidad
    * @param carga The new value for carga
    * @param nivelServicio The new value for nivelServicio
-   * @param st_x The new value for st_x
-   * @param st_y The new value for st_y
    * @param distrito The new value for distrito
    * @param fechaActualizacion The new value for fechaActualizacion
    */
-  public TraficoPuntoDeMedicion(java.lang.Integer idelem, java.lang.CharSequence descripcion, java.lang.Integer intensidad, java.lang.Integer carga, java.lang.Integer nivelServicio, java.lang.Float st_x, java.lang.Float st_y, java.lang.Integer distrito, java.lang.CharSequence fechaActualizacion) {
+  public TraficoPuntoDeMedicion(java.lang.Integer idelem, java.lang.CharSequence descripcion, java.lang.Integer intensidad, java.lang.Integer carga, java.lang.Integer nivelServicio, java.lang.Integer distrito, java.lang.CharSequence fechaActualizacion) {
     this.idelem = idelem;
     this.descripcion = descripcion;
     this.intensidad = intensidad;
     this.carga = carga;
     this.nivelServicio = nivelServicio;
-    this.st_x = st_x;
-    this.st_y = st_y;
     this.distrito = distrito;
     this.fechaActualizacion = fechaActualizacion;
   }
@@ -122,10 +116,8 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
     case 2: return intensidad;
     case 3: return carga;
     case 4: return nivelServicio;
-    case 5: return st_x;
-    case 6: return st_y;
-    case 7: return distrito;
-    case 8: return fechaActualizacion;
+    case 5: return distrito;
+    case 6: return fechaActualizacion;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -139,10 +131,8 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
     case 2: intensidad = (java.lang.Integer)value$; break;
     case 3: carga = (java.lang.Integer)value$; break;
     case 4: nivelServicio = (java.lang.Integer)value$; break;
-    case 5: st_x = (java.lang.Float)value$; break;
-    case 6: st_y = (java.lang.Float)value$; break;
-    case 7: distrito = (java.lang.Integer)value$; break;
-    case 8: fechaActualizacion = (java.lang.CharSequence)value$; break;
+    case 5: distrito = (java.lang.Integer)value$; break;
+    case 6: fechaActualizacion = (java.lang.CharSequence)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -233,40 +223,6 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
   }
 
   /**
-   * Gets the value of the 'st_x' field.
-   * @return The value of the 'st_x' field.
-   */
-  public float getStX() {
-    return st_x;
-  }
-
-
-  /**
-   * Sets the value of the 'st_x' field.
-   * @param value the value to set.
-   */
-  public void setStX(float value) {
-    this.st_x = value;
-  }
-
-  /**
-   * Gets the value of the 'st_y' field.
-   * @return The value of the 'st_y' field.
-   */
-  public float getStY() {
-    return st_y;
-  }
-
-
-  /**
-   * Sets the value of the 'st_y' field.
-   * @param value the value to set.
-   */
-  public void setStY(float value) {
-    this.st_y = value;
-  }
-
-  /**
    * Gets the value of the 'distrito' field.
    * @return The value of the 'distrito' field.
    */
@@ -346,8 +302,6 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
     private int intensidad;
     private int carga;
     private int nivelServicio;
-    private float st_x;
-    private float st_y;
     private int distrito;
     private java.lang.CharSequence fechaActualizacion;
 
@@ -382,21 +336,13 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
         this.nivelServicio = data().deepCopy(fields()[4].schema(), other.nivelServicio);
         fieldSetFlags()[4] = other.fieldSetFlags()[4];
       }
-      if (isValidValue(fields()[5], other.st_x)) {
-        this.st_x = data().deepCopy(fields()[5].schema(), other.st_x);
+      if (isValidValue(fields()[5], other.distrito)) {
+        this.distrito = data().deepCopy(fields()[5].schema(), other.distrito);
         fieldSetFlags()[5] = other.fieldSetFlags()[5];
       }
-      if (isValidValue(fields()[6], other.st_y)) {
-        this.st_y = data().deepCopy(fields()[6].schema(), other.st_y);
+      if (isValidValue(fields()[6], other.fechaActualizacion)) {
+        this.fechaActualizacion = data().deepCopy(fields()[6].schema(), other.fechaActualizacion);
         fieldSetFlags()[6] = other.fieldSetFlags()[6];
-      }
-      if (isValidValue(fields()[7], other.distrito)) {
-        this.distrito = data().deepCopy(fields()[7].schema(), other.distrito);
-        fieldSetFlags()[7] = other.fieldSetFlags()[7];
-      }
-      if (isValidValue(fields()[8], other.fechaActualizacion)) {
-        this.fechaActualizacion = data().deepCopy(fields()[8].schema(), other.fechaActualizacion);
-        fieldSetFlags()[8] = other.fieldSetFlags()[8];
       }
     }
 
@@ -426,21 +372,13 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
         this.nivelServicio = data().deepCopy(fields()[4].schema(), other.nivelServicio);
         fieldSetFlags()[4] = true;
       }
-      if (isValidValue(fields()[5], other.st_x)) {
-        this.st_x = data().deepCopy(fields()[5].schema(), other.st_x);
+      if (isValidValue(fields()[5], other.distrito)) {
+        this.distrito = data().deepCopy(fields()[5].schema(), other.distrito);
         fieldSetFlags()[5] = true;
       }
-      if (isValidValue(fields()[6], other.st_y)) {
-        this.st_y = data().deepCopy(fields()[6].schema(), other.st_y);
+      if (isValidValue(fields()[6], other.fechaActualizacion)) {
+        this.fechaActualizacion = data().deepCopy(fields()[6].schema(), other.fechaActualizacion);
         fieldSetFlags()[6] = true;
-      }
-      if (isValidValue(fields()[7], other.distrito)) {
-        this.distrito = data().deepCopy(fields()[7].schema(), other.distrito);
-        fieldSetFlags()[7] = true;
-      }
-      if (isValidValue(fields()[8], other.fechaActualizacion)) {
-        this.fechaActualizacion = data().deepCopy(fields()[8].schema(), other.fechaActualizacion);
-        fieldSetFlags()[8] = true;
       }
     }
 
@@ -641,84 +579,6 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
     }
 
     /**
-      * Gets the value of the 'st_x' field.
-      * @return The value.
-      */
-    public float getStX() {
-      return st_x;
-    }
-
-
-    /**
-      * Sets the value of the 'st_x' field.
-      * @param value The value of 'st_x'.
-      * @return This builder.
-      */
-    public org.TFGInformatica.TraficoPuntoDeMedicion.Builder setStX(float value) {
-      validate(fields()[5], value);
-      this.st_x = value;
-      fieldSetFlags()[5] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'st_x' field has been set.
-      * @return True if the 'st_x' field has been set, false otherwise.
-      */
-    public boolean hasStX() {
-      return fieldSetFlags()[5];
-    }
-
-
-    /**
-      * Clears the value of the 'st_x' field.
-      * @return This builder.
-      */
-    public org.TFGInformatica.TraficoPuntoDeMedicion.Builder clearStX() {
-      fieldSetFlags()[5] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'st_y' field.
-      * @return The value.
-      */
-    public float getStY() {
-      return st_y;
-    }
-
-
-    /**
-      * Sets the value of the 'st_y' field.
-      * @param value The value of 'st_y'.
-      * @return This builder.
-      */
-    public org.TFGInformatica.TraficoPuntoDeMedicion.Builder setStY(float value) {
-      validate(fields()[6], value);
-      this.st_y = value;
-      fieldSetFlags()[6] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'st_y' field has been set.
-      * @return True if the 'st_y' field has been set, false otherwise.
-      */
-    public boolean hasStY() {
-      return fieldSetFlags()[6];
-    }
-
-
-    /**
-      * Clears the value of the 'st_y' field.
-      * @return This builder.
-      */
-    public org.TFGInformatica.TraficoPuntoDeMedicion.Builder clearStY() {
-      fieldSetFlags()[6] = false;
-      return this;
-    }
-
-    /**
       * Gets the value of the 'distrito' field.
       * @return The value.
       */
@@ -733,9 +593,9 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
       * @return This builder.
       */
     public org.TFGInformatica.TraficoPuntoDeMedicion.Builder setDistrito(int value) {
-      validate(fields()[7], value);
+      validate(fields()[5], value);
       this.distrito = value;
-      fieldSetFlags()[7] = true;
+      fieldSetFlags()[5] = true;
       return this;
     }
 
@@ -744,7 +604,7 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
       * @return True if the 'distrito' field has been set, false otherwise.
       */
     public boolean hasDistrito() {
-      return fieldSetFlags()[7];
+      return fieldSetFlags()[5];
     }
 
 
@@ -753,7 +613,7 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
       * @return This builder.
       */
     public org.TFGInformatica.TraficoPuntoDeMedicion.Builder clearDistrito() {
-      fieldSetFlags()[7] = false;
+      fieldSetFlags()[5] = false;
       return this;
     }
 
@@ -772,9 +632,9 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
       * @return This builder.
       */
     public org.TFGInformatica.TraficoPuntoDeMedicion.Builder setFechaActualizacion(java.lang.CharSequence value) {
-      validate(fields()[8], value);
+      validate(fields()[6], value);
       this.fechaActualizacion = value;
-      fieldSetFlags()[8] = true;
+      fieldSetFlags()[6] = true;
       return this;
     }
 
@@ -783,7 +643,7 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
       * @return True if the 'fechaActualizacion' field has been set, false otherwise.
       */
     public boolean hasFechaActualizacion() {
-      return fieldSetFlags()[8];
+      return fieldSetFlags()[6];
     }
 
 
@@ -793,7 +653,7 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
       */
     public org.TFGInformatica.TraficoPuntoDeMedicion.Builder clearFechaActualizacion() {
       fechaActualizacion = null;
-      fieldSetFlags()[8] = false;
+      fieldSetFlags()[6] = false;
       return this;
     }
 
@@ -807,10 +667,8 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
         record.intensidad = fieldSetFlags()[2] ? this.intensidad : (java.lang.Integer) defaultValue(fields()[2]);
         record.carga = fieldSetFlags()[3] ? this.carga : (java.lang.Integer) defaultValue(fields()[3]);
         record.nivelServicio = fieldSetFlags()[4] ? this.nivelServicio : (java.lang.Integer) defaultValue(fields()[4]);
-        record.st_x = fieldSetFlags()[5] ? this.st_x : (java.lang.Float) defaultValue(fields()[5]);
-        record.st_y = fieldSetFlags()[6] ? this.st_y : (java.lang.Float) defaultValue(fields()[6]);
-        record.distrito = fieldSetFlags()[7] ? this.distrito : (java.lang.Integer) defaultValue(fields()[7]);
-        record.fechaActualizacion = fieldSetFlags()[8] ? this.fechaActualizacion : (java.lang.CharSequence) defaultValue(fields()[8]);
+        record.distrito = fieldSetFlags()[5] ? this.distrito : (java.lang.Integer) defaultValue(fields()[5]);
+        record.fechaActualizacion = fieldSetFlags()[6] ? this.fechaActualizacion : (java.lang.CharSequence) defaultValue(fields()[6]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -853,10 +711,6 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
 
     out.writeInt(this.nivelServicio);
 
-    out.writeFloat(this.st_x);
-
-    out.writeFloat(this.st_y);
-
     out.writeInt(this.distrito);
 
     out.writeString(this.fechaActualizacion);
@@ -878,16 +732,12 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
 
       this.nivelServicio = in.readInt();
 
-      this.st_x = in.readFloat();
-
-      this.st_y = in.readFloat();
-
       this.distrito = in.readInt();
 
       this.fechaActualizacion = in.readString(this.fechaActualizacion instanceof Utf8 ? (Utf8)this.fechaActualizacion : null);
 
     } else {
-      for (int i = 0; i < 9; i++) {
+      for (int i = 0; i < 7; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           this.idelem = in.readInt();
@@ -910,18 +760,10 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
           break;
 
         case 5:
-          this.st_x = in.readFloat();
-          break;
-
-        case 6:
-          this.st_y = in.readFloat();
-          break;
-
-        case 7:
           this.distrito = in.readInt();
           break;
 
-        case 8:
+        case 6:
           this.fechaActualizacion = in.readString(this.fechaActualizacion instanceof Utf8 ? (Utf8)this.fechaActualizacion : null);
           break;
 

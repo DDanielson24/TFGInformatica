@@ -14,11 +14,9 @@ public class PSQLConnectionContaminacion {
     private final String PASSWORD = "TFGInformatica";
     private String url = "jdbc:postgresql://" + HOST + ":" + PUERTO + "/" + DATABASE;
     private Connection conn = null;
-    private CoordConverter coordConverter = new CoordConverter();
 
     public void connect() {
         try {
-
             conn = DriverManager.getConnection(url, USER, PASSWORD);
             System.out.println("Se ha conectado exitosamente a la BD: " + DATABASE);
 
@@ -29,26 +27,11 @@ public class PSQLConnectionContaminacion {
     }
 
     public boolean addRow(ContaminacionEstacionDeMedicion em) {
-
         boolean query = false;
-
         try {
             Statement statement = conn.createStatement();
-
-            //Comprobamos si está ya en la BD UbicacionesLatLong
-            if (!this.checkIfExists("UbicacionesLatLong", em)) {
-                statement.execute(
-                        "INSERT INTO \"UbicacionesLatLong\" " +
-                            "VALUES (" + em.getIdelem() + ", " + em.getStX() +
-                            ", " + em.getStY() + ");");
-                System.out.println("EstacionDeMedicion: " + em.getIdelem() + " ha sido insertado en la BD: UbicacionesLatLong");
-            }
-            else {
-                System.out.println("EstacionDeMedicion: " + em.getIdelem() + " ya se encontraba en la BD: UbicacionesLatLong");
-            }
-
             //Comprobamos si está ya en la BD EstacionesDeMedicion
-            if (!this.checkIfExists("EstacionesDeMedicion", em)) {
+            if (!this.checkIfExists(em)) {
                 statement.execute(
                         "INSERT INTO \"EstacionesDeMedicion\" " +
                             "VALUES (" + em.getIdelem() + ", '" + em.getDescripcion() + "', " +
@@ -67,31 +50,21 @@ public class PSQLConnectionContaminacion {
         return query;
     }
 
-    private boolean checkIfExists(String database, ContaminacionEstacionDeMedicion em) {
-
+    private boolean checkIfExists(ContaminacionEstacionDeMedicion em) {
         boolean query = false;
         try {
-            if (database.equals("EstacionesDeMedicion")) {
-                Statement statement = conn.createStatement();
-                ResultSet resultSet = statement.executeQuery(
-                        "SELECT EXISTS " +
-                                "(SELECT * FROM \"" + database + "\" " +
-                                "WHERE idelem = " + em.getIdelem() + " " +
-                                "AND fecha_actualizacion = '" + em.getFechaActualizacion() + "');");
-                while (resultSet.next()) {
-                    query = resultSet.getBoolean("exists");
-                }
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery(
+                    "SELECT EXISTS " +
+                            "(SELECT * FROM \"ContaminacionEstacionDeMedicion\" " +
+                            "WHERE idelem = " + em.getIdelem() + " " +
+                            "AND fecha_actualizacion = '" + em.getFechaActualizacion() + "');");
+            while (resultSet.next()) {
+                query = resultSet.getBoolean("exists");
             }
-            else if (database.equals("UbicacionesLatLong")) {
-
-            }
-            return query;
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return query;
-
     }
-
 }

@@ -11,8 +11,6 @@
         { "name": "pm10", "type": "float" },
         { "name": "nox", "type": "float" },
         { "name": "o3", "type": "float" },
-        { "name": "st_x",  "type": "float" },
-        { "name": "st_y",  "type": "float" },
         { "name": "fechaActualizacion", "type": "string" }
     ]
 }

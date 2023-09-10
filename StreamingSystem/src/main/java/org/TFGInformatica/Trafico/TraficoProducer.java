@@ -1,28 +1,22 @@
 package org.TFGInformatica.Trafico;
 
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
-import org.TFGInformatica.PostgreSQL.CoordConverter;
 import org.TFGInformatica.TraficoPuntoDeMedicion;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Properties;
 import java.nio.file.*;
 import java.util.concurrent.TimeUnit;
 
-import org.TFGInformatica.TraficoPuntoDeMedicion;
-
 public class TraficoProducer {
 
     public static void main(String[] args) {
 
-        //3. Crear el productor de Kafka y enviar a través del topic
-        //Creamos las propiedades necesarias para el Productor
+        //Crear las propiedades necesarias para el productor
         //UBUNTU VIRTUAL BOX
         Properties props = new Properties();
         props.setProperty("bootstrap.servers", "10.0.2.15:9092");
@@ -59,31 +53,28 @@ public class TraficoProducer {
                             //El fichero de datos ha sido actualizado
                             System.out.println("WatchService: El fichero " + event.context() + " ha sido actualizado");
 
-                            //Por tanto, se procesa el nuevo fichero
-                            //2. Leer el archivo realizando las transformaciones necesarias
+                            //Por tanto, se procesa el nuevo fichero realizando las transformaciones necesarias
                             System.out.println("Comienza la lectura del archivo XML");
                             TraficoXMLReader xmlReader = new TraficoXMLReader("/home/daniel/Escritorio/TFGInformatica/StreamingSystem/data/ficheroTrafico.xml", "/home/daniel/Escritorio/TFGInformatica/StreamingSystem/data/ficheroPuntosTrafico.csv");
                             List<TraficoPuntoDeMedicion> listaPMs = xmlReader.readXML();
 
-                            System.out.println("La longitud de la lista es: " + listaPMs.size());
+                            System.out.println("PuntosDeMedicion leídos del archivo XML:" + listaPMs.size());
 
                             //Se envía la lista de PMs
                             for (TraficoPuntoDeMedicion pm: listaPMs) {
-
                                 ProducerRecord<String, TraficoPuntoDeMedicion> producerRecord = new ProducerRecord<>("traficoData", pm);
                                 traficoProducer.send(producerRecord);
                                 traficoProducer.flush();
-
                             }
                         }
                     }
                     key.reset();
                 }
             }
-        } catch (IOException | InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            traficoProducer.close();
         }
-
-        traficoProducer.close();
     }
 }

@@ -6,7 +6,7 @@
 /home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/Trafico/TraficoProducer.java
 /home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/Contaminacion/ContaminacionXMLReader.java
 /home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/TraficoPuntoDeMedicion.java
-/home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/PostgreSQL/CoordConverter.java
 /home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/Trafico/TraficoConsumer.java
 /home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/ContaminacionEstacionDeMedicion.java
 /home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/PostgreSQL/PSQLConnectionTrafico.java
+/home/daniel/Escritorio/TFGInformatica/StreamingSystem/src/main/java/org/TFGInformatica/Trafico/PuntosCSVReader.java
