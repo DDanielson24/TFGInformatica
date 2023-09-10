@@ -1,6 +1,7 @@
 package org.TFGInformatica.Trafico;
 
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
+import org.TFGInformatica.Logs.LogWriter;
 import org.TFGInformatica.TraficoPuntoDeMedicion;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -31,8 +32,9 @@ public class TraficoProducer {
         props.setProperty("value.serializer", KafkaAvroSerializer.class.getName());
         props.setProperty("schema.registry.url", "https://192.168.0.37::8081");*/
 
-        //Creamos el productor y el WatchService en el directorio data
+        //Creamos el productor y el WatchService en el directorio data, además de la clase para los logs
         KafkaProducer<String, TraficoPuntoDeMedicion> traficoProducer = new KafkaProducer<String, TraficoPuntoDeMedicion>(props);
+        LogWriter logWriter = new LogWriter("/home/daniel/Escritorio/TFGInformatica/Logs/Trafico/traficoProducerLogs");
         System.out.println("El productor ha sido creado. Analizando el directorio data para actualizaciones...");
 
         try {
@@ -58,7 +60,7 @@ public class TraficoProducer {
                             TraficoXMLReader xmlReader = new TraficoXMLReader("/home/daniel/Escritorio/TFGInformatica/StreamingSystem/data/ficheroTrafico.xml", "/home/daniel/Escritorio/TFGInformatica/StreamingSystem/data/ficheroPuntosTrafico.csv");
                             List<TraficoPuntoDeMedicion> listaPMs = xmlReader.readXML();
 
-                            System.out.println("PuntosDeMedicion leídos del archivo XML:" + listaPMs.size());
+                            System.out.println("PuntosDeMedicion leídos del archivo XML: " + listaPMs.size());
 
                             //Se envía la lista de PMs
                             for (TraficoPuntoDeMedicion pm: listaPMs) {
@@ -66,6 +68,9 @@ public class TraficoProducer {
                                 traficoProducer.send(producerRecord);
                                 traficoProducer.flush();
                             }
+
+                            //Actualizamos el archivo de logs de TraficoProducer
+                            logWriter.writeLog("Se han enviado " + listaPMs.size() + " PuntosDeMedicion");
                         }
                     }
                     key.reset();

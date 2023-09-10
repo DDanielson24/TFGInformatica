@@ -2,6 +2,7 @@ package org.TFGInformatica.Contaminacion;
 
 import io.confluent.kafka.serializers.KafkaAvroDeserializer;
 import org.TFGInformatica.ContaminacionEstacionDeMedicion;
+import org.TFGInformatica.Logs.LogWriter;
 import org.TFGInformatica.PostgreSQL.PSQLConnectionContaminacion;
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -38,26 +39,33 @@ public class ContaminacionConsumer {
         props.setProperty("specific.avro.reader", "true");
         props.setProperty("schema.registry.url", "http://192.168.0.33:8081");*/
 
-        //Creamos el consumidor, nos suscribimos y leemos los PM
+        //Creamos el consumidor, nos suscribimos y leemos los PM, además de la clase para los logs
         KafkaConsumer<String, ContaminacionEstacionDeMedicion> contaminacionConsumer = new KafkaConsumer<String, ContaminacionEstacionDeMedicion>(props);
         contaminacionConsumer.subscribe(Arrays.asList("contaminacionData"));
+        LogWriter logWriter = new LogWriter("/home/daniel/Escritorio/TFGInformatica/Logs/Contaminacion/contaminacionConsumerLogs");
 
         //Creamos la clase para conectarse a la BD y nos conectamos
         PSQLConnectionContaminacion psqlConnectionContaminacion = new PSQLConnectionContaminacion();
         psqlConnectionContaminacion.connect();
 
         try {
-
             while (true) {
                 ConsumerRecords<String, ContaminacionEstacionDeMedicion> records = contaminacionConsumer.poll(Duration.ofMillis(100));
+
+                //Actualizamos el archivo de logs de ContaminacionConsumer
+                if (records.count() != 0) {
+                    logWriter.writeLog("Se han recibido " + records.count() + " EstacionesDeMedicion");
+                }
+
                 for (ConsumerRecord<String, ContaminacionEstacionDeMedicion> record: records) {
 
-                    //2. Para cada EM, enviar a la base de datos
+                    //Para cada EM, enviar a la base de datos
                     ContaminacionEstacionDeMedicion em = record.value();
                     System.out.println("EstacionDeMedicion: " + em.toString() + " recibido exitosamente");
 
                     //Llamamos al método para añadir filas a la BD
                     psqlConnectionContaminacion.addRow(em);
+
                 }
             }
         } finally {

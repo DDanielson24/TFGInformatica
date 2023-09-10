@@ -56,7 +56,7 @@ public class PSQLConnectionContaminacion {
             Statement statement = conn.createStatement();
             ResultSet resultSet = statement.executeQuery(
                     "SELECT EXISTS " +
-                            "(SELECT * FROM \"ContaminacionEstacionDeMedicion\" " +
+                            "(SELECT * FROM \"EstacionesDeMedicion\" " +
                             "WHERE idelem = " + em.getIdelem() + " " +
                             "AND fecha_actualizacion = '" + em.getFechaActualizacion() + "');");
             while (resultSet.next()) {

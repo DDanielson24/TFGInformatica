@@ -1,6 +1,7 @@
 package org.TFGInformatica.Trafico;
 
 import io.confluent.kafka.serializers.KafkaAvroDeserializer;
+import org.TFGInformatica.Logs.LogWriter;
 import org.TFGInformatica.TraficoPuntoDeMedicion;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
@@ -42,15 +43,21 @@ public class TraficoConsumer {
         //Creamos el consumidor, nos suscribimos y leemos los PM
         KafkaConsumer<String, TraficoPuntoDeMedicion> traficoConsumer = new KafkaConsumer<String, TraficoPuntoDeMedicion>(props);
         traficoConsumer.subscribe(Arrays.asList("traficoData"));
+        LogWriter logWriter = new LogWriter("/home/daniel/Escritorio/TFGInformatica/Logs/Trafico/traficoConsumerLogs");
 
         //Creamos la clase para conectarse a la BD y nos conectamos
         PSQLConnectionTrafico psqlConnectionTrafico = new PSQLConnectionTrafico();
         psqlConnectionTrafico.connect();
 
         try {
-
             while (true) {
                 ConsumerRecords<String, TraficoPuntoDeMedicion> records = traficoConsumer.poll(Duration.ofMillis(100));
+
+                //Actualizamos el archivo de logs de ContaminacionConsumer cuando se hayan procesado todos los records
+                if (records.count() != 0) {
+                    logWriter.writeLog("Se han recibido " + records.count() + " PuntosDeMedicion");
+                }
+
                 for (ConsumerRecord<String, TraficoPuntoDeMedicion> record: records) {
 
                     //Para cada PM, enviar a la base de datos
@@ -59,7 +66,10 @@ public class TraficoConsumer {
 
                     //Llamamos al método para añadir filas a la BD
                     psqlConnectionTrafico.addRow(pm);
+
+
                 }
+
             }
         } finally {
             traficoConsumer.close();

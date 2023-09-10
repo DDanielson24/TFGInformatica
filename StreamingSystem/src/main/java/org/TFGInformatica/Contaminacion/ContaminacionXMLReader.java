@@ -63,9 +63,7 @@ public class ContaminacionXMLReader {
                                 //Como las estaciones aparecen repetidas en el XML con diferentes magnitudes, tenemos que comprobar si la
                                 // estación había sido creada ya con anterioridad e introducida en la lista
                                 if (child.getNodeName().equals("estacion")) {
-                                    String idelemS = "hola";
-                                    Integer idelem = Integer.parseInt(idelemS);
-                                    /*Integer idelem = Integer.parseInt(childs.item(j).getTextContent());*/
+                                    Integer idelem = Integer.parseInt(childs.item(j).getTextContent());
                                     if (this.estacionesYaCreadas.containsKey(idelem)) {
                                         em = this.estacionesYaCreadas.get(idelem);
                                     } else {

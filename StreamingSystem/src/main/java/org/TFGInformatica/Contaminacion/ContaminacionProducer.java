@@ -2,6 +2,7 @@ package org.TFGInformatica.Contaminacion;
 
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import org.TFGInformatica.ContaminacionEstacionDeMedicion;
+import org.TFGInformatica.Logs.LogWriter;
 import org.TFGInformatica.Trafico.TraficoXMLReader;
 import org.TFGInformatica.TraficoPuntoDeMedicion;
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -33,8 +34,9 @@ public class ContaminacionProducer {
         props.setProperty("value.serializer", KafkaAvroSerializer.class.getName());
         props.setProperty("schema.registry.url", "https://192.168.0.37::8081");*/
 
-        //Creamos el productor y el WatchService en el directorio data
+        //Creamos el productor y el WatchService en el directorio data, además de la clase para los logs
         KafkaProducer<String, ContaminacionEstacionDeMedicion> contaminacionProducer = new KafkaProducer<String, ContaminacionEstacionDeMedicion>(props);
+        LogWriter logWriter = new LogWriter("/home/daniel/Escritorio/TFGInformatica/Logs/Contaminacion/contaminacionProducerLogs");
         System.out.println("El productor ha sido creado. Analizando el directorio data para actualizaciones...");
 
         try {
@@ -68,6 +70,9 @@ public class ContaminacionProducer {
                                 contaminacionProducer.send(producerRecord);
                                 contaminacionProducer.flush();
                             }
+
+                            //Actualizamos el archivo de logs de TraficoProducer
+                            logWriter.writeLog("Se han enviado " + listaEMs.size() + " EstacionesDeMedicion");
                         }
                     }
                     key.reset();
