@@ -16,12 +16,10 @@ public class ContaminacionXMLReader {
 
     private String original_file;
     private Map<Integer, ContaminacionEstacionDeMedicion> estacionesYaCreadas;
-    private EstacionesCSVReader estacionesCSVReader;
 
-    public ContaminacionXMLReader (String pathXML, String pathCSV) {
+    public ContaminacionXMLReader (String pathXML) {
         this.original_file = pathXML;
         this.estacionesYaCreadas = new HashMap<>();
-        this.estacionesCSVReader = new EstacionesCSVReader(pathCSV);
     }
 
     public List<ContaminacionEstacionDeMedicion> readXML () {
