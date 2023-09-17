@@ -73,9 +73,15 @@ public class TraficoXMLReader {
                                         pm.setIntensidad(Integer.parseInt(childs.item(j).getTextContent()));
                                     }
                                     else if (child.getNodeName().equals("carga")) {
+                                        if (Integer.parseInt(childs.item(j).getTextContent()) < 0 || Integer.parseInt(childs.item(j).getTextContent()) > 100) {
+                                            throw new RuntimeException("El PuntoDeMedicion presenta un error");
+                                        }
                                         pm.setCarga(Integer.parseInt(childs.item(j).getTextContent()));
                                     }
                                     else if (child.getNodeName().equals("nivelServicio")) {
+                                        if (Integer.parseInt(childs.item(j).getTextContent()) < 0 || Integer.parseInt(childs.item(j).getTextContent()) > 4) {
+                                            throw new RuntimeException("El PuntoDeMedicion presenta un error");
+                                        }
                                         pm.setNivelServicio(Integer.parseInt(childs.item(j).getTextContent()));
                                     }
                                     else if (child.getNodeName().equals("error")) {
