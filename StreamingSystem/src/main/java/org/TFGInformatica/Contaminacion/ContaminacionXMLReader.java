@@ -71,9 +71,6 @@ public class ContaminacionXMLReader {
                                 }
 
                                 //Rellenamos el resto de campos de la estación
-                                if (child.getNodeName().equals("punto_muestreo")) {
-                                    em.setDescripcion(Integer.parseInt(childs.item(j).getTextContent().substring(0,8)));
-                                }
                                 if (child.getNodeName().equals("magnitud")) {
                                     magnitudMedida = Integer.parseInt(childs.item(j).getTextContent());
                                 }

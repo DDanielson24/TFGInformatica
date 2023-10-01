@@ -4,7 +4,6 @@
     "name": "ContaminacionEstacionDeMedicion",
     "fields": [
         { "name": "idelem", "type": "int" },
-        { "name": "descripcion", "type": "int" },
         { "name": "no", "type": "float" },
         { "name": "no2", "type": "float" },
         { "name": "pm25", "type": "float" },

@@ -1,5 +1,6 @@
 org/TFGInformatica/PostgreSQL/PSQLConnectionTrafico.class
 org/TFGInformatica/PostgreSQL/PSQLConnectionContaminacion.class
+org/TFGInformatica/Logs/LogWriter.class
 org/TFGInformatica/Trafico/TraficoXMLReader.class
 org/TFGInformatica/ContaminacionEstacionDeMedicion$Builder.class
 org/TFGInformatica/Contaminacion/ContaminacionProducer.class
@@ -11,6 +12,5 @@ org/TFGInformatica/TraficoPuntoDeMedicion$Builder.class
 org/TFGInformatica/Contaminacion/ContaminacionXMLReader.class
 org/TFGInformatica/Trafico/TraficoConsumer.class
 org/TFGInformatica/ContaminacionEstacionDeMedicion.class
-org/TFGInformatica/Contaminacion/EstacionesCSVReader.class
 org/TFGInformatica/Contaminacion/ContaminacionConsumer.class
 org/TFGInformatica/ContaminacionEstacionDeMedicion$1.class

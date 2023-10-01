@@ -34,7 +34,7 @@ public class PSQLConnectionContaminacion {
             if (!this.checkIfExists(em)) {
                 statement.execute(
                         "INSERT INTO \"EstacionesDeMedicion\" " +
-                            "VALUES (" + em.getIdelem() + ", '" + em.getDescripcion() + "', " +
+                            "VALUES (" + em.getIdelem() + ", " +
                             em.getNo() + ", " + em.getNo2() + ", " + em.getPm25() + ", " +
                             em.getPm10() + ", " + em.getNox() + ", " + em.getO3() + ", '" +
                             em.getFechaActualizacion() + "');");

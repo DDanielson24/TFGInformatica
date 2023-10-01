@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 3591886398548971706L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ContaminacionEstacionDeMedicion\",\"namespace\":\"org.TFGInformatica\",\"fields\":[{\"name\":\"idelem\",\"type\":\"int\"},{\"name\":\"descripcion\",\"type\":\"int\"},{\"name\":\"no\",\"type\":\"float\"},{\"name\":\"no2\",\"type\":\"float\"},{\"name\":\"pm25\",\"type\":\"float\"},{\"name\":\"pm10\",\"type\":\"float\"},{\"name\":\"nox\",\"type\":\"float\"},{\"name\":\"o3\",\"type\":\"float\"},{\"name\":\"fechaActualizacion\",\"type\":\"string\"}]}");
+  private static final long serialVersionUID = 1344053345908463902L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ContaminacionEstacionDeMedicion\",\"namespace\":\"org.TFGInformatica\",\"fields\":[{\"name\":\"idelem\",\"type\":\"int\"},{\"name\":\"no\",\"type\":\"float\"},{\"name\":\"no2\",\"type\":\"float\"},{\"name\":\"pm25\",\"type\":\"float\"},{\"name\":\"pm10\",\"type\":\"float\"},{\"name\":\"nox\",\"type\":\"float\"},{\"name\":\"o3\",\"type\":\"float\"},{\"name\":\"fechaActualizacion\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -72,7 +72,6 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
   }
 
    private int idelem;
-   private int descripcion;
    private float no;
    private float no2;
    private float pm25;
@@ -91,7 +90,6 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
   /**
    * All-args constructor.
    * @param idelem The new value for idelem
-   * @param descripcion The new value for descripcion
    * @param no The new value for no
    * @param no2 The new value for no2
    * @param pm25 The new value for pm25
@@ -100,9 +98,8 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
    * @param o3 The new value for o3
    * @param fechaActualizacion The new value for fechaActualizacion
    */
-  public ContaminacionEstacionDeMedicion(java.lang.Integer idelem, java.lang.Integer descripcion, java.lang.Float no, java.lang.Float no2, java.lang.Float pm25, java.lang.Float pm10, java.lang.Float nox, java.lang.Float o3, java.lang.CharSequence fechaActualizacion) {
+  public ContaminacionEstacionDeMedicion(java.lang.Integer idelem, java.lang.Float no, java.lang.Float no2, java.lang.Float pm25, java.lang.Float pm10, java.lang.Float nox, java.lang.Float o3, java.lang.CharSequence fechaActualizacion) {
     this.idelem = idelem;
-    this.descripcion = descripcion;
     this.no = no;
     this.no2 = no2;
     this.pm25 = pm25;
@@ -118,14 +115,13 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
   public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return idelem;
-    case 1: return descripcion;
-    case 2: return no;
-    case 3: return no2;
-    case 4: return pm25;
-    case 5: return pm10;
-    case 6: return nox;
-    case 7: return o3;
-    case 8: return fechaActualizacion;
+    case 1: return no;
+    case 2: return no2;
+    case 3: return pm25;
+    case 4: return pm10;
+    case 5: return nox;
+    case 6: return o3;
+    case 7: return fechaActualizacion;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -135,14 +131,13 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: idelem = (java.lang.Integer)value$; break;
-    case 1: descripcion = (java.lang.Integer)value$; break;
-    case 2: no = (java.lang.Float)value$; break;
-    case 3: no2 = (java.lang.Float)value$; break;
-    case 4: pm25 = (java.lang.Float)value$; break;
-    case 5: pm10 = (java.lang.Float)value$; break;
-    case 6: nox = (java.lang.Float)value$; break;
-    case 7: o3 = (java.lang.Float)value$; break;
-    case 8: fechaActualizacion = (java.lang.CharSequence)value$; break;
+    case 1: no = (java.lang.Float)value$; break;
+    case 2: no2 = (java.lang.Float)value$; break;
+    case 3: pm25 = (java.lang.Float)value$; break;
+    case 4: pm10 = (java.lang.Float)value$; break;
+    case 5: nox = (java.lang.Float)value$; break;
+    case 6: o3 = (java.lang.Float)value$; break;
+    case 7: fechaActualizacion = (java.lang.CharSequence)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -162,23 +157,6 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
    */
   public void setIdelem(int value) {
     this.idelem = value;
-  }
-
-  /**
-   * Gets the value of the 'descripcion' field.
-   * @return The value of the 'descripcion' field.
-   */
-  public int getDescripcion() {
-    return descripcion;
-  }
-
-
-  /**
-   * Sets the value of the 'descripcion' field.
-   * @param value the value to set.
-   */
-  public void setDescripcion(int value) {
-    this.descripcion = value;
   }
 
   /**
@@ -342,7 +320,6 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
     implements org.apache.avro.data.RecordBuilder<ContaminacionEstacionDeMedicion> {
 
     private int idelem;
-    private int descripcion;
     private float no;
     private float no2;
     private float pm25;
@@ -366,37 +343,33 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
         this.idelem = data().deepCopy(fields()[0].schema(), other.idelem);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
-      if (isValidValue(fields()[1], other.descripcion)) {
-        this.descripcion = data().deepCopy(fields()[1].schema(), other.descripcion);
+      if (isValidValue(fields()[1], other.no)) {
+        this.no = data().deepCopy(fields()[1].schema(), other.no);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (isValidValue(fields()[2], other.no)) {
-        this.no = data().deepCopy(fields()[2].schema(), other.no);
+      if (isValidValue(fields()[2], other.no2)) {
+        this.no2 = data().deepCopy(fields()[2].schema(), other.no2);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
-      if (isValidValue(fields()[3], other.no2)) {
-        this.no2 = data().deepCopy(fields()[3].schema(), other.no2);
+      if (isValidValue(fields()[3], other.pm25)) {
+        this.pm25 = data().deepCopy(fields()[3].schema(), other.pm25);
         fieldSetFlags()[3] = other.fieldSetFlags()[3];
       }
-      if (isValidValue(fields()[4], other.pm25)) {
-        this.pm25 = data().deepCopy(fields()[4].schema(), other.pm25);
+      if (isValidValue(fields()[4], other.pm10)) {
+        this.pm10 = data().deepCopy(fields()[4].schema(), other.pm10);
         fieldSetFlags()[4] = other.fieldSetFlags()[4];
       }
-      if (isValidValue(fields()[5], other.pm10)) {
-        this.pm10 = data().deepCopy(fields()[5].schema(), other.pm10);
+      if (isValidValue(fields()[5], other.nox)) {
+        this.nox = data().deepCopy(fields()[5].schema(), other.nox);
         fieldSetFlags()[5] = other.fieldSetFlags()[5];
       }
-      if (isValidValue(fields()[6], other.nox)) {
-        this.nox = data().deepCopy(fields()[6].schema(), other.nox);
+      if (isValidValue(fields()[6], other.o3)) {
+        this.o3 = data().deepCopy(fields()[6].schema(), other.o3);
         fieldSetFlags()[6] = other.fieldSetFlags()[6];
       }
-      if (isValidValue(fields()[7], other.o3)) {
-        this.o3 = data().deepCopy(fields()[7].schema(), other.o3);
+      if (isValidValue(fields()[7], other.fechaActualizacion)) {
+        this.fechaActualizacion = data().deepCopy(fields()[7].schema(), other.fechaActualizacion);
         fieldSetFlags()[7] = other.fieldSetFlags()[7];
-      }
-      if (isValidValue(fields()[8], other.fechaActualizacion)) {
-        this.fechaActualizacion = data().deepCopy(fields()[8].schema(), other.fechaActualizacion);
-        fieldSetFlags()[8] = other.fieldSetFlags()[8];
       }
     }
 
@@ -410,37 +383,33 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
         this.idelem = data().deepCopy(fields()[0].schema(), other.idelem);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.descripcion)) {
-        this.descripcion = data().deepCopy(fields()[1].schema(), other.descripcion);
+      if (isValidValue(fields()[1], other.no)) {
+        this.no = data().deepCopy(fields()[1].schema(), other.no);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.no)) {
-        this.no = data().deepCopy(fields()[2].schema(), other.no);
+      if (isValidValue(fields()[2], other.no2)) {
+        this.no2 = data().deepCopy(fields()[2].schema(), other.no2);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.no2)) {
-        this.no2 = data().deepCopy(fields()[3].schema(), other.no2);
+      if (isValidValue(fields()[3], other.pm25)) {
+        this.pm25 = data().deepCopy(fields()[3].schema(), other.pm25);
         fieldSetFlags()[3] = true;
       }
-      if (isValidValue(fields()[4], other.pm25)) {
-        this.pm25 = data().deepCopy(fields()[4].schema(), other.pm25);
+      if (isValidValue(fields()[4], other.pm10)) {
+        this.pm10 = data().deepCopy(fields()[4].schema(), other.pm10);
         fieldSetFlags()[4] = true;
       }
-      if (isValidValue(fields()[5], other.pm10)) {
-        this.pm10 = data().deepCopy(fields()[5].schema(), other.pm10);
+      if (isValidValue(fields()[5], other.nox)) {
+        this.nox = data().deepCopy(fields()[5].schema(), other.nox);
         fieldSetFlags()[5] = true;
       }
-      if (isValidValue(fields()[6], other.nox)) {
-        this.nox = data().deepCopy(fields()[6].schema(), other.nox);
+      if (isValidValue(fields()[6], other.o3)) {
+        this.o3 = data().deepCopy(fields()[6].schema(), other.o3);
         fieldSetFlags()[6] = true;
       }
-      if (isValidValue(fields()[7], other.o3)) {
-        this.o3 = data().deepCopy(fields()[7].schema(), other.o3);
+      if (isValidValue(fields()[7], other.fechaActualizacion)) {
+        this.fechaActualizacion = data().deepCopy(fields()[7].schema(), other.fechaActualizacion);
         fieldSetFlags()[7] = true;
-      }
-      if (isValidValue(fields()[8], other.fechaActualizacion)) {
-        this.fechaActualizacion = data().deepCopy(fields()[8].schema(), other.fechaActualizacion);
-        fieldSetFlags()[8] = true;
       }
     }
 
@@ -484,45 +453,6 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
     }
 
     /**
-      * Gets the value of the 'descripcion' field.
-      * @return The value.
-      */
-    public int getDescripcion() {
-      return descripcion;
-    }
-
-
-    /**
-      * Sets the value of the 'descripcion' field.
-      * @param value The value of 'descripcion'.
-      * @return This builder.
-      */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setDescripcion(int value) {
-      validate(fields()[1], value);
-      this.descripcion = value;
-      fieldSetFlags()[1] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'descripcion' field has been set.
-      * @return True if the 'descripcion' field has been set, false otherwise.
-      */
-    public boolean hasDescripcion() {
-      return fieldSetFlags()[1];
-    }
-
-
-    /**
-      * Clears the value of the 'descripcion' field.
-      * @return This builder.
-      */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearDescripcion() {
-      fieldSetFlags()[1] = false;
-      return this;
-    }
-
-    /**
       * Gets the value of the 'no' field.
       * @return The value.
       */
@@ -537,9 +467,9 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setNo(float value) {
-      validate(fields()[2], value);
+      validate(fields()[1], value);
       this.no = value;
-      fieldSetFlags()[2] = true;
+      fieldSetFlags()[1] = true;
       return this;
     }
 
@@ -548,7 +478,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return True if the 'no' field has been set, false otherwise.
       */
     public boolean hasNo() {
-      return fieldSetFlags()[2];
+      return fieldSetFlags()[1];
     }
 
 
@@ -557,7 +487,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearNo() {
-      fieldSetFlags()[2] = false;
+      fieldSetFlags()[1] = false;
       return this;
     }
 
@@ -576,9 +506,9 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setNo2(float value) {
-      validate(fields()[3], value);
+      validate(fields()[2], value);
       this.no2 = value;
-      fieldSetFlags()[3] = true;
+      fieldSetFlags()[2] = true;
       return this;
     }
 
@@ -587,7 +517,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return True if the 'no2' field has been set, false otherwise.
       */
     public boolean hasNo2() {
-      return fieldSetFlags()[3];
+      return fieldSetFlags()[2];
     }
 
 
@@ -596,7 +526,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearNo2() {
-      fieldSetFlags()[3] = false;
+      fieldSetFlags()[2] = false;
       return this;
     }
 
@@ -615,9 +545,9 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setPm25(float value) {
-      validate(fields()[4], value);
+      validate(fields()[3], value);
       this.pm25 = value;
-      fieldSetFlags()[4] = true;
+      fieldSetFlags()[3] = true;
       return this;
     }
 
@@ -626,7 +556,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return True if the 'pm25' field has been set, false otherwise.
       */
     public boolean hasPm25() {
-      return fieldSetFlags()[4];
+      return fieldSetFlags()[3];
     }
 
 
@@ -635,7 +565,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearPm25() {
-      fieldSetFlags()[4] = false;
+      fieldSetFlags()[3] = false;
       return this;
     }
 
@@ -654,9 +584,9 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setPm10(float value) {
-      validate(fields()[5], value);
+      validate(fields()[4], value);
       this.pm10 = value;
-      fieldSetFlags()[5] = true;
+      fieldSetFlags()[4] = true;
       return this;
     }
 
@@ -665,7 +595,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return True if the 'pm10' field has been set, false otherwise.
       */
     public boolean hasPm10() {
-      return fieldSetFlags()[5];
+      return fieldSetFlags()[4];
     }
 
 
@@ -674,7 +604,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearPm10() {
-      fieldSetFlags()[5] = false;
+      fieldSetFlags()[4] = false;
       return this;
     }
 
@@ -693,9 +623,9 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setNox(float value) {
-      validate(fields()[6], value);
+      validate(fields()[5], value);
       this.nox = value;
-      fieldSetFlags()[6] = true;
+      fieldSetFlags()[5] = true;
       return this;
     }
 
@@ -704,7 +634,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return True if the 'nox' field has been set, false otherwise.
       */
     public boolean hasNox() {
-      return fieldSetFlags()[6];
+      return fieldSetFlags()[5];
     }
 
 
@@ -713,7 +643,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearNox() {
-      fieldSetFlags()[6] = false;
+      fieldSetFlags()[5] = false;
       return this;
     }
 
@@ -732,9 +662,9 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setO3(float value) {
-      validate(fields()[7], value);
+      validate(fields()[6], value);
       this.o3 = value;
-      fieldSetFlags()[7] = true;
+      fieldSetFlags()[6] = true;
       return this;
     }
 
@@ -743,7 +673,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return True if the 'o3' field has been set, false otherwise.
       */
     public boolean hasO3() {
-      return fieldSetFlags()[7];
+      return fieldSetFlags()[6];
     }
 
 
@@ -752,7 +682,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearO3() {
-      fieldSetFlags()[7] = false;
+      fieldSetFlags()[6] = false;
       return this;
     }
 
@@ -771,9 +701,9 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setFechaActualizacion(java.lang.CharSequence value) {
-      validate(fields()[8], value);
+      validate(fields()[7], value);
       this.fechaActualizacion = value;
-      fieldSetFlags()[8] = true;
+      fieldSetFlags()[7] = true;
       return this;
     }
 
@@ -782,7 +712,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return True if the 'fechaActualizacion' field has been set, false otherwise.
       */
     public boolean hasFechaActualizacion() {
-      return fieldSetFlags()[8];
+      return fieldSetFlags()[7];
     }
 
 
@@ -792,7 +722,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       */
     public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearFechaActualizacion() {
       fechaActualizacion = null;
-      fieldSetFlags()[8] = false;
+      fieldSetFlags()[7] = false;
       return this;
     }
 
@@ -802,14 +732,13 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       try {
         ContaminacionEstacionDeMedicion record = new ContaminacionEstacionDeMedicion();
         record.idelem = fieldSetFlags()[0] ? this.idelem : (java.lang.Integer) defaultValue(fields()[0]);
-        record.descripcion = fieldSetFlags()[1] ? this.descripcion : (java.lang.Integer) defaultValue(fields()[1]);
-        record.no = fieldSetFlags()[2] ? this.no : (java.lang.Float) defaultValue(fields()[2]);
-        record.no2 = fieldSetFlags()[3] ? this.no2 : (java.lang.Float) defaultValue(fields()[3]);
-        record.pm25 = fieldSetFlags()[4] ? this.pm25 : (java.lang.Float) defaultValue(fields()[4]);
-        record.pm10 = fieldSetFlags()[5] ? this.pm10 : (java.lang.Float) defaultValue(fields()[5]);
-        record.nox = fieldSetFlags()[6] ? this.nox : (java.lang.Float) defaultValue(fields()[6]);
-        record.o3 = fieldSetFlags()[7] ? this.o3 : (java.lang.Float) defaultValue(fields()[7]);
-        record.fechaActualizacion = fieldSetFlags()[8] ? this.fechaActualizacion : (java.lang.CharSequence) defaultValue(fields()[8]);
+        record.no = fieldSetFlags()[1] ? this.no : (java.lang.Float) defaultValue(fields()[1]);
+        record.no2 = fieldSetFlags()[2] ? this.no2 : (java.lang.Float) defaultValue(fields()[2]);
+        record.pm25 = fieldSetFlags()[3] ? this.pm25 : (java.lang.Float) defaultValue(fields()[3]);
+        record.pm10 = fieldSetFlags()[4] ? this.pm10 : (java.lang.Float) defaultValue(fields()[4]);
+        record.nox = fieldSetFlags()[5] ? this.nox : (java.lang.Float) defaultValue(fields()[5]);
+        record.o3 = fieldSetFlags()[6] ? this.o3 : (java.lang.Float) defaultValue(fields()[6]);
+        record.fechaActualizacion = fieldSetFlags()[7] ? this.fechaActualizacion : (java.lang.CharSequence) defaultValue(fields()[7]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -844,8 +773,6 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
   {
     out.writeInt(this.idelem);
 
-    out.writeInt(this.descripcion);
-
     out.writeFloat(this.no);
 
     out.writeFloat(this.no2);
@@ -869,8 +796,6 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
     if (fieldOrder == null) {
       this.idelem = in.readInt();
 
-      this.descripcion = in.readInt();
-
       this.no = in.readFloat();
 
       this.no2 = in.readFloat();
@@ -886,41 +811,37 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       this.fechaActualizacion = in.readString(this.fechaActualizacion instanceof Utf8 ? (Utf8)this.fechaActualizacion : null);
 
     } else {
-      for (int i = 0; i < 9; i++) {
+      for (int i = 0; i < 8; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           this.idelem = in.readInt();
           break;
 
         case 1:
-          this.descripcion = in.readInt();
-          break;
-
-        case 2:
           this.no = in.readFloat();
           break;
 
-        case 3:
+        case 2:
           this.no2 = in.readFloat();
           break;
 
-        case 4:
+        case 3:
           this.pm25 = in.readFloat();
           break;
 
-        case 5:
+        case 4:
           this.pm10 = in.readFloat();
           break;
 
-        case 6:
+        case 5:
           this.nox = in.readFloat();
           break;
 
-        case 7:
+        case 6:
           this.o3 = in.readFloat();
           break;
 
-        case 8:
+        case 7:
           this.fechaActualizacion = in.readString(this.fechaActualizacion instanceof Utf8 ? (Utf8)this.fechaActualizacion : null);
           break;
 
