@@ -5,9 +5,9 @@
     "fields": [
         { "name": "idelem", "type": "int" },
         { "name": "descripcion", "type": "string" },
-        { "name": "intensidad", "type": "int" },
-        { "name": "carga", "type": "int" },
-        { "name": "nivelServicio", "type": "int" },
+        { "name": "intensidad", "type": ["int", "null"] },
+        { "name": "carga", "type": ["int", "null"] },
+        { "name": "nivelServicio", "type": ["int", "null"] },
         { "name": "distrito", "type": "int" },
         { "name": "fechaActualizacion", "type": "string" }
     ]

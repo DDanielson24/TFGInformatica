@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 525728242248307358L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"TraficoPuntoDeMedicion\",\"namespace\":\"org.TFGInformatica\",\"fields\":[{\"name\":\"idelem\",\"type\":\"int\"},{\"name\":\"descripcion\",\"type\":\"string\"},{\"name\":\"intensidad\",\"type\":\"int\"},{\"name\":\"carga\",\"type\":\"int\"},{\"name\":\"nivelServicio\",\"type\":\"int\"},{\"name\":\"distrito\",\"type\":\"int\"},{\"name\":\"fechaActualizacion\",\"type\":\"string\"}]}");
+  private static final long serialVersionUID = 3968032610415282310L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"TraficoPuntoDeMedicion\",\"namespace\":\"org.TFGInformatica\",\"fields\":[{\"name\":\"idelem\",\"type\":\"int\"},{\"name\":\"descripcion\",\"type\":\"string\"},{\"name\":\"intensidad\",\"type\":[\"int\",\"null\"]},{\"name\":\"carga\",\"type\":[\"int\",\"null\"]},{\"name\":\"nivelServicio\",\"type\":[\"int\",\"null\"]},{\"name\":\"distrito\",\"type\":\"int\"},{\"name\":\"fechaActualizacion\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -73,9 +73,9 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
 
    private int idelem;
    private java.lang.CharSequence descripcion;
-   private int intensidad;
-   private int carga;
-   private int nivelServicio;
+   private java.lang.Integer intensidad;
+   private java.lang.Integer carga;
+   private java.lang.Integer nivelServicio;
    private int distrito;
    private java.lang.CharSequence fechaActualizacion;
 
@@ -175,7 +175,7 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
    * Gets the value of the 'intensidad' field.
    * @return The value of the 'intensidad' field.
    */
-  public int getIntensidad() {
+  public java.lang.Integer getIntensidad() {
     return intensidad;
   }
 
@@ -184,7 +184,7 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
    * Sets the value of the 'intensidad' field.
    * @param value the value to set.
    */
-  public void setIntensidad(int value) {
+  public void setIntensidad(java.lang.Integer value) {
     this.intensidad = value;
   }
 
@@ -192,7 +192,7 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
    * Gets the value of the 'carga' field.
    * @return The value of the 'carga' field.
    */
-  public int getCarga() {
+  public java.lang.Integer getCarga() {
     return carga;
   }
 
@@ -201,7 +201,7 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
    * Sets the value of the 'carga' field.
    * @param value the value to set.
    */
-  public void setCarga(int value) {
+  public void setCarga(java.lang.Integer value) {
     this.carga = value;
   }
 
@@ -209,7 +209,7 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
    * Gets the value of the 'nivelServicio' field.
    * @return The value of the 'nivelServicio' field.
    */
-  public int getNivelServicio() {
+  public java.lang.Integer getNivelServicio() {
     return nivelServicio;
   }
 
@@ -218,7 +218,7 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
    * Sets the value of the 'nivelServicio' field.
    * @param value the value to set.
    */
-  public void setNivelServicio(int value) {
+  public void setNivelServicio(java.lang.Integer value) {
     this.nivelServicio = value;
   }
 
@@ -299,9 +299,9 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
 
     private int idelem;
     private java.lang.CharSequence descripcion;
-    private int intensidad;
-    private int carga;
-    private int nivelServicio;
+    private java.lang.Integer intensidad;
+    private java.lang.Integer carga;
+    private java.lang.Integer nivelServicio;
     private int distrito;
     private java.lang.CharSequence fechaActualizacion;
 
@@ -465,7 +465,7 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
       * Gets the value of the 'intensidad' field.
       * @return The value.
       */
-    public int getIntensidad() {
+    public java.lang.Integer getIntensidad() {
       return intensidad;
     }
 
@@ -475,7 +475,7 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
       * @param value The value of 'intensidad'.
       * @return This builder.
       */
-    public org.TFGInformatica.TraficoPuntoDeMedicion.Builder setIntensidad(int value) {
+    public org.TFGInformatica.TraficoPuntoDeMedicion.Builder setIntensidad(java.lang.Integer value) {
       validate(fields()[2], value);
       this.intensidad = value;
       fieldSetFlags()[2] = true;
@@ -496,6 +496,7 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
       * @return This builder.
       */
     public org.TFGInformatica.TraficoPuntoDeMedicion.Builder clearIntensidad() {
+      intensidad = null;
       fieldSetFlags()[2] = false;
       return this;
     }
@@ -504,7 +505,7 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
       * Gets the value of the 'carga' field.
       * @return The value.
       */
-    public int getCarga() {
+    public java.lang.Integer getCarga() {
       return carga;
     }
 
@@ -514,7 +515,7 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
       * @param value The value of 'carga'.
       * @return This builder.
       */
-    public org.TFGInformatica.TraficoPuntoDeMedicion.Builder setCarga(int value) {
+    public org.TFGInformatica.TraficoPuntoDeMedicion.Builder setCarga(java.lang.Integer value) {
       validate(fields()[3], value);
       this.carga = value;
       fieldSetFlags()[3] = true;
@@ -535,6 +536,7 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
       * @return This builder.
       */
     public org.TFGInformatica.TraficoPuntoDeMedicion.Builder clearCarga() {
+      carga = null;
       fieldSetFlags()[3] = false;
       return this;
     }
@@ -543,7 +545,7 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
       * Gets the value of the 'nivelServicio' field.
       * @return The value.
       */
-    public int getNivelServicio() {
+    public java.lang.Integer getNivelServicio() {
       return nivelServicio;
     }
 
@@ -553,7 +555,7 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
       * @param value The value of 'nivelServicio'.
       * @return This builder.
       */
-    public org.TFGInformatica.TraficoPuntoDeMedicion.Builder setNivelServicio(int value) {
+    public org.TFGInformatica.TraficoPuntoDeMedicion.Builder setNivelServicio(java.lang.Integer value) {
       validate(fields()[4], value);
       this.nivelServicio = value;
       fieldSetFlags()[4] = true;
@@ -574,6 +576,7 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
       * @return This builder.
       */
     public org.TFGInformatica.TraficoPuntoDeMedicion.Builder clearNivelServicio() {
+      nivelServicio = null;
       fieldSetFlags()[4] = false;
       return this;
     }
@@ -705,11 +708,29 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
 
     out.writeString(this.descripcion);
 
-    out.writeInt(this.intensidad);
+    if (this.intensidad == null) {
+      out.writeIndex(1);
+      out.writeNull();
+    } else {
+      out.writeIndex(0);
+      out.writeInt(this.intensidad);
+    }
 
-    out.writeInt(this.carga);
+    if (this.carga == null) {
+      out.writeIndex(1);
+      out.writeNull();
+    } else {
+      out.writeIndex(0);
+      out.writeInt(this.carga);
+    }
 
-    out.writeInt(this.nivelServicio);
+    if (this.nivelServicio == null) {
+      out.writeIndex(1);
+      out.writeNull();
+    } else {
+      out.writeIndex(0);
+      out.writeInt(this.nivelServicio);
+    }
 
     out.writeInt(this.distrito);
 
@@ -726,11 +747,26 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
 
       this.descripcion = in.readString(this.descripcion instanceof Utf8 ? (Utf8)this.descripcion : null);
 
-      this.intensidad = in.readInt();
+      if (in.readIndex() != 0) {
+        in.readNull();
+        this.intensidad = null;
+      } else {
+        this.intensidad = in.readInt();
+      }
 
-      this.carga = in.readInt();
+      if (in.readIndex() != 0) {
+        in.readNull();
+        this.carga = null;
+      } else {
+        this.carga = in.readInt();
+      }
 
-      this.nivelServicio = in.readInt();
+      if (in.readIndex() != 0) {
+        in.readNull();
+        this.nivelServicio = null;
+      } else {
+        this.nivelServicio = in.readInt();
+      }
 
       this.distrito = in.readInt();
 
@@ -748,15 +784,30 @@ public class TraficoPuntoDeMedicion extends org.apache.avro.specific.SpecificRec
           break;
 
         case 2:
-          this.intensidad = in.readInt();
+          if (in.readIndex() != 0) {
+            in.readNull();
+            this.intensidad = null;
+          } else {
+            this.intensidad = in.readInt();
+          }
           break;
 
         case 3:
-          this.carga = in.readInt();
+          if (in.readIndex() != 0) {
+            in.readNull();
+            this.carga = null;
+          } else {
+            this.carga = in.readInt();
+          }
           break;
 
         case 4:
-          this.nivelServicio = in.readInt();
+          if (in.readIndex() != 0) {
+            in.readNull();
+            this.nivelServicio = null;
+          } else {
+            this.nivelServicio = in.readInt();
+          }
           break;
 
         case 5:

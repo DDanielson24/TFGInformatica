@@ -90,7 +90,26 @@ public class ContaminacionXMLReader {
                                 }
                                 if (child.getNodeName().startsWith("V")) {
                                     if (childs.item(j).getTextContent().equals("V")) {
-                                        hora = childs.item(j).getNodeName().substring(1);
+                                        if (hora.equals("")) { //No hay hora definida --> Es la primera magnitud
+                                            hora = childs.item(j).getNodeName().substring(1);
+                                        }
+                                        else { //Hay hora definida --> Ya hay otras magnitudes
+                                            if (Integer.parseInt(hora) < Integer.parseInt(childs.item(j).getNodeName().substring(1)))   {
+                                                //Las magnitudes contenidas son de horas anteriores --> Eliminar
+                                                em.setNo(null);
+                                                em.setNox(null);
+                                                em.setPm25(null);
+                                                em.setPm10(null);
+                                                em.setNox(null);
+                                                em.setO3(null);
+                                                hora = childs.item(j).getNodeName().substring(1);
+                                            }
+                                            else if (Integer.parseInt(hora) > Integer.parseInt(childs.item(j).getNodeName().substring(1))) {
+                                                //La magnitud a introducir es de una hora anterior --> No introducir
+                                                magnitudMedida = 0;
+                                                valorMagnitudMedia = 0f;
+                                            }
+                                        }
                                     }
                                 }
                             } catch (RuntimeException e) {

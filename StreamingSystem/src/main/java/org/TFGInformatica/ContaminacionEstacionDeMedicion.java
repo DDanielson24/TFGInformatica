@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 1344053345908463902L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ContaminacionEstacionDeMedicion\",\"namespace\":\"org.TFGInformatica\",\"fields\":[{\"name\":\"idelem\",\"type\":\"int\"},{\"name\":\"no\",\"type\":\"float\"},{\"name\":\"no2\",\"type\":\"float\"},{\"name\":\"pm25\",\"type\":\"float\"},{\"name\":\"pm10\",\"type\":\"float\"},{\"name\":\"nox\",\"type\":\"float\"},{\"name\":\"o3\",\"type\":\"float\"},{\"name\":\"fechaActualizacion\",\"type\":\"string\"}]}");
+  private static final long serialVersionUID = 3722606105112444474L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ContaminacionEstacionDeMedicion\",\"namespace\":\"org.TFGInformatica\",\"fields\":[{\"name\":\"idelem\",\"type\":\"int\"},{\"name\":\"no\",\"type\":[\"float\",\"null\"]},{\"name\":\"no2\",\"type\":[\"float\",\"null\"]},{\"name\":\"pm25\",\"type\":[\"float\",\"null\"]},{\"name\":\"pm10\",\"type\":[\"float\",\"null\"]},{\"name\":\"nox\",\"type\":[\"float\",\"null\"]},{\"name\":\"o3\",\"type\":[\"float\",\"null\"]},{\"name\":\"fechaActualizacion\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -72,12 +72,12 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
   }
 
    private int idelem;
-   private float no;
-   private float no2;
-   private float pm25;
-   private float pm10;
-   private float nox;
-   private float o3;
+   private java.lang.Float no;
+   private java.lang.Float no2;
+   private java.lang.Float pm25;
+   private java.lang.Float pm10;
+   private java.lang.Float nox;
+   private java.lang.Float o3;
    private java.lang.CharSequence fechaActualizacion;
 
   /**
@@ -163,7 +163,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
    * Gets the value of the 'no' field.
    * @return The value of the 'no' field.
    */
-  public float getNo() {
+  public java.lang.Float getNo() {
     return no;
   }
 
@@ -172,7 +172,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
    * Sets the value of the 'no' field.
    * @param value the value to set.
    */
-  public void setNo(float value) {
+  public void setNo(java.lang.Float value) {
     this.no = value;
   }
 
@@ -180,7 +180,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
    * Gets the value of the 'no2' field.
    * @return The value of the 'no2' field.
    */
-  public float getNo2() {
+  public java.lang.Float getNo2() {
     return no2;
   }
 
@@ -189,7 +189,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
    * Sets the value of the 'no2' field.
    * @param value the value to set.
    */
-  public void setNo2(float value) {
+  public void setNo2(java.lang.Float value) {
     this.no2 = value;
   }
 
@@ -197,7 +197,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
    * Gets the value of the 'pm25' field.
    * @return The value of the 'pm25' field.
    */
-  public float getPm25() {
+  public java.lang.Float getPm25() {
     return pm25;
   }
 
@@ -206,7 +206,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
    * Sets the value of the 'pm25' field.
    * @param value the value to set.
    */
-  public void setPm25(float value) {
+  public void setPm25(java.lang.Float value) {
     this.pm25 = value;
   }
 
@@ -214,7 +214,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
    * Gets the value of the 'pm10' field.
    * @return The value of the 'pm10' field.
    */
-  public float getPm10() {
+  public java.lang.Float getPm10() {
     return pm10;
   }
 
@@ -223,7 +223,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
    * Sets the value of the 'pm10' field.
    * @param value the value to set.
    */
-  public void setPm10(float value) {
+  public void setPm10(java.lang.Float value) {
     this.pm10 = value;
   }
 
@@ -231,7 +231,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
    * Gets the value of the 'nox' field.
    * @return The value of the 'nox' field.
    */
-  public float getNox() {
+  public java.lang.Float getNox() {
     return nox;
   }
 
@@ -240,7 +240,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
    * Sets the value of the 'nox' field.
    * @param value the value to set.
    */
-  public void setNox(float value) {
+  public void setNox(java.lang.Float value) {
     this.nox = value;
   }
 
@@ -248,7 +248,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
    * Gets the value of the 'o3' field.
    * @return The value of the 'o3' field.
    */
-  public float getO3() {
+  public java.lang.Float getO3() {
     return o3;
   }
 
@@ -257,7 +257,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
    * Sets the value of the 'o3' field.
    * @param value the value to set.
    */
-  public void setO3(float value) {
+  public void setO3(java.lang.Float value) {
     this.o3 = value;
   }
 
@@ -320,12 +320,12 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
     implements org.apache.avro.data.RecordBuilder<ContaminacionEstacionDeMedicion> {
 
     private int idelem;
-    private float no;
-    private float no2;
-    private float pm25;
-    private float pm10;
-    private float nox;
-    private float o3;
+    private java.lang.Float no;
+    private java.lang.Float no2;
+    private java.lang.Float pm25;
+    private java.lang.Float pm10;
+    private java.lang.Float nox;
+    private java.lang.Float o3;
     private java.lang.CharSequence fechaActualizacion;
 
     /** Creates a new Builder */
@@ -456,7 +456,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * Gets the value of the 'no' field.
       * @return The value.
       */
-    public float getNo() {
+    public java.lang.Float getNo() {
       return no;
     }
 
@@ -466,7 +466,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @param value The value of 'no'.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setNo(float value) {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setNo(java.lang.Float value) {
       validate(fields()[1], value);
       this.no = value;
       fieldSetFlags()[1] = true;
@@ -487,6 +487,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearNo() {
+      no = null;
       fieldSetFlags()[1] = false;
       return this;
     }
@@ -495,7 +496,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * Gets the value of the 'no2' field.
       * @return The value.
       */
-    public float getNo2() {
+    public java.lang.Float getNo2() {
       return no2;
     }
 
@@ -505,7 +506,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @param value The value of 'no2'.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setNo2(float value) {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setNo2(java.lang.Float value) {
       validate(fields()[2], value);
       this.no2 = value;
       fieldSetFlags()[2] = true;
@@ -526,6 +527,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearNo2() {
+      no2 = null;
       fieldSetFlags()[2] = false;
       return this;
     }
@@ -534,7 +536,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * Gets the value of the 'pm25' field.
       * @return The value.
       */
-    public float getPm25() {
+    public java.lang.Float getPm25() {
       return pm25;
     }
 
@@ -544,7 +546,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @param value The value of 'pm25'.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setPm25(float value) {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setPm25(java.lang.Float value) {
       validate(fields()[3], value);
       this.pm25 = value;
       fieldSetFlags()[3] = true;
@@ -565,6 +567,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearPm25() {
+      pm25 = null;
       fieldSetFlags()[3] = false;
       return this;
     }
@@ -573,7 +576,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * Gets the value of the 'pm10' field.
       * @return The value.
       */
-    public float getPm10() {
+    public java.lang.Float getPm10() {
       return pm10;
     }
 
@@ -583,7 +586,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @param value The value of 'pm10'.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setPm10(float value) {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setPm10(java.lang.Float value) {
       validate(fields()[4], value);
       this.pm10 = value;
       fieldSetFlags()[4] = true;
@@ -604,6 +607,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearPm10() {
+      pm10 = null;
       fieldSetFlags()[4] = false;
       return this;
     }
@@ -612,7 +616,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * Gets the value of the 'nox' field.
       * @return The value.
       */
-    public float getNox() {
+    public java.lang.Float getNox() {
       return nox;
     }
 
@@ -622,7 +626,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @param value The value of 'nox'.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setNox(float value) {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setNox(java.lang.Float value) {
       validate(fields()[5], value);
       this.nox = value;
       fieldSetFlags()[5] = true;
@@ -643,6 +647,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearNox() {
+      nox = null;
       fieldSetFlags()[5] = false;
       return this;
     }
@@ -651,7 +656,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * Gets the value of the 'o3' field.
       * @return The value.
       */
-    public float getO3() {
+    public java.lang.Float getO3() {
       return o3;
     }
 
@@ -661,7 +666,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @param value The value of 'o3'.
       * @return This builder.
       */
-    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setO3(float value) {
+    public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder setO3(java.lang.Float value) {
       validate(fields()[6], value);
       this.o3 = value;
       fieldSetFlags()[6] = true;
@@ -682,6 +687,7 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
       * @return This builder.
       */
     public org.TFGInformatica.ContaminacionEstacionDeMedicion.Builder clearO3() {
+      o3 = null;
       fieldSetFlags()[6] = false;
       return this;
     }
@@ -773,17 +779,53 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
   {
     out.writeInt(this.idelem);
 
-    out.writeFloat(this.no);
+    if (this.no == null) {
+      out.writeIndex(1);
+      out.writeNull();
+    } else {
+      out.writeIndex(0);
+      out.writeFloat(this.no);
+    }
 
-    out.writeFloat(this.no2);
+    if (this.no2 == null) {
+      out.writeIndex(1);
+      out.writeNull();
+    } else {
+      out.writeIndex(0);
+      out.writeFloat(this.no2);
+    }
 
-    out.writeFloat(this.pm25);
+    if (this.pm25 == null) {
+      out.writeIndex(1);
+      out.writeNull();
+    } else {
+      out.writeIndex(0);
+      out.writeFloat(this.pm25);
+    }
 
-    out.writeFloat(this.pm10);
+    if (this.pm10 == null) {
+      out.writeIndex(1);
+      out.writeNull();
+    } else {
+      out.writeIndex(0);
+      out.writeFloat(this.pm10);
+    }
 
-    out.writeFloat(this.nox);
+    if (this.nox == null) {
+      out.writeIndex(1);
+      out.writeNull();
+    } else {
+      out.writeIndex(0);
+      out.writeFloat(this.nox);
+    }
 
-    out.writeFloat(this.o3);
+    if (this.o3 == null) {
+      out.writeIndex(1);
+      out.writeNull();
+    } else {
+      out.writeIndex(0);
+      out.writeFloat(this.o3);
+    }
 
     out.writeString(this.fechaActualizacion);
 
@@ -796,17 +838,47 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
     if (fieldOrder == null) {
       this.idelem = in.readInt();
 
-      this.no = in.readFloat();
+      if (in.readIndex() != 0) {
+        in.readNull();
+        this.no = null;
+      } else {
+        this.no = in.readFloat();
+      }
 
-      this.no2 = in.readFloat();
+      if (in.readIndex() != 0) {
+        in.readNull();
+        this.no2 = null;
+      } else {
+        this.no2 = in.readFloat();
+      }
 
-      this.pm25 = in.readFloat();
+      if (in.readIndex() != 0) {
+        in.readNull();
+        this.pm25 = null;
+      } else {
+        this.pm25 = in.readFloat();
+      }
 
-      this.pm10 = in.readFloat();
+      if (in.readIndex() != 0) {
+        in.readNull();
+        this.pm10 = null;
+      } else {
+        this.pm10 = in.readFloat();
+      }
 
-      this.nox = in.readFloat();
+      if (in.readIndex() != 0) {
+        in.readNull();
+        this.nox = null;
+      } else {
+        this.nox = in.readFloat();
+      }
 
-      this.o3 = in.readFloat();
+      if (in.readIndex() != 0) {
+        in.readNull();
+        this.o3 = null;
+      } else {
+        this.o3 = in.readFloat();
+      }
 
       this.fechaActualizacion = in.readString(this.fechaActualizacion instanceof Utf8 ? (Utf8)this.fechaActualizacion : null);
 
@@ -818,27 +890,57 @@ public class ContaminacionEstacionDeMedicion extends org.apache.avro.specific.Sp
           break;
 
         case 1:
-          this.no = in.readFloat();
+          if (in.readIndex() != 0) {
+            in.readNull();
+            this.no = null;
+          } else {
+            this.no = in.readFloat();
+          }
           break;
 
         case 2:
-          this.no2 = in.readFloat();
+          if (in.readIndex() != 0) {
+            in.readNull();
+            this.no2 = null;
+          } else {
+            this.no2 = in.readFloat();
+          }
           break;
 
         case 3:
-          this.pm25 = in.readFloat();
+          if (in.readIndex() != 0) {
+            in.readNull();
+            this.pm25 = null;
+          } else {
+            this.pm25 = in.readFloat();
+          }
           break;
 
         case 4:
-          this.pm10 = in.readFloat();
+          if (in.readIndex() != 0) {
+            in.readNull();
+            this.pm10 = null;
+          } else {
+            this.pm10 = in.readFloat();
+          }
           break;
 
         case 5:
-          this.nox = in.readFloat();
+          if (in.readIndex() != 0) {
+            in.readNull();
+            this.nox = null;
+          } else {
+            this.nox = in.readFloat();
+          }
           break;
 
         case 6:
-          this.o3 = in.readFloat();
+          if (in.readIndex() != 0) {
+            in.readNull();
+            this.o3 = null;
+          } else {
+            this.o3 = in.readFloat();
+          }
           break;
 
         case 7:

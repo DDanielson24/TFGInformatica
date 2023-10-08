@@ -4,12 +4,12 @@
     "name": "ContaminacionEstacionDeMedicion",
     "fields": [
         { "name": "idelem", "type": "int" },
-        { "name": "no", "type": "float" },
-        { "name": "no2", "type": "float" },
-        { "name": "pm25", "type": "float" },
-        { "name": "pm10", "type": "float" },
-        { "name": "nox", "type": "float" },
-        { "name": "o3", "type": "float" },
+        { "name": "no", "type": ["float", "null"] },
+        { "name": "no2", "type": ["float", "null"] },
+        { "name": "pm25", "type": ["float", "null"] },
+        { "name": "pm10", "type": ["float", "null"] },
+        { "name": "nox", "type": ["float", "null"] },
+        { "name": "o3", "type": ["float", "null"] },
         { "name": "fechaActualizacion", "type": "string" }
     ]
 }
