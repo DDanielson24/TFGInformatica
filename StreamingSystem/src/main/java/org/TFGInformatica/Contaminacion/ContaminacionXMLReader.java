@@ -90,26 +90,7 @@ public class ContaminacionXMLReader {
                                 }
                                 if (child.getNodeName().startsWith("V")) {
                                     if (childs.item(j).getTextContent().equals("V")) {
-                                        if (hora.equals("")) { //No hay hora definida --> Es la primera magnitud
-                                            hora = childs.item(j).getNodeName().substring(1);
-                                        }
-                                        else { //Hay hora definida --> Ya hay otras magnitudes
-                                            if (Integer.parseInt(hora) < Integer.parseInt(childs.item(j).getNodeName().substring(1)))   {
-                                                //Las magnitudes contenidas son de horas anteriores --> Eliminar
-                                                em.setNo(null);
-                                                em.setNox(null);
-                                                em.setPm25(null);
-                                                em.setPm10(null);
-                                                em.setNox(null);
-                                                em.setO3(null);
-                                                hora = childs.item(j).getNodeName().substring(1);
-                                            }
-                                            else if (Integer.parseInt(hora) > Integer.parseInt(childs.item(j).getNodeName().substring(1))) {
-                                                //La magnitud a introducir es de una hora anterior --> No introducir
-                                                magnitudMedida = 0;
-                                                valorMagnitudMedia = 0f;
-                                            }
-                                        }
+                                        hora = childs.item(j).getNodeName().substring(1);
                                     }
                                 }
                             } catch (RuntimeException e) {
@@ -119,7 +100,7 @@ public class ContaminacionXMLReader {
                         }
                     }
 
-                    //Comprobamos si no ha surgido un error en la creación del PM. Si no, añadimos a la lista
+                    //Comprobamos si no ha surgido un error en la creación de la EM. Si no, añadimos a la lista
                     if (!error) {
                         String fecha_actualizacion = año + "/" + mes + "/" + dia + " " + hora + ":00:00";
                         em.setFechaActualizacion(fecha_actualizacion);
