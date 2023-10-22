@@ -22,10 +22,10 @@
 # 
 # m h  dom mon dow   command
 
+# Fichero de datos tráfico
 6 * * * * cd /home/daniel/Escritorio/TFGInformatica/StreamingSystem/data && wget 'https://datos.madrid.es/egob/catalogo/202087-0-trafico-intensidad.xml' -O 'ficheroTrafico.xml' && echo $(date) --\> Actualización ficheros de datos - Tráfico >> /home/daniel/Escritorio/TFGInformatica/Logs/dataFilesUpdates
 
-10 * * * * cd /home/daniel/Escritorio/TFGInformatica/StreamingSystem/data && wget 'https://datos.madrid.es/egob/catalogo/212531-10530806-calidad-aire-tiempo-real.xml' -O 'ficheroContaminacion.xml' && echo $(date) --\> Actualización fichero de datos - Contaminación >> /home/daniel/Escritorio/TFGInformatica/Logs/dataFilesUpdates 
-
-
+# Fichero de datos contaminación
+30 * * * * cd /home/daniel/Escritorio/TFGInformatica/StreamingSystem/data && wget 'https://datos.madrid.es/egob/catalogo/212531-10530806-calidad-aire-tiempo-real.xml' -O 'ficheroContaminacion.xml' && echo $(date) --\> Actualización fichero de datos - Contaminación >> /home/daniel/Escritorio/TFGInformatica/Logs/dataFilesUpdates 
 
 
