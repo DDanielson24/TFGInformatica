@@ -3,8 +3,6 @@ package org.TFGInformatica.Contaminacion;
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import org.TFGInformatica.ContaminacionEstacionDeMedicion;
 import org.TFGInformatica.Logs.LogWriter;
-import org.TFGInformatica.Trafico.TraficoXMLReader;
-import org.TFGInformatica.TraficoPuntoDeMedicion;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -22,17 +20,12 @@ public class ContaminacionProducer {
         //Crear las propiedades necesarias para el productor
         //UBUNTU VIRTUAL BOX
         Properties props = new Properties();
-        props.setProperty("bootstrap.servers", "10.0.2.15:9092");
+        props.setProperty("bootstrap.servers", "10.0.2.15:9092"); //Broker 0 del cluster
+        props.setProperty("bootstrap.servers", "10.0.2.15:9093"); //Broker 1 del cluster
+        props.setProperty("bootstrap.servers", "10.0.2.15:9094"); //Broker 2 del cluster
         props.setProperty("key.serializer", StringSerializer.class.getName());
         props.setProperty("value.serializer", KafkaAvroSerializer.class.getName());
         props.setProperty("schema.registry.url", "http://10.0.2.15:8081");
-
-        //KALI LINUX
-        /*Properties props = new Properties();
-        props.setProperty("bootstrap.servers", "192.168.0.37::9092");
-        props.setProperty("key.serializer", StringSerializer.class.getName());
-        props.setProperty("value.serializer", KafkaAvroSerializer.class.getName());
-        props.setProperty("schema.registry.url", "https://192.168.0.37::8081");*/
 
         //Creamos el productor y el WatchService en el directorio data, además de la clase para los logs
         KafkaProducer<String, ContaminacionEstacionDeMedicion> contaminacionProducer = new KafkaProducer<String, ContaminacionEstacionDeMedicion>(props);
@@ -66,7 +59,7 @@ public class ContaminacionProducer {
 
                             //Se envía la lista de PMs
                             for (ContaminacionEstacionDeMedicion em : listaEMs) {
-                                ProducerRecord<String, ContaminacionEstacionDeMedicion> producerRecord = new ProducerRecord<>("contaminacionData", em);
+                                ProducerRecord<String, ContaminacionEstacionDeMedicion> producerRecord = new ProducerRecord<>("contaminacionData", String.valueOf(em.getIdelem()), em);
                                 contaminacionProducer.send(producerRecord);
                                 contaminacionProducer.flush();
                             }

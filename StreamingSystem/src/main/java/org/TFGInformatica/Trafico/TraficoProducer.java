@@ -7,7 +7,6 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
 import java.nio.file.*;
@@ -20,17 +19,12 @@ public class TraficoProducer {
         //Crear las propiedades necesarias para el productor
         //UBUNTU VIRTUAL BOX
         Properties props = new Properties();
-        props.setProperty("bootstrap.servers", "10.0.2.15:9092");
+        props.setProperty("bootstrap.servers", "10.0.2.15:9092"); //Broker 0 del cluster
+        props.setProperty("bootstrap.servers", "10.0.2.15:9093"); //Broker 1 del cluster
+        props.setProperty("bootstrap.servers", "10.0.2.15:9094"); //Broker 2 del cluster
         props.setProperty("key.serializer", StringSerializer.class.getName());
         props.setProperty("value.serializer", KafkaAvroSerializer.class.getName());
         props.setProperty("schema.registry.url", "http://10.0.2.15:8081");
-
-        //KALI LINUX
-        /*Properties props = new Properties();
-        props.setProperty("bootstrap.servers", "192.168.0.37::9092");
-        props.setProperty("key.serializer", StringSerializer.class.getName());
-        props.setProperty("value.serializer", KafkaAvroSerializer.class.getName());
-        props.setProperty("schema.registry.url", "https://192.168.0.37::8081");*/
 
         //Creamos el productor y el WatchService en el directorio data, además de la clase para los logs
         KafkaProducer<String, TraficoPuntoDeMedicion> traficoProducer = new KafkaProducer<String, TraficoPuntoDeMedicion>(props);
@@ -64,7 +58,7 @@ public class TraficoProducer {
 
                             //Se envía la lista de PMs
                             for (TraficoPuntoDeMedicion pm: listaPMs) {
-                                ProducerRecord<String, TraficoPuntoDeMedicion> producerRecord = new ProducerRecord<>("traficoData", pm);
+                                ProducerRecord<String, TraficoPuntoDeMedicion> producerRecord = new ProducerRecord<>("traficoData", String.valueOf(pm.getIdelem()), pm);
                                 traficoProducer.send(producerRecord);
                                 traficoProducer.flush();
                             }
