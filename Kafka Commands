@@ -1,0 +1,19 @@
+======= ZOOKEEPER SERVER =======
+
+./bin/zookeeper-server-start ./etc/kafka/zookeeper.properties
+
+======= KAFKA CLUSTER =======
+
+./bin/kafka-server-start ./etc/kafka/server.broker0.properties
+./bin/kafka-server-start ./etc/kafka/server.broker1.properties
+./bin/kafka-server-start ./etc/kafka/server.broker2.properties
+
+======= SCHEMA REGISTRY =======
+
+./bin/schema-registry-start ./etc/schema-registry/schema-registry.properties
+
+======= TOPICS =======
+
+./bin/kafka-topics --list --bootstrap-server localhost:9092,localhost:9093,localhost:9094
+
+./bin/kafka-topics --create --partitions 3 --replication-factor 3 --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --topic traficoData
